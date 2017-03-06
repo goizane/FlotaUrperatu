@@ -7,7 +7,7 @@ public class Kudeatzaile {
 	public static Kudeatzaile getInstantzia() {
 		return kud;
 	}
-
+//euuuuuuuu
 	private Kudeatzaile() {
 		// Singleton patroia
 	}
