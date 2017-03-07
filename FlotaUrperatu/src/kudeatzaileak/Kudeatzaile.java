@@ -8,6 +8,7 @@ public class Kudeatzaile {
 		return kud;
 	}
 //euuuuuuuu
+	//ineeees
 	private Kudeatzaile() {
 		// Singleton patroia
 	}
