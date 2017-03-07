@@ -10,6 +10,13 @@ public class Main {
 			Ontzia o= i.next();
 			o.inprimatu();
 		}
+		System.out.println("#################################");
+		Laukia[][] taula= Taula.getInstantzia().getTaula();
+		for(int n=0;n<taula.length;n++){
+			for(int m=0;m<taula.length;m++){
+				taula[n][m].inprimatu();;
+			}
+		}
 
 	}
 }

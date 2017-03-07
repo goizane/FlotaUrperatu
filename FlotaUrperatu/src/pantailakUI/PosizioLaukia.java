@@ -1,4 +1,4 @@
-package logika;
+package pantailakUI;
 
 import javax.swing.JButton;
 

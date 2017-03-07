@@ -1,4 +1,4 @@
-package logika;
+package pantailakUI;
 
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
