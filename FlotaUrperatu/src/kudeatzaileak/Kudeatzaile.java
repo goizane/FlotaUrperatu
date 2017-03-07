@@ -7,8 +7,11 @@ public class Kudeatzaile {
 	public static Kudeatzaile getInstantzia() {
 		return kud;
 	}
-//euuuuuuuu
+	
+	//euuuuuuuu
 	//ineeeesdfgfg
+	// ya funciona jodeeeeer
+	
 	private Kudeatzaile() {
 		// Singleton patroia
 	}
