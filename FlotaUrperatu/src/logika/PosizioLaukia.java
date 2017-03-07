@@ -1,4 +1,4 @@
-package taulak;
+package logika;
 
 import javax.swing.JButton;
 

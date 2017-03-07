@@ -1,4 +1,4 @@
-package taulak;
+package logika;
 
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
