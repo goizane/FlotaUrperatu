@@ -23,4 +23,15 @@ public class Laukia {
 			System.out.println("#######");
 		}
 	}
+
+	public void ontziaSartu(Ontzia ontzia) {
+		this.ontzi=ontzia;
+		ura=false;
+		
+	}
+
+	public void uraKokatu() {
+		ura=false;
+		
+	}
 }

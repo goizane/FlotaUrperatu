@@ -36,5 +36,14 @@ public class Ontzia {
 		System.out.println("Nire erreparasio kostua: "+erreparasioDirua);
 		System.out.println("##########################################");
 	}
+
+
+
+
+
+	public int getLuzeera() {
+		
+		return this.luzeera;
+	}
 	
 }
