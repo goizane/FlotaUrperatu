@@ -11,7 +11,6 @@ public class Taula {
 		for(int i=0;i<taula.length;i++){
 			for(int j=0;j<taula.length;j++){
 				taula[i][j]=new Laukia();
-				taula[i][j].uraDa();
 			}
 		}
 	}
@@ -44,14 +43,14 @@ public class Taula {
 		if(pos=='h'){
 			taula[i][j].ontziaSartu(ontzia);
 			if(kont==ontzia.getLuzeera()){
-				taula[i][j-1].uraKokatu();
+				taula[i][j-1].uraDa();
 			}
 			else if (kont-1==0){
 				taula[i][j+1].uraDa();
 			}
 			else{
-				taula[i-1][j].uraKokatu();
-				taula[i+1][j].uraKokatu();
+				taula[i-1][j].uraDa();
+				taula[i+1][j].uraDa();
 			}
 			ontziaHorizontalean(kont-1,i,j+1,ontzia);
 
@@ -60,14 +59,14 @@ public class Taula {
 		else{
 			taula[i][j].ontziaSartu(ontzia);
 			if(kont==ontzia.getLuzeera()){
-				taula[i][j-1].uraKokatu();
+				taula[i][j-1].uraDa();
 			}
 			else if (kont-1==0){
 				taula[i][j+1].uraDa();
 			}
 			else{
-				taula[i-1][j].uraKokatu();
-				taula[i+1][j].uraKokatu();
+				taula[i-1][j].uraDa();
+				taula[i+1][j].uraDa();
 			}
 			ontziaBertikalean(kont-1,i+1,j,ontzia);
 		}
@@ -79,14 +78,14 @@ public class Taula {
 		while(kont!=0){
 			taula[i][j].ontziaSartu(ontzia);
 			if(kont==ontzia.getLuzeera()){
-				taula[i-1][j].uraKokatu();
+				taula[i-1][j].uraDa();
 			}
 			else if (kont-1==0){
 				taula[i+1][j].uraDa();
 			}
 			else{
-				taula[i][j-1].uraKokatu();
-				taula[i][j+1].uraKokatu();
+				taula[i][j-1].uraDa();
+				taula[i][j+1].uraDa();
 			}
 			ontziaHorizontalean(kont-1,i+1,j,ontzia);
 		}
@@ -99,22 +98,22 @@ public class Taula {
 		while(kont!=0){
 			taula[i][j].ontziaSartu(ontzia);
 			if(kont==ontzia.getLuzeera()){
-				taula[i][j-1].uraKokatu();
+				taula[i][j-1].uraDa();
 			}
 			else if (kont-1==0){
 				taula[i][j+1].uraDa();
 			}
 			else{
-				taula[i-1][j].uraKokatu();
-				taula[i+1][j].uraKokatu();
+				taula[i-1][j].uraDa();
+				taula[i+1][j].uraDa();
 			}
 			ontziaHorizontalean(kont-1,i,j+1,ontzia);
 		}
 
 	}
 	
-	public boolean uraDa(int i,int j){
-		if(taula[i][j].getUra()){
+	public boolean hutsik(int i,int j){
+		if(taula[i][j].hutsik()){
 			return true;
 		}
 		else{
@@ -131,6 +130,19 @@ public class Taula {
 
 	public Laukia[][] getTaula(){
 		return taula;
+	}
+
+
+
+	public void urakBete() {
+		for(int i=0;i<taula.length;i++){
+			for(int j=0; j<taula.length;j++){
+				if (taula[i][j].hutsik()){
+					taula[i][j].uraDa();
+				}
+			}
+		}
+		
 	}
 
 

@@ -11,6 +11,7 @@ public class Jokalaria {
 	private ArrayList<Ontzia> ontziak= new ArrayList<Ontzia>();
 	private Taula nireTaula=new Taula();
 	private Taula ordenagailuarenTaula;
+	private ArrayList<Arma> armak= new ArrayList<Arma>();
 	private static Jokalaria instantzia=null;
 
 	private Jokalaria(){
@@ -62,13 +63,13 @@ public class Jokalaria {
 
 		//eskatu behar zaio jokalariari non kokatu nahi duen ontzia
 		
-		if(nireTaula.sartzenDa(o.getLuzeera(), i, j, pos)){
+		if(nireTaula.sartzenDa(o.getLuzeera(), i, j, pos) && nireTaula.hutsik(i, j)){
 			nireTaula.ontziaKokatu(o.getLuzeera(), i, j, pos, o);
 		}
 	}
 
 	public void urakBete() {
-		// una vez colocados los barcos colocar agua
+		nireTaula.urakBete();
 		
 	}
 	

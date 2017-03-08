@@ -5,6 +5,8 @@ public class Ontzia {
 	private int luzeera;
 	private String izena;
 	private int erreparasioDirua;
+	private boolean ukitua;
+	private boolean ezkutua;
 	
 	
 	public Ontzia(int pLuzeera,String pIzena){
@@ -23,6 +25,8 @@ public class Ontzia {
 		else{
 			erreparasioDirua=5;
 		}
+		this.ukitua=false;
+		this.ezkutua=false;
 	}
 	
 	
@@ -44,6 +48,14 @@ public class Ontzia {
 	public int getLuzeera() {
 		
 		return this.luzeera;
+	}
+	
+	public void ukitu(){
+		this.ukitua=true;
+	}
+	
+	public void ezkutatu(){
+		this.ezkutua=true;
 	}
 	
 }

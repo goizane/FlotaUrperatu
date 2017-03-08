@@ -10,6 +10,7 @@ public class Ordenagailua {
 	private List<Ontzia> ontziak= new ArrayList<Ontzia>();
 	private Taula nireTaula=new Taula();
 	private Taula jokalariarenTaula=new Taula();
+	private ArrayList<Arma> armak= new ArrayList<Arma>();
 	private static Ordenagailua instantzia=null;
 
 	private Ordenagailua(){
@@ -53,7 +54,7 @@ public class Ordenagailua {
 			char pos=' ';
 			boolean kokatua=false;
 			while(!kokatua){
-				if(nireTaula.sartzenDa(o.getLuzeera(), i, j, pos)){
+				if(nireTaula.sartzenDa(o.getLuzeera(), i, j, pos) && nireTaula.hutsik(i, j)){
 					nireTaula.ontziaKokatu(o.getLuzeera(), i, j, pos, o);
 					kokatua=true;
 				}
@@ -69,7 +70,7 @@ public class Ordenagailua {
 	}
 
 	public void urakBete() {
-		// una vez colocados los barcos colocar agua
+		nireTaula.urakBete();
 		
 	}
 

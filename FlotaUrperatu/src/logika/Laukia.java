@@ -6,18 +6,13 @@ public class Laukia {
 	private boolean ura;
 	
 	public Laukia(){
-		
+		this.ontzi=null;
 	}
 
 	public void uraDa() {
 		ura=true;
 		
 	}
-	
-	public boolean getUra(){
-		return ura;
-	}
-	
 	
 	//probak egiteko
 	public void inprimatu(){
@@ -34,8 +29,13 @@ public class Laukia {
 		
 	}
 
-	public void uraKokatu() {
-		ura=false;
-		
+
+	public boolean hutsik() {
+		if (!ura || ontzi==null){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 }
