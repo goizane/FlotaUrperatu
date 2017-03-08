@@ -68,4 +68,9 @@ public class Ordenagailua {
 		return nireTaula;
 	}
 
+	public void urakBete() {
+		// una vez colocados los barcos colocar agua
+		
+	}
+
 }

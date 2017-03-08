@@ -66,6 +66,11 @@ public class Jokalaria {
 			nireTaula.ontziaKokatu(o.getLuzeera(), i, j, pos, o);
 		}
 	}
+
+	public void urakBete() {
+		// una vez colocados los barcos colocar agua
+		
+	}
 	
 	
 

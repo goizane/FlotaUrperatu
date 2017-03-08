@@ -39,5 +39,6 @@ public class Kudeatzaile {
 	public void taulakBete(){
 		//una vez colocados los barcos llenar de agua
 		Jokalaria.getInstantzia().urakBete();
+		Ordenagailua.getInstantzia().urakBete();
 	}
 }
