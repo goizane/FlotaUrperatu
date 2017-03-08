@@ -11,29 +11,87 @@ public class Taula {
 		for(int i=0;i<taula.length;i++){
 			for(int j=0;j<taula.length;j++){
 				taula[i][j]=new Laukia();
+				taula[i][j].uraDa();
 			}
 		}
 	}
 
 
 
-	public boolean sartzenDa(int luzeera,int i,int j,char pos){
+
+	//konprobatzen du ea ontzia ondo jar daitekeen ala ez
+	//1. ez dago taulatik kanpo
+	//2. ontziaren luzeeragatik ez da taulatik aterako
+	//3. ez da ontzi baten gainean jarriko
+	//4. ontziaren inguruko urak errespetatuko dira
+	public boolean jarDaiteke(int luzeera,int i, int j, char pos){
 		boolean emaitza=false;
-		if (pos=='h'){
-			if(j+luzeera<10){
-				emaitza=true;
+		if(i>=0 && i<10 && j>=0 && j<10 && taula[i][j].hutsik() ){
+			if (pos=='h'){
+				if(i+luzeera<=10){
+					for(int kont=luzeera;kont>0;kont--){
+						//begiratu goian eta behean
+						if(hutsikEtaBarruan(i,j+1)&&hutsikEtaBarruan(i, j-1)){
+							//lehenengo posizioa
+							if(kont==luzeera){
+								//begiratu beheko esk, beheko ezk eta behekoaldea
+								if (hutsikEtaBarruan(i-1,j-1)&&hutsikEtaBarruan(i-1, j)&& 
+										hutsikEtaBarruan(i-1, j+1)){
+									emaitza=true;
+								}	
+							}
+							//azkenengo posizioa
+							else if(kont==1){
+								//begiratu goiko esk, goiko ezk eta goikoaldean
+								if (hutsikEtaBarruan(i+1,j)&&hutsikEtaBarruan(i+1, j-1)&&
+										!hutsikEtaBarruan(i+1, j+1)){
+									emaitza=true;
+								}
+							}
+						}
+						i++;
+					}
+				}
+			}
+			else{
+				if(j+luzeera<=10){
+					for(int kont=luzeera;kont>0;kont--){
+						//begiratu esk eta ezk
+						if(hutsikEtaBarruan(i+1,j)&&hutsikEtaBarruan(i-1, j)){
+							//lehenengo posizioa
+							if(kont==luzeera){
+								//begiratu atzeko esk, atzeko ezk eta atzeakaldea
+								if (hutsikEtaBarruan(i-1,j-1)&&hutsikEtaBarruan(i, j-1)&& 
+										hutsikEtaBarruan(i+1, j-1)){
+									emaitza=true;
+								}	
+							}
+							//azkenengo posizioa
+							else if(kont==1){
+								//begiratu aurreko esk, aurreko ezk eta aurrekaldea
+								if (hutsikEtaBarruan(i-1,j+1)&&hutsikEtaBarruan(i, j+1)&&
+										!hutsikEtaBarruan(i+1, j+1)){
+									emaitza=true;
+								}
+							}
+						}
+						j++;
+					}
+				}
 			}
 		}
-		else{
-			if(i+luzeera<10){
-				emaitza=true;
-			}
-		}
-
-
-
 		return emaitza;
 	}
+
+	private boolean hutsikEtaBarruan(int i, int j) {
+		if (i<0 || i>=10 || j<0 || j>=10 ){
+			return true;
+		}else {
+			return taula[i][j].hutsik();
+		}
+	}
+
+
 
 	public void ontziaKokatu(int kont, int i,int j,char pos,Ontzia ontzia){
 		//Ontzia kokatzen du
@@ -42,52 +100,22 @@ public class Taula {
 		//horizontalean kokatu nahi badu
 		if(pos=='h'){
 			taula[i][j].ontziaSartu(ontzia);
-			if(kont==ontzia.getLuzeera()){
-				taula[i][j-1].uraDa();
-			}
-			else if (kont-1==0){
-				taula[i][j+1].uraDa();
-			}
-			else{
-				taula[i-1][j].uraDa();
-				taula[i+1][j].uraDa();
-			}
-			ontziaHorizontalean(kont-1,i,j+1,ontzia);
-
+			ontziaHorizontalean(kont-1,i+1,j,ontzia);
 		}
+
 		//bertikalean kokatzen badu
-		else{
+		else {
 			taula[i][j].ontziaSartu(ontzia);
-			if(kont==ontzia.getLuzeera()){
-				taula[i][j-1].uraDa();
-			}
-			else if (kont-1==0){
-				taula[i][j+1].uraDa();
-			}
-			else{
-				taula[i-1][j].uraDa();
-				taula[i+1][j].uraDa();
-			}
-			ontziaBertikalean(kont-1,i+1,j,ontzia);
+			ontziaBertikalean(kont-1,i,j+1,ontzia);
 		}
 
 	}
 
 
 	private void ontziaBertikalean(int kont, int i, int j, Ontzia ontzia) {
-		while(kont!=0){
+		if(kont!=0){
 			taula[i][j].ontziaSartu(ontzia);
-			if(kont==ontzia.getLuzeera()){
-				taula[i-1][j].uraDa();
-			}
-			else if (kont-1==0){
-				taula[i+1][j].uraDa();
-			}
-			else{
-				taula[i][j-1].uraDa();
-				taula[i][j+1].uraDa();
-			}
-			ontziaHorizontalean(kont-1,i+1,j,ontzia);
+			ontziaBertikalean(kont-1,i,j+1,ontzia);
 		}
 
 	}
@@ -95,31 +123,13 @@ public class Taula {
 
 
 	private void ontziaHorizontalean(int kont, int i, int j, Ontzia ontzia) {
-		while(kont!=0){
+		if(kont!=0){
 			taula[i][j].ontziaSartu(ontzia);
-			if(kont==ontzia.getLuzeera()){
-				taula[i][j-1].uraDa();
-			}
-			else if (kont-1==0){
-				taula[i][j+1].uraDa();
-			}
-			else{
-				taula[i-1][j].uraDa();
-				taula[i+1][j].uraDa();
-			}
-			ontziaHorizontalean(kont-1,i,j+1,ontzia);
+			ontziaHorizontalean(kont-1,i+1,j,ontzia);
 		}
 
 	}
-	
-	public boolean hutsik(int i,int j){
-		if(taula[i][j].hutsik()){
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
+
 
 
 
@@ -132,18 +142,18 @@ public class Taula {
 		return taula;
 	}
 
-
-
-	public void urakBete() {
-		for(int i=0;i<taula.length;i++){
-			for(int j=0; j<taula.length;j++){
-				if (taula[i][j].hutsik()){
-					taula[i][j].uraDa();
-				}
+	public void inprimatu(){
+		for (int x=0; x < taula.length; x++) {
+			  System.out.print("|");
+			  for (int y=0; y < taula[x].length; y++) {
+				  taula[x][y].inprimatu();
+			    if (y!=taula[x].length-1) System.out.print("\t");
+			  }
+			  System.out.println("|");
 			}
-		}
-		
 	}
+
+
 
 
 }

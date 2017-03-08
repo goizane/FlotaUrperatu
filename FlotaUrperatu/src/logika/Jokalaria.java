@@ -10,27 +10,26 @@ public class Jokalaria {
 	private int dirua;
 	private ArrayList<Ontzia> ontziak= new ArrayList<Ontzia>();
 	private Taula nireTaula=new Taula();
-	private Taula ordenagailuarenTaula;
 	private ArrayList<Arma> armak= new ArrayList<Arma>();
 	private static Jokalaria instantzia=null;
 
 	private Jokalaria(){
 		for(int i=0; i<10;i++){
 			if (i<1){
-				ontziak.add(new Ontzia(4,"hegazkin-ontzi"));
+				ontziak.add(new Ontzia("hegazkin-ontzi"));
 			}
 			else if(i<3){
-				ontziak.add(new Ontzia(3,"itsaspeko"));
+				ontziak.add(new Ontzia("itsaspeko"));
 			}
 			else if(i<6){
-				ontziak.add(new Ontzia(2,"suntsitzaile"));
+				ontziak.add(new Ontzia("suntsitzaile"));
 			}
 			else{
-				ontziak.add(new Ontzia(1,"fragata"));
+				ontziak.add(new Ontzia("fragata"));
 			}
 		}
 		dirua=100;
-		ordenagailuarenTaula= Ordenagailua.getInstantzia().nireTaula();
+		
 
 	}
 
@@ -57,22 +56,21 @@ public class Jokalaria {
 
 
 
-	public void ontziaKokatu(int i,int j,char pos,Ontzia o){
+	public boolean ontziaKokatu(int i,int j,char pos,Ontzia o){
 		//Erabaki zein posizioan hasiko den ontzia, adibidez A-6
 		//Eta noranzkoa zein izango den, h=horizonral eta b=bertikal
 
 		//eskatu behar zaio jokalariari non kokatu nahi duen ontzia
 		
-		if(nireTaula.sartzenDa(o.getLuzeera(), i, j, pos) && nireTaula.hutsik(i, j)){
+		if(nireTaula.jarDaiteke(o.getLuzeera(), i, j, pos)){
 			nireTaula.ontziaKokatu(o.getLuzeera(), i, j, pos, o);
+			return true;
+		}
+		else{
+			return false;
 		}
 	}
 
-	public void urakBete() {
-		nireTaula.urakBete();
-		
-	}
-	
 	
 
 

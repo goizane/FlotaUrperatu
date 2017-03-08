@@ -16,11 +16,26 @@ public class Laukia {
 	
 	//probak egiteko
 	public void inprimatu(){
-		if (ura){
-			System.out.println("#######");
-			System.out.println("##URA##");
-			System.out.println("#######");
+		String da;
+		if(ura){
+			da="..";
 		}
+		else{
+			if(ontzi.getIzena().equals("hegazkin-ontzi")){
+				da="HEO";
+			}
+			else if(ontzi.getIzena().equals("itsaspeko")){
+				da="ITS";
+			}
+			else if(ontzi.getIzena().equals("suntsitzaile")){
+				da="SUN";
+			}
+			else{
+				da="FRA";
+				
+			}
+		}
+		System.out.print(da);
 	}
 
 	public void ontziaSartu(Ontzia ontzia) {
@@ -29,13 +44,15 @@ public class Laukia {
 		
 	}
 
-
 	public boolean hutsik() {
-		if (!ura || ontzi==null){
+		if(ontzi==null){
 			return true;
 		}
 		else{
 			return false;
 		}
 	}
+
+
+	
 }

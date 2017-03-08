@@ -9,20 +9,24 @@ public class Ontzia {
 	private boolean ezkutua;
 	
 	
-	public Ontzia(int pLuzeera,String pIzena){
-		luzeera=pLuzeera;
+	public Ontzia(String pIzena){
+		
 		izena=pIzena;
 		
 		if(izena.equals("hegazkin-ontzi")){
+			this.luzeera=4;
 			erreparasioDirua=30;
 		}
 		else if(izena.equals("itsaspeko")){
+			this.luzeera=3;
 			erreparasioDirua=20;
 		}
 		else if(izena.equals("suntsitzaile")){
+			this.luzeera=2;
 			erreparasioDirua=10;
 		}
 		else{
+			this.luzeera=1;
 			erreparasioDirua=5;
 		}
 		this.ukitua=false;
@@ -56,6 +60,10 @@ public class Ontzia {
 	
 	public void ezkutatu(){
 		this.ezkutua=true;
+	}
+	
+	public String getIzena(){
+		return izena;
 	}
 	
 }
