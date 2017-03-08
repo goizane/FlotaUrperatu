@@ -112,6 +112,15 @@ public class Taula {
 		}
 
 	}
+	
+	public boolean uraDa(int i,int j){
+		if(taula[i][j].getUra()){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 
 
 

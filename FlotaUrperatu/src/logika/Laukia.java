@@ -14,6 +14,10 @@ public class Laukia {
 		
 	}
 	
+	public boolean getUra(){
+		return ura;
+	}
+	
 	
 	//probak egiteko
 	public void inprimatu(){
