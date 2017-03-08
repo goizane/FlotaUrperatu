@@ -40,6 +40,7 @@ public class Ordenagailua {
 	}
 
 	public void ontziakKokatu(){
+		//falta por comprobar que no sea agua
 		Iterator<Ontzia> it= ontziak.iterator();
 		while(it.hasNext()){
 			Ontzia o=it.next();

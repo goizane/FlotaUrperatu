@@ -20,7 +20,16 @@ public class Taula {
 
 	public boolean sartzenDa(int luzeera,int i,int j,char pos){
 		boolean emaitza=false;
-		//begiratu taulatik ateratzen den ala ez
+		if (pos=='h'){
+			if(j+luzeera<10){
+				emaitza=true;
+			}
+		}
+		else{
+			if(i+luzeera<10){
+				emaitza=true;
+			}
+		}
 
 
 

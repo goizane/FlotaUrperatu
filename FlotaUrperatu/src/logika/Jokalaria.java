@@ -61,6 +61,7 @@ public class Jokalaria {
 		//Eta noranzkoa zein izango den, h=horizonral eta b=bertikal
 
 		//eskatu behar zaio jokalariari non kokatu nahi duen ontzia
+		
 		if(nireTaula.sartzenDa(o.getLuzeera(), i, j, pos)){
 			nireTaula.ontziaKokatu(o.getLuzeera(), i, j, pos, o);
 		}
