@@ -25,7 +25,7 @@ public class Taula {
 	//3. ez da ontzi baten gainean jarriko
 	//4. ontziaren inguruko urak errespetatuko dira
 	public boolean jarDaiteke(int luzeera,int i, int j, char pos){
-		boolean emaitza=false;
+		boolean emaitza=true;
 		if(i>=0 && i<10 && j>=0 && j<10 && taula[i][j].hutsik() ){
 			if (pos=='h'){
 				if(i+luzeera<=10){
@@ -35,19 +35,25 @@ public class Taula {
 							//lehenengo posizioa
 							if(kont==luzeera){
 								//begiratu beheko esk, beheko ezk eta behekoaldea
-								if (hutsikEtaBarruan(i-1,j-1)&&hutsikEtaBarruan(i-1, j)&& 
-										hutsikEtaBarruan(i-1, j+1)){
-									emaitza=true;
+								if (!hutsikEtaBarruan(i-1,j-1)||!hutsikEtaBarruan(i-1, j)||
+										!hutsikEtaBarruan(i-1, j+1)){
+									emaitza=false;
+									break;
 								}	
 							}
 							//azkenengo posizioa
 							else if(kont==1){
 								//begiratu goiko esk, goiko ezk eta goikoaldean
-								if (hutsikEtaBarruan(i+1,j)&&hutsikEtaBarruan(i+1, j-1)&&
+								if (!hutsikEtaBarruan(i+1,j)||!hutsikEtaBarruan(i+1, j-1)||
 										!hutsikEtaBarruan(i+1, j+1)){
-									emaitza=true;
+									emaitza=false;
+									break;
 								}
 							}
+						}
+						else{
+							emaitza=false;
+							break;
 						}
 						i++;
 					}
@@ -61,24 +67,34 @@ public class Taula {
 							//lehenengo posizioa
 							if(kont==luzeera){
 								//begiratu atzeko esk, atzeko ezk eta atzeakaldea
-								if (hutsikEtaBarruan(i-1,j-1)&&hutsikEtaBarruan(i, j-1)&& 
-										hutsikEtaBarruan(i+1, j-1)){
-									emaitza=true;
+								if (!hutsikEtaBarruan(i-1,j-1)||!hutsikEtaBarruan(i, j-1)|| 
+										!hutsikEtaBarruan(i+1, j-1)){
+									emaitza=false;
+									break;
 								}	
 							}
 							//azkenengo posizioa
 							else if(kont==1){
 								//begiratu aurreko esk, aurreko ezk eta aurrekaldea
-								if (hutsikEtaBarruan(i-1,j+1)&&hutsikEtaBarruan(i, j+1)&&
+								if (!hutsikEtaBarruan(i-1,j+1)||!hutsikEtaBarruan(i, j+1)||
 										!hutsikEtaBarruan(i+1, j+1)){
-									emaitza=true;
+									emaitza=false;
+									break;
 								}
 							}
+						}
+						else{
+							emaitza=false;
+							break;
 						}
 						j++;
 					}
 				}
 			}
+			
+		}
+		else{
+			emaitza=false;
 		}
 		return emaitza;
 	}
