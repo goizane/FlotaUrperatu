@@ -2,10 +2,10 @@ package logika;
 
 public abstract class Arma {
 	
-	protected int kantitatea;
+	protected int dirua;
 	
-	protected void minEgin(){
-		
+	protected void minEgin(int i,int j) {
+		//arma ezberdinek min egiten dute
 	}
 
 }

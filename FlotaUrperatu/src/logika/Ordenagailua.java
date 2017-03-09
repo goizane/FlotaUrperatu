@@ -11,6 +11,7 @@ public class Ordenagailua {
 	private List<Ontzia> ontziak= new ArrayList<Ontzia>();
 	private Taula nireTaula=new Taula();
 	private ArrayList<Arma> armak= new ArrayList<Arma>();
+	private Taula jokalariarenTaula= new Taula();
 	private static Ordenagailua instantzia=null;
 
 	private Ordenagailua(){
@@ -29,7 +30,7 @@ public class Ordenagailua {
 			}
 		}
 		dirua=100;
-		
+		//armamentua esleitu behar da
 
 	}
 

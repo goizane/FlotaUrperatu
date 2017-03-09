@@ -10,6 +10,7 @@ public class Jokalaria {
 	private int dirua;
 	private ArrayList<Ontzia> ontziak= new ArrayList<Ontzia>();
 	private Taula nireTaula=new Taula();
+	private Taula ordenagaliruarenTaula= new Taula();
 	private ArrayList<Arma> armak= new ArrayList<Arma>();
 	private static Jokalaria instantzia=null;
 
@@ -29,7 +30,7 @@ public class Jokalaria {
 			}
 		}
 		dirua=100;
-		
+		//armamentua esleitu behar da
 
 	}
 
