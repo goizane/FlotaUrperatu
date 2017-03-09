@@ -28,7 +28,7 @@ public class Taula {
 		boolean emaitza=true;
 		if(i>=0 && i<10 && j>=0 && j<10 && taula[i][j].hutsik() ){
 			if (pos=='h'){
-				if(i+luzeera<=10){
+				if(i+luzeera<10){
 					for(int kont=luzeera;kont>0;kont--){
 						//begiratu goian eta behean
 						if(hutsikEtaBarruan(i,j+1)&&hutsikEtaBarruan(i, j-1)){
@@ -42,7 +42,7 @@ public class Taula {
 								}	
 							}
 							//azkenengo posizioa
-							else if(kont==1){
+							if(kont==1){
 								//begiratu goiko esk, goiko ezk eta goikoaldean
 								if (!hutsikEtaBarruan(i+1,j)||!hutsikEtaBarruan(i+1, j-1)||
 										!hutsikEtaBarruan(i+1, j+1)){
@@ -57,6 +57,9 @@ public class Taula {
 						}
 						i++;
 					}
+				}
+				else{
+					emaitza=false;
 				}
 			}
 			else{
@@ -74,7 +77,7 @@ public class Taula {
 								}	
 							}
 							//azkenengo posizioa
-							else if(kont==1){
+							if(kont==1){
 								//begiratu aurreko esk, aurreko ezk eta aurrekaldea
 								if (!hutsikEtaBarruan(i-1,j+1)||!hutsikEtaBarruan(i, j+1)||
 										!hutsikEtaBarruan(i+1, j+1)){
@@ -89,6 +92,9 @@ public class Taula {
 						}
 						j++;
 					}
+				}
+				else{
+					emaitza=false;
 				}
 			}
 			

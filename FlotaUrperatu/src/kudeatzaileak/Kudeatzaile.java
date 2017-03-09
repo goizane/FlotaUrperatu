@@ -23,6 +23,7 @@ public class Kudeatzaile {
 	}
 	
 	public void JokalariarenOntziak(int i,int j,Ontzia o,char pos){
+		//ontzi izena pasatu behar du
 		//comprobar bien que el barco entra, sino tiene que enviar mensaje para que vuelva a elegir pos
 		boolean kokatua=Jokalaria.getInstantzia().ontziaKokatu(i, j, pos, o);
 	}
