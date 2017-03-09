@@ -1,4 +1,4 @@
-package pantailakUI;
+package grafika;
 
 import javax.swing.JButton;
 

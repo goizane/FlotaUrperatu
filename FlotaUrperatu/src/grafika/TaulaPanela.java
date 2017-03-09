@@ -1,4 +1,4 @@
-package pantailakUI;
+package grafika;
 
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
