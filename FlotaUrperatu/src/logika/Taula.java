@@ -26,8 +26,11 @@ public class Taula {
 	//4. ontziaren inguruko urak errespetatuko dira
 	public boolean jarDaiteke(int luzeera,int i, int j, char pos){
 		boolean emaitza=true;
+		//ez dago taulatik kanpo, eta ez dago ontzirik jada
 		if(i>=0 && i<10 && j>=0 && j<10 && taula[i][j].hutsik() ){
+			//horizontalean
 			if (pos=='h'){
+				//luzeeragatik ez da taulatik aterako
 				if(i+luzeera<10){
 					for(int kont=luzeera;kont>0;kont--){
 						//begiratu goian eta behean
@@ -55,6 +58,7 @@ public class Taula {
 							emaitza=false;
 							break;
 						}
+						//aurrera jarraitu horizontalean
 						i++;
 					}
 				}
@@ -62,7 +66,9 @@ public class Taula {
 					emaitza=false;
 				}
 			}
+			//bertikalean
 			else{
+				//luzeeragatik ez da taulatik irtengo
 				if(j+luzeera<=10){
 					for(int kont=luzeera;kont>0;kont--){
 						//begiratu esk eta ezk
@@ -90,6 +96,7 @@ public class Taula {
 							emaitza=false;
 							break;
 						}
+						//aurrera jarraitu bertikalean
 						j++;
 					}
 				}
