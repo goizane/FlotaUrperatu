@@ -10,11 +10,11 @@ public class LagThumbnail {
 	String luzeera;
 	String xArdatza;
 	String yArdatza;
-	JComboBox<String> norazkoa;
+	String norazkoa;
 	Boolean kokatua;
 	JButton botoia;
 
-	public LagThumbnail(String izena, String luzeera, String xArdatza, String yArdatza, Boolean kokatua, JButton botoia) {
+	public LagThumbnail(String izena, String luzeera, String xArdatza, String yArdatza, Boolean kokatua, String norazkoa, JButton botoia) {
 		super();
 		this.izena = izena;
 		this.luzeera = luzeera;
@@ -22,6 +22,9 @@ public class LagThumbnail {
 		this.yArdatza= yArdatza;
 		this.kokatua = kokatua;
 		this.botoia= botoia;
+		this.norazkoa=norazkoa;
+		
+		
 	}
 
 	public Object getBalioa(int i) {
@@ -45,6 +48,9 @@ public class LagThumbnail {
 		case 5:
 			emaitza= this.kokatua;
 			break;
+		case 6:
+			emaitza= this.botoia;
+			break;
 		default:
 			break;
 		}
@@ -54,7 +60,7 @@ public class LagThumbnail {
 	@Override
 	public String toString() {
 		return "Lag [izena=" + izena + ", luzeera=" + luzeera + ", xArdatza=" + xArdatza + ", yArdatza=" + yArdatza
-				+ ", kokatua=" + kokatua + "]";
+				+ ", kokatua=" + kokatua + ", noranzkoa=" +norazkoa+ "]";
 	}
 
 	public void insertElementAt(Object value, int i) {
@@ -71,8 +77,14 @@ public class LagThumbnail {
 		case 3:
 			this.yArdatza= value.toString();
 			break;
+		case 4:
+			this.norazkoa= value.toString();
+			break;
 		case 5:
 			this.kokatua= (Boolean) value ;
+			break;
+		case 6:
+			this.botoia= (JButton) value;
 			break;
 		default:
 			break;

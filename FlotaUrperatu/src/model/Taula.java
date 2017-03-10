@@ -24,12 +24,13 @@ public class Taula extends JFrame {
 		super("Nire taula grafikoa");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JTable table=new JTable(new MyTableModel());
+		MyTable table=new MyTable();
 		JScrollPane scrollPane = new JScrollPane(table);
 		getContentPane().add(scrollPane, BorderLayout.CENTER);
 		pack();
 		getContentPane().add(panela, BorderLayout.SOUTH);
-
+		
+	
 		setVisible(true);
 	}
 

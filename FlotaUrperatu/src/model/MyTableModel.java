@@ -37,16 +37,16 @@ public class MyTableModel extends AbstractTableModel {
 		
 		for(int i=0; i<10;i++){
 			if (i<1){
-				data.add(new LagThumbnail("Hegazkin-ontzi", "4", "0", "5", false, new JButton("Kokatu")));
+				data.add(new LagThumbnail("Hegazkin-ontzi", "4", "0", "5", false, "Horizontal", new JButton("Kokatu")));
 			}
 			else if(i<3){
-				data.add(new LagThumbnail("Itsaspeko", "3", "0", "0", false, new JButton("Kokatu")));
+				data.add(new LagThumbnail("Itsaspeko", "3", "0", "0", false,"Horizontal", new JButton("Kokatu")));
 			}
 			else if(i<6){
-				data.add(new LagThumbnail("Suntsitzaile", "2", "0", "0", false, new JButton("Kokatu")));
+				data.add(new LagThumbnail("Suntsitzaile", "2", "0", "0", false, "Horizontal", new JButton("Kokatu")));
 			}
 			else{
-				data.add(new LagThumbnail("Fragata", "1", "0", "0", false, new JButton("Kokatu")));
+				data.add(new LagThumbnail("Fragata", "1", "0", "0", false, "Horizontal", new JButton("Kokatu")));
 			}
 		}
 		
@@ -82,7 +82,7 @@ public class MyTableModel extends AbstractTableModel {
 			emaitza= String.class;
 			break;
 		case 4:
-			emaitza= JComboBox.class;
+			emaitza= String.class;
 			break;
 		case 5:
 			emaitza= Boolean.class;
@@ -98,8 +98,10 @@ public class MyTableModel extends AbstractTableModel {
 	public boolean isCellEditable(int i, int j){
 
 		boolean emaitza=false;
-		if (j==3 || j==2){
-			emaitza= true;
+		if(!(Boolean)data.get(i).getBalioa(5)){
+			if (j==3 || j==2 || j==4 || j==6){
+				emaitza= true;
+			}
 		}
 		return emaitza;
 	}
@@ -108,8 +110,8 @@ public class MyTableModel extends AbstractTableModel {
 		data.get(i).insertElementAt(value, j);
 	}
 
-	public void lerroBerria(String i, String a, String k, String u, Boolean b, JButton bo){
-		data.add(new LagThumbnail(i,a,k,u,b,bo));
+	public void lerroBerria(String i, String a, String k, String u, Boolean b, String bo, JButton bot){
+		data.add(new LagThumbnail(i,a,k,u,b,bo,bot));
 	}
 
 
