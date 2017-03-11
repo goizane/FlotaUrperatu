@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import logika.Jokalaria;
 import logika.Ontzia;
 import logika.Ordenagailua;
+import logika.Taula;
 
 public class Kudeatzaile {
 	
@@ -22,10 +23,10 @@ public class Kudeatzaile {
 		// Singleton patroia
 	}
 	
-	public void JokalariarenOntziak(int i,int j,Ontzia o,char pos){
+	public boolean JokalariarenOntziak(int i,int j,String o,char pos){
 		//ontzi izena pasatu behar du
 		//comprobar bien que el barco entra, sino tiene que enviar mensaje para que vuelva a elegir pos
-		boolean kokatua=Jokalaria.getInstantzia().ontziaKokatu(i, j, pos, o);
+		return Jokalaria.getInstantzia().ontziaKokatu(i, j, pos, o);
 	}
 	
 	public void OrdenagailuOntziakKokatu(){
@@ -34,6 +35,10 @@ public class Kudeatzaile {
 	
 	public ArrayList<Ontzia> getJokalariarenOntziak(){
 		return Jokalaria.getInstantzia().getOntziak();
+	}
+	
+	public Taula jokalariarenTaula(){
+		return Jokalaria.getInstantzia().nireTaula();
 	}
 	
 	

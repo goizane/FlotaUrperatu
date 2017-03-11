@@ -5,6 +5,7 @@ public class Ontzia {
 	private int luzeera;
 	private String izena;
 	private int erreparasioDirua;
+	private boolean kokatua;
 	private boolean ukitua;
 	private boolean ezkutua;
 	
@@ -12,6 +13,7 @@ public class Ontzia {
 	public Ontzia(String pIzena){
 		
 		izena=pIzena;
+		kokatua=false;
 		
 		if(izena.equals("hegazkin-ontzi")){
 			this.luzeera=4;
@@ -64,6 +66,14 @@ public class Ontzia {
 	
 	public String getIzena(){
 		return izena;
+	}
+	
+	public void kokatu(){
+		kokatua=true;
+	}
+	
+	public boolean kokatuaDago (){
+		return kokatua;
 	}
 	
 }

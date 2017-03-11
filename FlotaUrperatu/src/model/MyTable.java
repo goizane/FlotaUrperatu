@@ -23,7 +23,7 @@ public class MyTable extends JTable {
 		JComboBox noranzkoa = new JComboBox();
 		noranzkoa.addItem("Horizontal");
 		noranzkoa.addItem("Bertikal");
-		
+
 		MyTableModel model = new MyTableModel();
 
 		// Establecemos el modelo
@@ -35,12 +35,14 @@ public class MyTable extends JTable {
 
 		// Editores para cada tipo de objeto, estos nos permitirán darles el comportamiento adecuado
 		this.getColumn("Noranzkoa").setCellEditor(new DefaultCellEditor(noranzkoa));
+
+
+
 		
-		
-		 
-		//this.setDefaultEditor(JCheckBox.class, new DefaultCellEditor(new JCheckBox()));
 
 	}
+	
+	
 
 
 }

@@ -5,7 +5,6 @@ import java.util.Vector;
 
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.table.AbstractTableModel;
 
 
@@ -37,7 +36,7 @@ public class MyTableModel extends AbstractTableModel {
 		
 		for(int i=0; i<10;i++){
 			if (i<1){
-				data.add(new LagThumbnail("Hegazkin-ontzi", "4", "0", "5", false, "Horizontal", new JButton("Kokatu")));
+				data.add(new LagThumbnail("Hegazkin-ontzi", "4", "0", "0", false, "Horizontal", new JButton("Kokatu")));
 			}
 			else if(i<3){
 				data.add(new LagThumbnail("Itsaspeko", "3", "0", "0", false,"Horizontal", new JButton("Kokatu")));

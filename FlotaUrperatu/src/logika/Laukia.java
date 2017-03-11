@@ -35,7 +35,7 @@ public class Laukia {
 				
 			}
 		}
-		System.out.print(da);
+		System.out.print(da);;
 	}
 
 	public void ontziaSartu(Ontzia ontzia) {

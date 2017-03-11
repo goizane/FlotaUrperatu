@@ -1,6 +1,7 @@
 package logika;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 
@@ -57,19 +58,33 @@ public class Jokalaria {
 
 
 
-	public boolean ontziaKokatu(int i,int j,char pos,Ontzia o){
+	public boolean ontziaKokatu(int i,int j,char pos,String o){
 		//Erabaki zein posizioan hasiko den ontzia, adibidez A-6
 		//Eta noranzkoa zein izango den, h=horizonral eta b=bertikal
 
 		//eskatu behar zaio jokalariari non kokatu nahi duen ontzia
-		
-		if(nireTaula.jarDaiteke(o.getLuzeera(), i, j, pos)){
-			nireTaula.ontziaKokatu(o.getLuzeera(), i, j, pos, o);
+		Ontzia ont=ontziaBilatu(o);
+		if(nireTaula.jarDaiteke(ont.getLuzeera(), i, j, pos)){
+			nireTaula.ontziaKokatu(ont.getLuzeera(), i, j, pos, ont);
 			return true;
 		}
 		else{
 			return false;
 		}
+	}
+
+	private Ontzia ontziaBilatu(String o) {
+		Ontzia ontzi=null;
+		Iterator<Ontzia> i= ontziak.iterator();
+		boolean aurkitua=false;
+		while(i.hasNext()&&!aurkitua){
+			ontzi=i.next();
+			if(ontzi.getIzena().equals(o)&&!ontzi.kokatuaDago()){
+				ontzi.kokatu();
+				aurkitua=true;
+			}
+		}
+		return ontzi;
 	}
 
 	
