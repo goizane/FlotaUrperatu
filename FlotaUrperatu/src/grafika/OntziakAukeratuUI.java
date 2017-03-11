@@ -26,7 +26,7 @@ public class OntziakAukeratuUI extends JFrame{
 		JScrollPane scrollPane = new JScrollPane(table);
 		getContentPane().setLayout(new GridLayout(0,1));
 		this.setMinimumSize(new Dimension(700, 500));
-		Kudeatzaile.getInstantzia().jokalariarenTaula().inprimatu();
+		
 		
 		getContentPane().add(scrollPane);
 		pack();
