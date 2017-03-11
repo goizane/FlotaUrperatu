@@ -18,16 +18,16 @@ public class Jokalaria {
 	private Jokalaria(){
 		for(int i=0; i<10;i++){
 			if (i<1){
-				ontziak.add(new Ontzia("hegazkin-ontzi"));
+				ontziak.add(new Ontzia("Hegazkin-ontzi"));
 			}
 			else if(i<3){
-				ontziak.add(new Ontzia("itsaspeko"));
+				ontziak.add(new Ontzia("Itsaspeko"));
 			}
 			else if(i<6){
-				ontziak.add(new Ontzia("suntsitzaile"));
+				ontziak.add(new Ontzia("Suntsitzaile"));
 			}
 			else{
-				ontziak.add(new Ontzia("fragata"));
+				ontziak.add(new Ontzia("Fragata"));
 			}
 		}
 		dirua=100;
@@ -66,6 +66,7 @@ public class Jokalaria {
 		Ontzia ont=ontziaBilatu(o);
 		if(nireTaula.jarDaiteke(ont.getLuzeera(), i, j, pos)){
 			nireTaula.ontziaKokatu(ont.getLuzeera(), i, j, pos, ont);
+			ont.kokatu();
 			return true;
 		}
 		else{
@@ -80,14 +81,15 @@ public class Jokalaria {
 		while(i.hasNext()&&!aurkitua){
 			ontzi=i.next();
 			if(ontzi.getIzena().equals(o)&&!ontzi.kokatuaDago()){
-				ontzi.kokatu();
 				aurkitua=true;
 			}
 		}
 		return ontzi;
 	}
 
-	
+	public void berbiarazi(){
+		instantzia=new Jokalaria();
+	}
 
 
 }

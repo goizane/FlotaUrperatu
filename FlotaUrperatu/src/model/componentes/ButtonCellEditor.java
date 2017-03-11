@@ -34,8 +34,8 @@ public class ButtonCellEditor extends AbstractCellEditor implements TableCellEdi
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					MyTableModel model=(MyTableModel) table.getModel();
-					int xAr=Integer.parseInt(model.getValueAt(row, 2).toString());
-					int yAr=Integer.parseInt(model.getValueAt(row, 3).toString());
+					int xAr=Integer.parseInt(model.getValueAt(row, 2).toString())-1;
+					int yAr=Integer.parseInt(model.getValueAt(row, 3).toString())-1;
 					String no= model.getValueAt(row, 4).toString();
 					char n;
 					if(no.equals("Horizontal")){
@@ -48,6 +48,8 @@ public class ButtonCellEditor extends AbstractCellEditor implements TableCellEdi
 					if (Kudeatzaile.getInstantzia().JokalariarenOntziak(xAr, yAr, ontziIzena, n)){
 						model.setValueAt(true, row, 5);
 						model.fireTableDataChanged();
+						Jokalaria.getInstantzia().nireTaula().inprimatu();
+						System.out.println("----------------------------------------------------------------------------");
 						this.setEnabled(false);
 					}
 					else{

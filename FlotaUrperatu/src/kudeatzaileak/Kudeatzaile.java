@@ -41,5 +41,10 @@ public class Kudeatzaile {
 		return Jokalaria.getInstantzia().nireTaula();
 	}
 	
+	public void taulaBerbiarazi() {
+		Jokalaria.getInstantzia().berbiarazi();
+		
+	}
+	
 	
 }

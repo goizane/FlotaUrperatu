@@ -15,15 +15,15 @@ public class Ontzia {
 		izena=pIzena;
 		kokatua=false;
 		
-		if(izena.equals("hegazkin-ontzi")){
+		if(izena.equals("Hegazkin-ontzi")){
 			this.luzeera=4;
 			erreparasioDirua=30;
 		}
-		else if(izena.equals("itsaspeko")){
+		else if(izena.equals("Itsaspeko")){
 			this.luzeera=3;
 			erreparasioDirua=20;
 		}
-		else if(izena.equals("suntsitzaile")){
+		else if(izena.equals("Suntsitzaile")){
 			this.luzeera=2;
 			erreparasioDirua=10;
 		}

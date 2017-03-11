@@ -21,21 +21,23 @@ public class Laukia {
 			da="..";
 		}
 		else{
-			if(ontzi.getIzena().equals("hegazkin-ontzi")){
+			if(ontzi.getIzena().equals("Hegazkin-ontzi")){
 				da="HEO";
 			}
-			else if(ontzi.getIzena().equals("itsaspeko")){
+			else if(ontzi.getIzena().equals("Itsaspeko")){
 				da="ITS";
 			}
-			else if(ontzi.getIzena().equals("suntsitzaile")){
+			else if(ontzi.getIzena().equals("Suntsitzaile")){
 				da="SUN";
 			}
-			else{
+			else if(ontzi.getIzena().equals("Fragata")){
 				da="FRA";
-				
+			}
+			else {
+				da="--";
 			}
 		}
-		System.out.print(da);;
+		System.out.print(da);
 	}
 
 	public void ontziaSartu(Ontzia ontzia) {
@@ -53,6 +55,9 @@ public class Laukia {
 		}
 	}
 
+	public Ontzia ontzia(){
+		return ontzi;
+	}
 
 	
 }

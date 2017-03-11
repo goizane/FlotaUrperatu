@@ -17,16 +17,16 @@ public class Ordenagailua {
 	private Ordenagailua(){
 		for(int i=0; i<10;i++){
 			if (i<1){
-				ontziak.add(new Ontzia("hegazkin-ontzi"));
+				ontziak.add(new Ontzia("Hegazkin-ontzi"));
 			}
 			else if(i<3){
-				ontziak.add(new Ontzia("itsaspeko"));
+				ontziak.add(new Ontzia("Itsaspeko"));
 			}
 			else if(i<6){
-				ontziak.add(new Ontzia("suntsitzaile"));
+				ontziak.add(new Ontzia("Suntsitzaile"));
 			}
 			else{
-				ontziak.add(new Ontzia("fragata"));
+				ontziak.add(new Ontzia("Fragata"));
 			}
 		}
 		dirua=100;

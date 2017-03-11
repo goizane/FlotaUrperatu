@@ -31,7 +31,7 @@ public class Taula {
 			//horizontalean
 			if (pos=='h'){
 				//luzeeragatik ez da taulatik aterako
-				if(i+luzeera<10){
+				if(i+luzeera<=10){
 					for(int kont=luzeera;kont>0;kont--){
 						//begiratu goian eta behean
 						if(hutsikEtaBarruan(i,j+1)&&hutsikEtaBarruan(i, j-1)){
@@ -171,11 +171,12 @@ public class Taula {
 		return taula;
 	}
 
+	
 	public void inprimatu(){
 		for (int x=0; x < taula.length; x++) {
 			  System.out.print("|");
 			  for (int y=0; y < taula[x].length; y++) {
-				  taula[x][y].inprimatu();
+				  taula[y][x].inprimatu();
 			    if (y!=taula[x].length-1) System.out.print("\t");
 			  }
 			  System.out.println("|");

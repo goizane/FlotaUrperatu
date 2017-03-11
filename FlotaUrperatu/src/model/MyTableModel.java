@@ -36,16 +36,16 @@ public class MyTableModel extends AbstractTableModel {
 		
 		for(int i=0; i<10;i++){
 			if (i<1){
-				data.add(new LagThumbnail("Hegazkin-ontzi", "4", "0", "0", false, "Horizontal", new JButton("Kokatu")));
+				data.add(new LagThumbnail("Hegazkin-ontzi", "4", "1", "1", false, "Horizontal", new JButton("Kokatu")));
 			}
 			else if(i<3){
-				data.add(new LagThumbnail("Itsaspeko", "3", "0", "0", false,"Horizontal", new JButton("Kokatu")));
+				data.add(new LagThumbnail("Itsaspeko", "3", "1", "1", false,"Horizontal", new JButton("Kokatu")));
 			}
 			else if(i<6){
-				data.add(new LagThumbnail("Suntsitzaile", "2", "0", "0", false, "Horizontal", new JButton("Kokatu")));
+				data.add(new LagThumbnail("Suntsitzaile", "2", "1", "1", false, "Horizontal", new JButton("Kokatu")));
 			}
 			else{
-				data.add(new LagThumbnail("Fragata", "1", "0", "0", false, "Horizontal", new JButton("Kokatu")));
+				data.add(new LagThumbnail("Fragata", "1", "1", "1", false, "Horizontal", new JButton("Kokatu")));
 			}
 		}
 		
