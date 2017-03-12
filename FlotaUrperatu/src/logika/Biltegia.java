@@ -9,7 +9,9 @@ public class Biltegia {
 	private static Biltegia instance= null;
 	
 	private Biltegia(){
-		//inizializar el biltegi
+		armak.add(new Bonba(60));
+		armak.add(new Misil(15));
+		armak.add(new MisilZuzendua(7));
 	}
 	
 	public static Biltegia getInstance(){

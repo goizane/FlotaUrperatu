@@ -31,7 +31,18 @@ public class Jokalaria {
 			}
 		}
 		dirua=100;
-		//armamentua esleitu behar da
+		armakHasieratu();
+
+	}
+
+	private void armakHasieratu() {
+		armak.add(new Bonba(60));
+		armak.add(new Radar(2));
+		armak.add(new Ezkutua(4));
+		armak.add(new Misil(3));
+		armak.add(new MisilZuzendua(1));
+
+
 
 	}
 
@@ -51,7 +62,7 @@ public class Jokalaria {
 	public ArrayList<Ontzia> getOntziak(){
 		return ontziak;
 	}
-	
+
 	public Taula nireTaula(){
 		return nireTaula;
 	}
