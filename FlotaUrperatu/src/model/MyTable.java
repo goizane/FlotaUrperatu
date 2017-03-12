@@ -38,8 +38,8 @@ public class MyTable extends JTable {
 
 		// Editores para cada tipo de objeto, estos nos permitirán darles el comportamiento adecuado
 		this.getColumn("Noranzkoa").setCellEditor(new DefaultCellEditor(noranzkoa));
-		this.getColumn("X ardatza").setCellEditor(new DefaultCellEditor(zenbakiak));
-		this.getColumn("Y ardatza").setCellEditor(new DefaultCellEditor(zenbakiak));
+		this.getColumn("Errenkada").setCellEditor(new DefaultCellEditor(zenbakiak));
+		this.getColumn("Zutabea").setCellEditor(new DefaultCellEditor(zenbakiak));
 
 	}
 

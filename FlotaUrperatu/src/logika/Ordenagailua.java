@@ -30,6 +30,7 @@ public class Ordenagailua {
 			}
 		}
 		dirua=100;
+		ontziakKokatu();
 		//armamentua esleitu behar da
 
 	}

@@ -23,8 +23,8 @@ public class MyTableModel extends AbstractTableModel {
 	private void hasieratuZutabeIzenak(){
 		columnNames.add("Izena");
 		columnNames.add("Luzeera") ;
-		columnNames.add("X ardatza");
-		columnNames.add("Y ardatza");
+		columnNames.add("Errenkada");
+		columnNames.add("Zutabea");
 		columnNames.add("Noranzkoa");
 		columnNames.add("Kokatua");
 		columnNames.add("Botoia");

@@ -41,8 +41,24 @@ public class Kudeatzaile {
 		return Jokalaria.getInstantzia().nireTaula();
 	}
 	
+	public Taula ordenagailuarenTaula(){
+		return Ordenagailua.getInstantzia().nireTaula();
+	}
+	
 	public void taulaBerbiarazi() {
 		Jokalaria.getInstantzia().berbiarazi();
+		
+	}
+	
+	public boolean ontzirikDago(int i,int j){
+		
+		Taula table= this.jokalariarenTaula();
+		return table.ontziaDa(i,j);
+		
+	}
+	
+	public void ordenagailuaHasieratu() {
+		Ordenagailua.getInstantzia();
 		
 	}
 	
