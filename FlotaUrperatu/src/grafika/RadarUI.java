@@ -1,7 +1,6 @@
 package grafika;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import kudeatzaileak.Kudeatzaile;
 
@@ -22,12 +22,12 @@ public class RadarUI extends JFrame {
 	public RadarUI(){
 		botoiakPrestatu();
 		
-		JLabel testua= new JLabel("Radar kopurua: " + Kudeatzaile.getInstantzia().radarKop());
+		JLabel testua= new JLabel("Radar kopurua: " + Kudeatzaile.getInstantzia().radarKop(), SwingConstants.CENTER);
 		
 		getContentPane().add(testua, BorderLayout.CENTER);
 		
 		getContentPane().add(botoienPanela, BorderLayout.SOUTH);
-		setMinimumSize(new Dimension(200, 200));
+		setMinimumSize(new Dimension(400, 200));
 		setVisible(true);
 	}
 
