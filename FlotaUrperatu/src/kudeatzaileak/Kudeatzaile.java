@@ -61,6 +61,11 @@ public class Kudeatzaile {
 		Ordenagailua.getInstantzia();
 		
 	}
+
+
+	public String radarKop() {
+		return Integer.toString(Jokalaria.getInstantzia().radarKop());
+	}
 	
 	
 }

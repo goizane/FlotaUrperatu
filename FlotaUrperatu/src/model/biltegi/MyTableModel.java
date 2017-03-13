@@ -1,4 +1,4 @@
-package model;
+package model.biltegi;
 
 
 import java.util.Vector;
@@ -6,6 +6,9 @@ import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.table.AbstractTableModel;
+
+import kudeatzaileak.BiltegiKudeatzaile;
+import logika.Biltegia;
 
 
 
@@ -22,33 +25,22 @@ public class MyTableModel extends AbstractTableModel {
 
 	private void hasieratuZutabeIzenak(){
 		columnNames.add("Izena");
-		columnNames.add("Luzeera") ;
-		columnNames.add("Errenkada");
-		columnNames.add("Zutabea");
-		columnNames.add("Noranzkoa");
-		columnNames.add("Kokatua");
-		columnNames.add("Botoia");
+		columnNames.add("Deskribapena") ;
+		columnNames.add("Prezio");
+		columnNames.add("Kantitate");
+		columnNames.add("Zenbat Erosi?");
 	}
 
-	
+
 	private void kargatu() {
 		hasieratuZutabeIzenak();
-		
-		for(int i=0; i<10;i++){
-			if (i<1){
-				data.add(new LagThumbnail("Hegazkin-ontzi", "4", "1", "1", false, "Horizontal", new JButton("Kokatu")));
-			}
-			else if(i<3){
-				data.add(new LagThumbnail("Itsaspeko", "3", "1", "1", false,"Horizontal", new JButton("Kokatu")));
-			}
-			else if(i<6){
-				data.add(new LagThumbnail("Suntsitzaile", "2", "1", "1", false, "Horizontal", new JButton("Kokatu")));
-			}
-			else{
-				data.add(new LagThumbnail("Fragata", "1", "1", "1", false, "Horizontal", new JButton("Kokatu")));
-			}
-		}
-		
+
+		data.add(new LagThumbnail("Bonba","Erortzean, barkuaren posizio "
+				+ "\nhori bakarrik deuseztatzen dute "));
+		data.add(new LagThumbnail("Misil","Erortzean, posizio hori "
+				+ "\ndaukan ontzi guztia deuseztatzen dute "));
+		data.add(new LagThumbnail("Misil zuzendua"," "));
+
 	}
 
 
@@ -78,16 +70,9 @@ public class MyTableModel extends AbstractTableModel {
 		case 1:
 		case 2:
 		case 3:
-			emaitza= String.class;
-			break;
 		case 4:
 			emaitza= String.class;
 			break;
-		case 5:
-			emaitza= Boolean.class;
-			break;
-		case 6:
-			emaitza= JButton.class;
 		default:
 			break;
 		}
@@ -96,21 +81,20 @@ public class MyTableModel extends AbstractTableModel {
 
 	public boolean isCellEditable(int i, int j){
 
-		boolean emaitza=false;
-		if(!(Boolean)data.get(i).getBalioa(5)){
-			if (j==3 || j==2 || j==4 || j==6){
-				emaitza= true;
-			}
+		if(j==4){
+			return true;
 		}
-		return emaitza;
+		else{
+			return false;
+		}
 	}
 
 	public void setValueAt (Object value, int i, int j){
 		data.get(i).insertElementAt(value, j);
 	}
 
-	public void lerroBerria(String i, String a, String k, String u, Boolean b, String bo, JButton bot){
-		data.add(new LagThumbnail(i,a,k,u,b,bo,bot));
+	public void lerroBerria(String izena, String desk){
+		data.add(new LagThumbnail(izena,desk));
 	}
 
 

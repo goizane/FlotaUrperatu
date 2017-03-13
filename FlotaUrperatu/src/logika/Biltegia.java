@@ -1,7 +1,10 @@
 package logika;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
+
 
 public class Biltegia {
 
@@ -19,5 +22,22 @@ public class Biltegia {
 			instance=new Biltegia();
 		}
 		return instance;
+	}
+
+	public Arma bilatuArma(String izena) {
+		Arma a=null;
+		Iterator<Arma> i= armak.iterator();
+		boolean aurkitua=false;
+		while(i.hasNext()&&!aurkitua){
+			a=i.next();
+			if(a.getIzena().equals(izena)){
+				aurkitua=true;
+			}
+		}
+		return a;
+	}
+
+	public int tamaina() {
+		return armak.size();
 	}
 }

@@ -1,4 +1,4 @@
-package model;
+package model.ontziakKokatu;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
 

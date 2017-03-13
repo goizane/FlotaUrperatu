@@ -102,5 +102,12 @@ public class Jokalaria {
 		instantzia=new Jokalaria();
 	}
 
+	public int radarKop() {
+		Arma a= armak.get(1);
+		return a.getKantitatea();
+		
+	}
+
+	
 
 }

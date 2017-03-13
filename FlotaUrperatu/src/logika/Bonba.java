@@ -7,6 +7,7 @@ public class Bonba extends Arma {
 	public Bonba(int kop){
 		this.kopurua=kop;
 		this.dirua=5;
+		this.izena="Bonba";
 	}
 	
 	public void bonbaGehitu(int kant){

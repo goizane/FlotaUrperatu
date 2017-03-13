@@ -1,4 +1,4 @@
-package model;
+package model.ontziakKokatu;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;

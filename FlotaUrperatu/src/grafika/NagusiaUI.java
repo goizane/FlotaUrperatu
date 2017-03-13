@@ -1,16 +1,16 @@
 package grafika;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
+
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+
 import javax.swing.SwingConstants;
 
 import kudeatzaileak.Kudeatzaile;
@@ -38,6 +38,7 @@ public class NagusiaUI extends JFrame{
 		getContentPane().add(botoiak);
 		getContentPane().add(ordenagailua);
 		setMinimumSize(new Dimension(1100, 400));
+		
 		setVisible(true);
 	}
 
@@ -47,7 +48,27 @@ public class NagusiaUI extends JFrame{
 		JButton radarra= new JButton("Radar");
 		JButton ezkutua= new JButton("Ezkutua");
 		JButton biltegia= new JButton("Biltegia");
-
+		
+		//radar listener
+		radarra.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new RadarUI();
+				
+			}
+		});
+		//ezkutua listener
+		
+		//biltegia listener
+		biltegia.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new BiltegiUI();
+				
+			}
+		});
 
 
 		armakBete();
@@ -63,8 +84,6 @@ public class NagusiaUI extends JFrame{
 		biltegia.setBounds(120,250,100,60);
 		botoiak.add(ezkutua);
 		ezkutua.setBounds(120,175,100,60);
-		
-
 
 
 	}

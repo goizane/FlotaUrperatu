@@ -11,9 +11,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
 
+import grafika.OntziakAukeratuUI;
 import kudeatzaileak.Kudeatzaile;
 import logika.Jokalaria;
-import model.MyTableModel;
+import model.ontziakKokatu.MyTableModel;
 
 public class ButtonCellEditor extends AbstractCellEditor implements TableCellEditor {
 
