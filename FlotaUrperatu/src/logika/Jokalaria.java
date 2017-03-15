@@ -115,10 +115,11 @@ public class Jokalaria {
 	
 	public boolean ontziaEzkutatu(int i, int j){
 		Ontzia o= ontziaEzkutua(i,j);
-		if(o.ezkutuaDago()){
+		Arma a= armak.get(2);
+		if(!o.ezkutuaDago()&& a.getKantitatea()>0 ){
 			o.ezkutatu();
-			Arma a= armak.get(2);
 			((Ezkutua) a).ezkutuaErabili();
+			
 			return true;
 		}else{
 			return false;
@@ -154,6 +155,26 @@ public class Jokalaria {
 			}
 		}
 		
+	}
+
+	public int getDirua() {
+		// TODO Auto-generated method stub
+		return dirua;
+	}
+
+	public int getBonbaKop() {
+		Arma a= armak.get(0);
+		return a.getKantitatea();
+	}
+
+	public int getMisilKop() {
+		Arma a= armak.get(3);
+		return a.getKantitatea();
+	}
+
+	public int getMisilZKop() {
+		Arma a= armak.get(4);
+		return a.getKantitatea();
 	}
 
 	

@@ -80,4 +80,8 @@ public class Ontzia {
 		return ezkutua;
 	}
 	
+	public boolean getUkitua(){
+		return ukitua;
+	}
+	
 }

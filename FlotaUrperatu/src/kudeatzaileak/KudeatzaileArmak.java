@@ -36,4 +36,28 @@ public class KudeatzaileArmak {
 		}
 	}
 
+
+	public int getDirua() {
+		// TODO Auto-generated method stub
+		return Jokalaria.getInstantzia().getDirua();
+	}
+
+
+	public int bonbaKop() {
+		// TODO Auto-generated method stub
+		return Jokalaria.getInstantzia().getBonbaKop();
+	}
+
+
+	public int misilKop() {
+		// TODO Auto-generated method stub
+		return Jokalaria.getInstantzia().getMisilKop();
+	}
+
+
+	public int misilZKop() {
+		// TODO Auto-generated method stub
+		return Jokalaria.getInstantzia().getMisilZKop();
+	}
+
 }

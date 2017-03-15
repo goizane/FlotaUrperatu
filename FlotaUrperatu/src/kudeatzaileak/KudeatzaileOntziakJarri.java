@@ -63,8 +63,6 @@ public class KudeatzaileOntziakJarri {
 	}
 
 
-	
-
 	public void ontziakRandom() {
 		Jokalaria.getInstantzia().ontziakRandom();
 		
