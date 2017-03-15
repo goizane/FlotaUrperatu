@@ -11,7 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import kudeatzaileak.Kudeatzaile;
+import kudeatzaileak.KudeatzaileArmak;
+
+
 
 public class RadarUI extends JFrame {
 	
@@ -20,9 +22,10 @@ public class RadarUI extends JFrame {
 	private JPanel botoienPanela= new JPanel();
 
 	public RadarUI(){
+		this.setTitle("Radar ajusteak");
 		botoiakPrestatu();
 		
-		JLabel testua= new JLabel("Radar kopurua: " + Kudeatzaile.getInstantzia().radarKop(), SwingConstants.CENTER);
+		JLabel testua= new JLabel("Radar kopurua: " + KudeatzaileArmak.getInstantzia().radarKop(), SwingConstants.CENTER);
 		
 		getContentPane().add(testua, BorderLayout.CENTER);
 		

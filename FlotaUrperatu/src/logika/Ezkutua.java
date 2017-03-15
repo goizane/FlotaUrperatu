@@ -1,10 +1,17 @@
 package logika;
 
 public class Ezkutua extends Arma {
-
-	public Ezkutua(int kant) {
-		this.kopurua=kant;
-		// TODO Auto-generated constructor stub
+	
+	public Ezkutua(int kop){
+		this.kopurua=kop;
+	}
+	
+	public void ontziaEzkututatu(Ontzia o){
+		o.ezkutatu();
+	}
+	
+	public void ezkutuaErabili(){
+		this.kopurua--;
 	}
 
 }

@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 
-import kudeatzaileak.Kudeatzaile;
+import kudeatzaileak.KudeatzaileOntziakJarri;
 import model.ontziakKokatu.MyTable;
 
 
@@ -23,6 +23,7 @@ public class OntziakAukeratuUI extends JFrame{
 
 	private JButton jokatu= new JButton("JOKATU");
 	private JButton aldatu= new JButton("ALDATU");
+	private JButton random= new JButton("RANDOM");
 	private JPanel botoienPanela= new JPanel();
 	private static OntziakAukeratuUI aukeratu;
 	private JPanel panela= new JPanel();
@@ -44,7 +45,7 @@ public class OntziakAukeratuUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				aukeratu.dispose();
-				Kudeatzaile.getInstantzia().taulaBerbiarazi();
+				KudeatzaileOntziakJarri.getInstantzia().taulaBerbiarazi();
 				aukeratu=new OntziakAukeratuUI();
 
 			}
@@ -63,9 +64,22 @@ public class OntziakAukeratuUI extends JFrame{
 
 			}
 		});
+		
+		random.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				KudeatzaileOntziakJarri.getInstantzia().ontziakRandom();
+				aukeratu.dispose();
+				new NagusiaUI();
+				
+			}
+		});
+		
 		botoienPanela.setLayout(new FlowLayout());
 		botoienPanela.add(aldatu);
 		botoienPanela.add(jokatu);
+		botoienPanela.add(random);
 		botoienPanela.setAlignmentX(CENTER_ALIGNMENT);
 
 		panela.setLayout(new GridLayout(0, 2));

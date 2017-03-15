@@ -38,7 +38,7 @@ public class Jokalaria {
 	private void armakHasieratu() {
 		armak.add(new Bonba(60));
 		armak.add(new Radar(2));
-		armak.add(new Ezkutua(4));
+		armak.add(new Ezkutua(3));
 		armak.add(new Misil(3));
 		armak.add(new MisilZuzendua(1));
 
@@ -108,6 +108,55 @@ public class Jokalaria {
 		
 	}
 
+	public int getEzkutuKop() {
+		Arma a= armak.get(2);
+		return a.getKantitatea();
+	}
+	
+	public boolean ontziaEzkutatu(int i, int j){
+		Ontzia o= ontziaEzkutua(i,j);
+		if(o.ezkutuaDago()){
+			o.ezkutatu();
+			Arma a= armak.get(2);
+			((Ezkutua) a).ezkutuaErabili();
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	private Ontzia ontziaEzkutua(int i, int j) {
+		return nireTaula.getTaula()[i][j].ontzia();
+	}
+
+	public void ontziakRandom() {
+		Iterator<Ontzia> it= ontziak.iterator();
+		while(it.hasNext()){
+			Ontzia o=it.next();
+			//Random-en erabakiko da zein posizioan hasiko den ontzia, adibidez A-6
+			//Eta noranzkoa zein izango den,random ere, h=horizontal eta b=bertikal
+			char [] noranzkoa= {'h','b'};
+			//random egin behar dira
+			int i= (int) (Math.random()*9);
+			int j= (int) (Math.random()*9);
+			char pos= noranzkoa[(int) (Math.random()*2)];
+			boolean kokatua=false;
+			while(!kokatua){
+				if(nireTaula.jarDaiteke(o.getLuzeera(), i, j, pos)){
+					nireTaula.ontziaKokatu(o.getLuzeera(), i, j, pos, o);
+					kokatua=true;
+				}
+				else{
+					i= (int) (Math.random()*9);
+					j= (int) (Math.random()*9);
+					pos= noranzkoa[(int) (Math.random()*2)];
+				}
+			}
+		}
+		
+	}
+
+	
 	
 
 }

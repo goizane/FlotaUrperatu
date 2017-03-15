@@ -16,8 +16,8 @@ public class BiltegiUI extends JFrame {
 	
 	private JButton botoia= new JButton("Erosi");
 	public BiltegiUI() {
-		super("Biltegia");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setTitle("Biltegia");
+		
 
 		JTable table = new JTable(new MyTableModel());
 		table.getColumnModel().getColumn(0).setPreferredWidth(100);

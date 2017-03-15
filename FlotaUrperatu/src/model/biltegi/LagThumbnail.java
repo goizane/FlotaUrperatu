@@ -4,7 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 
 import kudeatzaileak.BiltegiKudeatzaile;
-import kudeatzaileak.Kudeatzaile;
+import kudeatzaileak.KudeatzaileOntziakJarri;
 
 
 public class LagThumbnail {

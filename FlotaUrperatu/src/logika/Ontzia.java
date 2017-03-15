@@ -76,4 +76,8 @@ public class Ontzia {
 		return kokatua;
 	}
 	
+	public boolean ezkutuaDago(){
+		return ezkutua;
+	}
+	
 }

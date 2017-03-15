@@ -7,19 +7,19 @@ import logika.Ontzia;
 import logika.Ordenagailua;
 import logika.Taula;
 
-public class Kudeatzaile {
+public class KudeatzaileOntziakJarri {
 	
-	private static Kudeatzaile kud =null;
+	private static KudeatzaileOntziakJarri kud =null;
 
-	public static Kudeatzaile getInstantzia() {
+	public static KudeatzaileOntziakJarri getInstantzia() {
 		if(kud==null){
-			kud= new Kudeatzaile();
+			kud= new KudeatzaileOntziakJarri();
 		}
 		return kud;
 	}
 	
 	
-	private Kudeatzaile() {
+	private KudeatzaileOntziakJarri() {
 		// Singleton patroia
 	}
 	
@@ -63,9 +63,11 @@ public class Kudeatzaile {
 	}
 
 
-	public String radarKop() {
-		return Integer.toString(Jokalaria.getInstantzia().radarKop());
-	}
 	
+
+	public void ontziakRandom() {
+		Jokalaria.getInstantzia().ontziakRandom();
+		
+	}
 	
 }

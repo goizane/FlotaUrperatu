@@ -12,7 +12,7 @@ import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
 
 import grafika.OntziakAukeratuUI;
-import kudeatzaileak.Kudeatzaile;
+import kudeatzaileak.KudeatzaileOntziakJarri;
 import logika.Jokalaria;
 import model.ontziakKokatu.MyTableModel;
 
@@ -46,7 +46,7 @@ public class ButtonCellEditor extends AbstractCellEditor implements TableCellEdi
 						n='b';
 					}
 					String ontziIzena= model.getValueAt(row, 0).toString();
-					if (Kudeatzaile.getInstantzia().JokalariarenOntziak(xAr, yAr, ontziIzena, n)){
+					if (KudeatzaileOntziakJarri.getInstantzia().JokalariarenOntziak(xAr, yAr, ontziIzena, n)){
 						model.setValueAt(true, row, 5);
 						model.fireTableDataChanged();
 						Jokalaria.getInstantzia().nireTaula().inprimatu();

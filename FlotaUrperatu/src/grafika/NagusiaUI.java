@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 
 import javax.swing.SwingConstants;
 
-import kudeatzaileak.Kudeatzaile;
+import kudeatzaileak.KudeatzaileOntziakJarri;
 
 public class NagusiaUI extends JFrame{
 
@@ -59,6 +59,14 @@ public class NagusiaUI extends JFrame{
 			}
 		});
 		//ezkutua listener
+		ezkutua.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new EzkutuaUI();
+				
+			}
+		});
 		
 		//biltegia listener
 		biltegia.addActionListener(new ActionListener() {
@@ -147,7 +155,7 @@ public class NagusiaUI extends JFrame{
 			else{
 				int col= (i%11)-1;
 				int row= (i/11)-1;
-				if(Kudeatzaile.getInstantzia().ontzirikDago(row,col)){
+				if(KudeatzaileOntziakJarri.getInstantzia().ontzirikDago(row,col)){
 					JButton botoia= new JButton();
 					botoia.setSize(new Dimension(5, 10));
 					nireTaula.add(botoia);
