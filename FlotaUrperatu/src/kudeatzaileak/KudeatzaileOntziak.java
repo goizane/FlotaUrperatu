@@ -1,6 +1,6 @@
 package kudeatzaileak;
 
-import logika.Jokalaria;
+import logika.Pertsona;
 
 public class KudeatzaileOntziak {
 	
@@ -19,7 +19,7 @@ public class KudeatzaileOntziak {
 	}
 	
 	public boolean ontziaUkitua(int i,int j){
-		return Jokalaria.getInstantzia().nireTaula().getTaula()[i][j].ontzia().getUkitua();
+		return Partida.getInstantzia().getPertsona().nireTaula().getTaula()[i][j].ontzia().getUkitua();
 	}
 
 }

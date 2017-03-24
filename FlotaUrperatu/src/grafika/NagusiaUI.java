@@ -15,10 +15,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 
 import kudeatzaileak.KudeatzaileArmak;
 import kudeatzaileak.KudeatzaileOntziak;
-import kudeatzaileak.KudeatzaileOntziakJarri;
+import kudeatzaileak.Partida;
 
 public class NagusiaUI extends JFrame{
 
@@ -27,6 +28,7 @@ public class NagusiaUI extends JFrame{
 	private JPanel botoiak= new JPanel();
 	private JPanel armak= new JPanel();
 	private JButton[][] ontziak= new JButton[10][10];
+	private JLabel ezkutua= new JLabel("Ezkutu kopurua: "+ KudeatzaileArmak.getInstantzia().ezkutuKop());
 
 
 	public NagusiaUI(){
@@ -119,10 +121,14 @@ public class NagusiaUI extends JFrame{
 		JRadioButton misilZ= new JRadioButton("Misil zuzendua : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilZKop()) +" dituzu");
 		misilZ.setFont(bonbaF);
 		
+		JLabel ezkutua= new JLabel("Ezkutu kopurua: "+ KudeatzaileArmak.getInstantzia().ezkutuKop());
+		ezkutua.setFont(bonbaF);
+		
 		armak.add(tituloa);
 		armak.add(bonba);
 		armak.add(misil);
 		armak.add(misilZ);
+		armak.add(ezkutua);
 	}
 
 	private void ordenagailuTaulaBete() {
@@ -174,7 +180,7 @@ public class NagusiaUI extends JFrame{
 			else{
 				int col= (i%11)-1;
 				int row= (i/11)-1;
-				if(KudeatzaileOntziakJarri.getInstantzia().ontzirikDago(row,col)){
+				if(Partida.getInstantzia().ontzirikDago(row,col)){
 					JButton botoia= new JButton();
 					ontziak[row][col]= botoia;
 					botoia.setSize(new Dimension(5, 10));
@@ -213,6 +219,8 @@ public class NagusiaUI extends JFrame{
 	private void botoiakUkitu(int i,int j){
 		if(!ontziak[i][j].getText().equals("E")){
 			ontziak[i][j].setText("E");
+			ezkutua.setText("Ezkutu kopurua: "+ Integer.toString(KudeatzaileArmak.getInstantzia().ezkutuKop()));
+
 			if(j<10&&j>=0&&i-1<10&&i-1>=0&&ontziak[i-1][j]!=null){
 				botoiakUkitu(i-1, j);
 			}

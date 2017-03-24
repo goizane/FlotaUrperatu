@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 
-import kudeatzaileak.KudeatzaileOntziakJarri;
+import kudeatzaileak.Partida;
 import model.ontziakKokatu.MyTable;
 
 
@@ -45,7 +45,7 @@ public class OntziakAukeratuUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				aukeratu.dispose();
-				KudeatzaileOntziakJarri.getInstantzia().taulaBerbiarazi();
+				Partida.getInstantzia().taulaBerbiarazi();
 				aukeratu=new OntziakAukeratuUI();
 
 			}
@@ -69,7 +69,7 @@ public class OntziakAukeratuUI extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				KudeatzaileOntziakJarri.getInstantzia().ontziakRandom();
+				Partida.getInstantzia().ontziakRandom();
 				aukeratu.dispose();
 				new NagusiaUI();
 				

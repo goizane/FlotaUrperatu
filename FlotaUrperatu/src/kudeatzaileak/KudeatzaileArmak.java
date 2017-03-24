@@ -1,6 +1,6 @@
 package kudeatzaileak;
 
-import logika.Jokalaria;
+import logika.Pertsona;
 
 public class KudeatzaileArmak {
 
@@ -19,16 +19,16 @@ public class KudeatzaileArmak {
 	}
 	
 	public String radarKop() {
-		return Integer.toString(Jokalaria.getInstantzia().radarKop());
+		return Integer.toString(Partida.getInstantzia().getPertsona().radarKop());
 	}
 
 
 	public int ezkutuKop() {
-		return Jokalaria.getInstantzia().getEzkutuKop();
+		return Partida.getInstantzia().getPertsona().getEzkutuKop();
 		}
 	
 	public boolean ezkutuaJarri(int i, int j){
-		if(Jokalaria.getInstantzia().ontziaEzkutatu(i, j)){
+		if(Partida.getInstantzia().getPertsona().ontziaEzkutatu(i, j)){
 			return true;
 		}
 		else{
@@ -39,25 +39,25 @@ public class KudeatzaileArmak {
 
 	public int getDirua() {
 		// TODO Auto-generated method stub
-		return Jokalaria.getInstantzia().getDirua();
+		return Partida.getInstantzia().getPertsona().getDirua();
 	}
 
 
 	public int bonbaKop() {
 		// TODO Auto-generated method stub
-		return Jokalaria.getInstantzia().getBonbaKop();
+		return Partida.getInstantzia().getPertsona().getBonbaKop();
 	}
 
 
 	public int misilKop() {
 		// TODO Auto-generated method stub
-		return Jokalaria.getInstantzia().getMisilKop();
+		return Partida.getInstantzia().getPertsona().getMisilKop();
 	}
 
 
 	public int misilZKop() {
 		// TODO Auto-generated method stub
-		return Jokalaria.getInstantzia().getMisilZKop();
+		return Partida.getInstantzia().getPertsona().getMisilZKop();
 	}
 
 }

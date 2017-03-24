@@ -1,13 +1,36 @@
 package logika;
 
-
 import java.util.Iterator;
 
 
 
-public class Ordenagailua extends Jokalari {
+public class Pertsona extends Jokalari {
 
-	public void ontziakKokatu(){
+
+	public void setIzena(String pIzena){
+		this.izena=pIzena;
+	}
+
+	public boolean ontziaKokatu(int i,int j,char pos,String o){
+		//Erabaki zein posizioan hasiko den ontzia, adibidez A-6
+		//Eta noranzkoa zein izango den, h=horizonral eta b=bertikal
+
+		//eskatu behar zaio jokalariari non kokatu nahi duen ontzia
+		Ontzia ont=ontziaBilatu(o);
+		if(nireTaula.jarDaiteke(ont.getLuzeera(), i, j, pos)){
+			nireTaula.ontziaKokatu(ont.getLuzeera(), i, j, pos, ont);
+			ont.kokatu();
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+
+	
+
+	public void ontziakRandom() {
+		nireTaula= new Taula();
 		Iterator<Ontzia> it= ontziak.iterator();
 		while(it.hasNext()){
 			Ontzia o=it.next();
@@ -31,6 +54,8 @@ public class Ordenagailua extends Jokalari {
 				}
 			}
 		}
+		
 	}
-	
+
+
 }
