@@ -8,6 +8,7 @@ public class Ontzia {
 	private boolean kokatua;
 	private boolean ukitua;
 	private boolean ezkutua;
+	private Egoera egoera;
 	
 	
 	public Ontzia(String pIzena){
