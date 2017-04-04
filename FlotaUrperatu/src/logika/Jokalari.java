@@ -119,7 +119,9 @@ public class Jokalari {
 		return this.ontziak;
 	}
 
-	
+	public boolean tiroEgin(){
+		return false;
+	}
 	
 	
 }

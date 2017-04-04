@@ -85,4 +85,8 @@ public class Ontzia {
 		return ukitua;
 	}
 	
+	public void egoeraAldatu(Egoera e){
+		
+	}
+	
 }
