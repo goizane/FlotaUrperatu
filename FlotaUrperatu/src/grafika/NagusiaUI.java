@@ -7,6 +7,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 
 import javax.swing.JFrame;
@@ -120,6 +121,29 @@ public class NagusiaUI extends JFrame{
 		misil.setFont(bonbaF);
 		JRadioButton misilZ= new JRadioButton("Misil zuzendua : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilZKop()) +" dituzu");
 		misilZ.setFont(bonbaF);
+		
+		//botoiak talde batean sartu eta horrela bakarrik bat aukera daiteke
+		ButtonGroup armaBotoiak = new ButtonGroup();
+		armaBotoiak.add(bonba);
+		armaBotoiak.add(misil);
+		armaBotoiak.add(misilZ);
+		
+		//defektuz bonbak selekzionatu
+		bonba.setSelected(true);
+		
+		
+		//ez daukazu armarik
+		if(KudeatzaileArmak.getInstantzia().bonbaKop()==0){
+			bonba.setEnabled(false);
+		}
+		if(KudeatzaileArmak.getInstantzia().misilKop()==0){
+			misil.setEnabled(false);
+		}
+		if(KudeatzaileArmak.getInstantzia().misilZKop()==0){
+			misilZ.setEnabled(false);
+		}
+		
+		
 		
 		JLabel ezkutua= new JLabel("Ezkutu kopurua: "+ KudeatzaileArmak.getInstantzia().ezkutuKop());
 		ezkutua.setFont(bonbaF);

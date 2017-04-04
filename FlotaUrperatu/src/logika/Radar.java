@@ -6,4 +6,5 @@ public class Radar extends Arma {
 		this.kopurua=kant;
 	}
 
+	
 }
