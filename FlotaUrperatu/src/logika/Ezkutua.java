@@ -7,7 +7,7 @@ public class Ezkutua extends Arma {
 	}
 	
 	public void ontziaEzkututatu(Ontzia o){
-		o.ezkutatu();
+		o.egoeraAldatu(new Ezkutatua());;
 	}
 	
 	public void ezkutuaErabili(){

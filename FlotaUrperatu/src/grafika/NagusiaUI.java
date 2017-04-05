@@ -214,6 +214,7 @@ public class NagusiaUI extends JFrame{
 								}
 							}
 						}
+						//ordenagailuarenTxanda();
 					}
 				});
 				ordenagailua.add(botoia);
@@ -224,6 +225,33 @@ public class NagusiaUI extends JFrame{
 	}
 
 
+
+	public void ordenagailuarenTxanda() {
+		Partida.getInstantzia().tiroEginOrdenagailua();
+		String  egoera;
+		for(int n=0;n<ontziak.length;n++){
+			for(int m=0;m<ontziak.length;m++){
+				egoera= Partida.getInstantzia().getEgoera(n,m,1);
+				if(egoera.equals("Ukitua")){
+					ontziak[n][m].setBackground(Color.RED);
+				}
+				else if(egoera.equals("Hondoratua")){
+					ontziak[n][m].setEnabled(false);
+					if(Partida.getInstantzia().hondoratua(m,n)){
+						ontziak[n][m].setBackground(Color.black);
+					}
+				}
+				else if(egoera.equals("Ezkutatua")){
+					String eKop=Partida.getInstantzia().ezkutuKontadore(n,m,0);
+					ontziak[n][m].setText(eKop);
+				}
+				else if(egoera.equals("Ura")){
+					ontziak[n][m].setBackground(Color.white);
+				}
+			}
+		}
+		
+	}
 
 	private void nireTaulaBete() {
 		int kont=1;
@@ -278,7 +306,7 @@ public class NagusiaUI extends JFrame{
 				}
 			}
 		}
-
+		Partida.getInstantzia().ordenagailuarenTaulaAbiarazi();
 	}
 
 	private void botoiakUkitu(int i,int j){

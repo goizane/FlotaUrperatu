@@ -6,8 +6,6 @@ public class Ontzia {
 	private String izena;
 	private int erreparasioDirua;
 	private boolean kokatua;
-	private boolean ukitua;
-	private boolean ezkutua;
 	private Egoera egoera;
 	
 	
@@ -56,13 +54,7 @@ public class Ontzia {
 		return this.luzeera;
 	}
 	
-	public void ukitu(){
-		this.ukitua=true;
-	}
-	
-	public void ezkutatu(){
-		this.ezkutua=true;
-	}
+
 	
 	public String getIzena(){
 		return izena;
@@ -75,21 +67,11 @@ public class Ontzia {
 	public boolean kokatuaDago (){
 		return kokatua;
 	}
-	
-	public boolean ezkutuaDago(){
-		return ezkutua;
-	}
-	
-	public boolean getUkitua(){
-		return ukitua;
-	}
+
 	
 	public void egoeraAldatu(Egoera e){
-		
+		this.egoera=e;
 	}
-
-
-
 
 
 	public String getEgora() {
@@ -102,6 +84,37 @@ public class Ontzia {
 
 	public int getEzkutuKontadore() {
 		return ((Ezkutatua) egoera).getKontadorea();
+	}
+
+
+
+
+
+	public boolean getUkitua() {
+		if(egoera.getClass().equals("Ukitua")){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	public void minEgin(String arma){
+		if(this.getEgora().equals("Normala")){
+			this.egoeraAldatu(new Ukitua(luzeera));
+			if(this.egoera.minEgin(arma)==0){
+				this.egoeraAldatu(new Hondoratua());
+			}
+		}
+		else if(this.getEgora().equals("Ezkutatua")){
+			if(this.egoera.minEgin(arma)==0){
+				this.egoeraAldatu(new Normala());
+			}
+			else if(this.egoera.minEgin(arma)<0){
+				this.egoeraAldatu(new Ukitua(luzeera));
+			}
+		}
+		
 	}
 	
 }

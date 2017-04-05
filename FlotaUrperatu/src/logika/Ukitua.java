@@ -9,7 +9,13 @@ public class Ukitua extends Egoera{
 		this.kont=luzeera;
 	}
 	
-	public void minEgin(){
-		//return false;
+	public int minEgin(String arma){
+		if(arma.equals("bonba")){
+			kont--;
+		}
+		else if(arma.equals("misil")){
+			kont=0;
+		}
+		return kont;
 	}
 }

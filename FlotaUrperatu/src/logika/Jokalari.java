@@ -87,8 +87,8 @@ public class Jokalari {
 	public boolean ontziaEzkutatu(int i, int j){
 		Ontzia o= ontziaEzkutua(i,j);
 		Arma a= armak.get(2);
-		if(!o.ezkutuaDago()&& a.getKantitatea()>0 ){
-			o.ezkutatu();
+		if(!o.getEgora().equals("Ezkutatua")&& a.getKantitatea()>0 ){
+			o.egoeraAldatu(new Ezkutatua());;
 			((Ezkutua) a).ezkutuaErabili();
 			
 			return true;
@@ -119,9 +119,17 @@ public class Jokalari {
 		return this.ontziak;
 	}
 
-	public boolean tiroEgin(){
-		return false;
+	public void tiroEgin(){
+		
+	}
+
+	public void tiroEgin(int i, int j, String arma) {
+		// TODO Auto-generated method stub
+		
 	}
 	
+	public void ordenagailuarenTaulaAbiarazi(Taula t){
+		this.ordenagaliruarenTaula=t;
+	}
 	
 }

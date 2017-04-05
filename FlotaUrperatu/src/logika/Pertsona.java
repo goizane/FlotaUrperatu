@@ -27,7 +27,7 @@ public class Pertsona extends Jokalari {
 		}
 	}
 
-	
+
 
 	public void ontziakRandom() {
 		nireTaula= new Taula();
@@ -54,7 +54,13 @@ public class Pertsona extends Jokalari {
 				}
 			}
 		}
-		
+
+	}
+
+	public void tiroEgin(int i, int j, String arma) {
+		if(ordenagaliruarenTaula.getTaula()[i][j].ontzia()!=null){
+			ordenagaliruarenTaula.getTaula()[i][j].ontzia().minEgin(arma);
+		}
 	}
 
 

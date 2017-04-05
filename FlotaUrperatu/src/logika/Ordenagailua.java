@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 
 public class Ordenagailua extends Jokalari {
-
+	
 	public void ontziakKokatu(){
 		Iterator<Ontzia> it= ontziak.iterator();
 		while(it.hasNext()){
@@ -30,6 +30,16 @@ public class Ordenagailua extends Jokalari {
 					pos= noranzkoa[(int) (Math.random()*2)];
 				}
 			}
+		}
+	}
+	
+	public void tiroEgin() {
+		int i= (int) (Math.random()*9);
+		int j= (int) (Math.random()*9);
+		String [] armaMota= {"bonba","misil","misilZ"};
+		String arma= armaMota [(int) (Math.random()*3)];
+		if(ordenagaliruarenTaula.getTaula()[i][j].ontzia()!=null){
+			ordenagaliruarenTaula.getTaula()[i][j].ontzia().minEgin(arma);
 		}
 	}
 	

@@ -26,6 +26,10 @@ public class Partida {
 				jokalariak.add(new Pertsona());
 				//ordenagailua
 				jokalariak.add(new Ordenagailua());
+				((Ordenagailua)jokalariak.get(1)).ontziakKokatu();
+				//taulak abiarazi
+				jokalariak.get(0).ordenagailuarenTaulaAbiarazi(jokalariak.get(1).nireTaula());
+				
 	}
 	
 	public Pertsona getPertsona() {
@@ -42,11 +46,10 @@ public class Partida {
 		//ontzi izena pasatu behar du
 		//comprobar bien que el barco entra, sino tiene que enviar mensaje para que vuelva a elegir pos
 		return ((Pertsona) jokalariak.get(0)).ontziaKokatu(i, j, pos, o);
+		
 	}
 	
-	public void OrdenagailuOntziakKokatu(){
-		((Ordenagailua)jokalariak.get(1)).ontziakKokatu();
-	}
+
 	
 	public ArrayList<Ontzia> getJokalariarenOntziak(){
 		return ((Pertsona) jokalariak.get(0)).getOntziak();
@@ -79,9 +82,8 @@ public class Partida {
 	}
 
 
-	public String tiroEgin(int i, int j, String arma) {
-		return "ukitu";
-		
+	public void tiroEgin(int i, int j, String arma) {
+		jokalariak.get(0).tiroEgin(i,j,arma);
 	}
 
 
@@ -102,6 +104,18 @@ public class Partida {
 
 	public String ezkutuKontadore(int i,int j,int index) {
 		return Integer.toString(jokalariak.get(index).nireTaula().getTaula()[i][j].ontzia().getEzkutuKontadore());
+	}
+
+
+	public void ordenagailuarenTaulaAbiarazi() {
+		jokalariak.get(1).ordenagailuarenTaulaAbiarazi(jokalariak.get(0).nireTaula());
+		
+	}
+
+
+	public void tiroEginOrdenagailua() {
+		jokalariak.get(1).tiroEgin();
+		
 	}
 	
 }
