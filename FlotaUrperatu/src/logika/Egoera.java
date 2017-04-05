@@ -1,5 +1,9 @@
 package logika;
 
-public class Egoera {
+public abstract class Egoera {
+	
+	protected void minEgin(){
+		
+	}
 
 }

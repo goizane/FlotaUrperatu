@@ -195,4 +195,16 @@ public class Taula {
 		}
 	}
 
+
+
+
+	public boolean hondoratua(int n, int m) {
+		if(taula[n][m].ontzia().getEgora().equals("Hondoratua")){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+
 }

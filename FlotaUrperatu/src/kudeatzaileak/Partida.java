@@ -77,5 +77,31 @@ public class Partida {
 		((Pertsona) jokalariak.get(0)).ontziakRandom();
 		
 	}
+
+
+	public String tiroEgin(int i, int j, String arma) {
+		return "ukitu";
+		
+	}
+
+
+	public boolean hondoratua(int n, int m) {
+		if(jokalariak.get(0).nireTaula().hondoratua(n,m)){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+
+
+	public String getEgoera(int n, int m,int index) {
+		return jokalariak.get(index).nireTaula().getTaula()[n][m].getEgoera();
+	}
+
+
+	public String ezkutuKontadore(int i,int j,int index) {
+		return Integer.toString(jokalariak.get(index).nireTaula().getTaula()[i][j].ontzia().getEzkutuKontadore());
+	}
 	
 }

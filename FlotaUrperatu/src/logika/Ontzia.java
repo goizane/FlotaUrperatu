@@ -32,8 +32,7 @@ public class Ontzia {
 			this.luzeera=1;
 			erreparasioDirua=5;
 		}
-		this.ukitua=false;
-		this.ezkutua=false;
+		this.egoera= new Normala();
 	}
 	
 	
@@ -87,6 +86,22 @@ public class Ontzia {
 	
 	public void egoeraAldatu(Egoera e){
 		
+	}
+
+
+
+
+
+	public String getEgora() {
+		return this.egoera.getClass().toString();
+	}
+
+
+
+
+
+	public int getEzkutuKontadore() {
+		return ((Ezkutatua) egoera).getKontadorea();
 	}
 	
 }

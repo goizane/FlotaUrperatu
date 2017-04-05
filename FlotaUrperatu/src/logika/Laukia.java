@@ -1,5 +1,7 @@
 package logika;
 
+import org.omg.CORBA.OMGVMCID;
+
 public class Laukia {
 
 	private Ontzia ontzi;
@@ -58,6 +60,18 @@ public class Laukia {
 	public Ontzia ontzia(){
 		return ontzi;
 	}
+
+	public String getEgoera() {
+		if(!this.ura){
+			return ontzi.getEgora();
+		}
+		else{
+			return "Ura";
+		}
+		
+	}
+
+
 
 	
 }

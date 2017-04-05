@@ -1,6 +1,7 @@
 package grafika;
 
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -29,7 +30,9 @@ public class NagusiaUI extends JFrame{
 	private JPanel botoiak= new JPanel();
 	private JPanel armak= new JPanel();
 	private JButton[][] ontziak= new JButton[10][10];
+	private JButton[][] ordenagailuarenTaula= new JButton[10][10];
 	private JLabel ezkutua= new JLabel("Ezkutu kopurua: "+ KudeatzaileArmak.getInstantzia().ezkutuKop());
+	private ButtonGroup armaBotoiak = new ButtonGroup();
 
 
 	public NagusiaUI(){
@@ -54,13 +57,13 @@ public class NagusiaUI extends JFrame{
 
 	private void botoiakHasieratu() {
 		botoiak.setLayout(null);
-		
+
 		JLabel dirua= new JLabel("Dirua: "+ Integer.toString(KudeatzaileArmak.getInstantzia().getDirua())+ "$");
 		Font font = dirua.getFont();
 		// same font but bold
 		Font boldFont = new Font(font.getFontName(), Font.BOLD, 20);
 		dirua.setFont(boldFont);
-		
+
 		JButton radarra= new JButton("Radar");
 		radarra.setFont(boldFont);
 		JButton biltegia= new JButton("Biltegia");
@@ -107,7 +110,7 @@ public class NagusiaUI extends JFrame{
 	private void armakBete() {
 
 		armak.setLayout(new GridLayout(0, 1));
-		
+
 		JLabel tituloa= new JLabel("Armak:");
 		Font font = tituloa.getFont();
 		// same font but bold
@@ -121,17 +124,19 @@ public class NagusiaUI extends JFrame{
 		misil.setFont(bonbaF);
 		JRadioButton misilZ= new JRadioButton("Misil zuzendua : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilZKop()) +" dituzu");
 		misilZ.setFont(bonbaF);
-		
+
 		//botoiak talde batean sartu eta horrela bakarrik bat aukera daiteke
-		ButtonGroup armaBotoiak = new ButtonGroup();
+		bonba.setActionCommand("bonba");
+		misil.setActionCommand("misil");
+		misilZ.setActionCommand("misilZ");
 		armaBotoiak.add(bonba);
 		armaBotoiak.add(misil);
 		armaBotoiak.add(misilZ);
-		
+
 		//defektuz bonbak selekzionatu
 		bonba.setSelected(true);
-		
-		
+
+
 		//ez daukazu armarik
 		if(KudeatzaileArmak.getInstantzia().bonbaKop()==0){
 			bonba.setEnabled(false);
@@ -142,12 +147,12 @@ public class NagusiaUI extends JFrame{
 		if(KudeatzaileArmak.getInstantzia().misilZKop()==0){
 			misilZ.setEnabled(false);
 		}
-		
-		
-		
+
+
+
 		JLabel ezkutua= new JLabel("Ezkutu kopurua: "+ KudeatzaileArmak.getInstantzia().ezkutuKop());
 		ezkutua.setFont(bonbaF);
-		
+
 		armak.add(tituloa);
 		armak.add(bonba);
 		armak.add(misil);
@@ -175,6 +180,42 @@ public class NagusiaUI extends JFrame{
 			else{
 				JButton botoia= new JButton();
 				botoia.setSize(new Dimension(10, 10));
+				ordenagailuarenTaula[(i%11)-1][(i/11)-1]=botoia;
+				botoia.setActionCommand(Integer.toString((i%11)-1)+","+Integer.toString((i/11)-1));
+				botoia.addActionListener(new ActionListener() {
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						String i= e.getActionCommand();
+						String[] emaitza= i.split(",");
+						String arma= armaBotoiak.getSelection().getActionCommand();
+						Partida.getInstantzia().tiroEgin(Integer.parseInt(emaitza[0]),Integer.parseInt(emaitza[1]),arma);
+						String  egoera;
+						for(int n=0;n<ordenagailuarenTaula.length;n++){
+							for(int m=0;m<ordenagailuarenTaula.length;m++){
+								egoera= Partida.getInstantzia().getEgoera(n,m,0);
+								if(egoera.equals("Ukitua")){
+									ordenagailuarenTaula[n][m].setEnabled(false);
+									ordenagailuarenTaula[n][m].setBackground(Color.RED);
+								}
+								else if(egoera.equals("Hondoratua")){
+									ordenagailuarenTaula[n][m].setEnabled(false);
+									if(Partida.getInstantzia().hondoratua(m,n)){
+										ordenagailuarenTaula[n][m].setBackground(Color.black);
+									}
+								}
+								else if(egoera.equals("Ezkutatua")){
+									String eKop=Partida.getInstantzia().ezkutuKontadore(n,m,0);
+									ordenagailuarenTaula[n][m].setText(eKop);
+								}
+								else if(egoera.equals("Ura")&&!ordenagailuarenTaula[n][m].isEnabled()){
+									ordenagailuarenTaula[n][m].setEnabled(false);
+									ordenagailuarenTaula[n][m].setBackground(Color.white);
+								}
+							}
+						}
+					}
+				});
 				ordenagailua.add(botoia);
 			}
 
@@ -221,7 +262,7 @@ public class NagusiaUI extends JFrame{
 									else{
 										JOptionPane.showMessageDialog(null, "Ezin da ezkutua jarri!");
 									}
-									
+
 								}
 							}
 
