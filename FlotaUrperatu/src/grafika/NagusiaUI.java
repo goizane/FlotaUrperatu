@@ -42,6 +42,7 @@ public class NagusiaUI extends JFrame{
 
 		nireTaula.setLayout(new GridLayout(11, 11));
 		ordenagailua.setLayout(new GridLayout(11, 11));
+		Partida.getInstantzia().OrdenagailuarenOntziak();
 		nireTaulaBete();
 		ordenagailuTaulaBete();
 		botoiakHasieratu();
@@ -194,27 +195,28 @@ public class NagusiaUI extends JFrame{
 						for(int n=0;n<ordenagailuarenTaula.length;n++){
 							for(int m=0;m<ordenagailuarenTaula.length;m++){
 								egoera= Partida.getInstantzia().getEgoera(n,m,0);
+								System.out.println("logika.Egoera");
 								if(egoera.equals("Ukitua")){
 									ordenagailuarenTaula[n][m].setEnabled(false);
 									ordenagailuarenTaula[n][m].setBackground(Color.RED);
 								}
-								else if(egoera.equals("Hondoratua")){
+								else if(egoera.equals("logika.Hondoratua")){
 									ordenagailuarenTaula[n][m].setEnabled(false);
 									if(Partida.getInstantzia().hondoratua(m,n)){
 										ordenagailuarenTaula[n][m].setBackground(Color.black);
 									}
 								}
-								else if(egoera.equals("Ezkutatua")){
+								else if(egoera.equals("logika.Ezkutatua")){
 									String eKop=Partida.getInstantzia().ezkutuKontadore(n,m,0);
 									ordenagailuarenTaula[n][m].setText(eKop);
 								}
-								else if(egoera.equals("Ura")&&!ordenagailuarenTaula[n][m].isEnabled()){
-									ordenagailuarenTaula[n][m].setEnabled(false);
-									ordenagailuarenTaula[n][m].setBackground(Color.white);
+								else if(egoera.equals("Ura")&&!botoia.isEnabled()){
+									botoia.setEnabled(false);
+									botoia.setBackground(Color.white);
 								}
 							}
 						}
-						//ordenagailuarenTxanda();
+						ordenagailuarenTxanda();
 					}
 				});
 				ordenagailua.add(botoia);
@@ -232,16 +234,17 @@ public class NagusiaUI extends JFrame{
 		for(int n=0;n<ontziak.length;n++){
 			for(int m=0;m<ontziak.length;m++){
 				egoera= Partida.getInstantzia().getEgoera(n,m,1);
-				if(egoera.equals("Ukitua")){
+				System.out.println(egoera);
+				if(egoera.equals("logika.Ukitua")){
 					ontziak[n][m].setBackground(Color.RED);
 				}
-				else if(egoera.equals("Hondoratua")){
+				else if(egoera.equals("logika.Hondoratua")){
 					ontziak[n][m].setEnabled(false);
 					if(Partida.getInstantzia().hondoratua(m,n)){
 						ontziak[n][m].setBackground(Color.black);
 					}
 				}
-				else if(egoera.equals("Ezkutatua")){
+				else if(egoera.equals("logika.Ezkutatua")){
 					String eKop=Partida.getInstantzia().ezkutuKontadore(n,m,0);
 					ontziak[n][m].setText(eKop);
 				}
@@ -306,7 +309,6 @@ public class NagusiaUI extends JFrame{
 				}
 			}
 		}
-		Partida.getInstantzia().ordenagailuarenTaulaAbiarazi();
 	}
 
 	private void botoiakUkitu(int i,int j){

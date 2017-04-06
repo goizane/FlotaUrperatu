@@ -75,7 +75,8 @@ public class Ontzia {
 
 
 	public String getEgora() {
-		return this.egoera.getClass().toString();
+		String [] emaitza= this.egoera.getClass().toString().split(" ");
+		return emaitza[1];
 	}
 
 

@@ -38,8 +38,8 @@ public class Ordenagailua extends Jokalari {
 		int j= (int) (Math.random()*9);
 		String [] armaMota= {"bonba","misil","misilZ"};
 		String arma= armaMota [(int) (Math.random()*3)];
-		if(ordenagaliruarenTaula.getTaula()[i][j].ontzia()!=null){
-			ordenagaliruarenTaula.getTaula()[i][j].ontzia().minEgin(arma);
+		if(ordenagaliruarenTaula.getTaula()[2][2].ontzia()!=null){
+			ordenagaliruarenTaula.getTaula()[2][2].ontzia().minEgin(arma);
 		}
 	}
 	

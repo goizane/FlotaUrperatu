@@ -26,10 +26,7 @@ public class Partida {
 				jokalariak.add(new Pertsona());
 				//ordenagailua
 				jokalariak.add(new Ordenagailua());
-				((Ordenagailua)jokalariak.get(1)).ontziakKokatu();
-				//taulak abiarazi
-				jokalariak.get(0).ordenagailuarenTaulaAbiarazi(jokalariak.get(1).nireTaula());
-				
+						
 	}
 	
 	public Pertsona getPertsona() {
@@ -47,6 +44,10 @@ public class Partida {
 		//comprobar bien que el barco entra, sino tiene que enviar mensaje para que vuelva a elegir pos
 		return ((Pertsona) jokalariak.get(0)).ontziaKokatu(i, j, pos, o);
 		
+	}
+	
+	public void OrdenagailuarenOntziak(){
+		((Ordenagailua)jokalariak.get(1)).ontziakKokatu();	
 	}
 	
 
@@ -83,7 +84,9 @@ public class Partida {
 
 
 	public void tiroEgin(int i, int j, String arma) {
+		jokalariak.get(0).kontrakoarenTaulaAbiarazi(jokalariak.get(1).nireTaula());
 		jokalariak.get(0).tiroEgin(i,j,arma);
+		jokalariak.get(1).eguneratuTaula(jokalariak.get(0).kontrakoarenTaula());
 	}
 
 
@@ -98,7 +101,7 @@ public class Partida {
 
 
 	public String getEgoera(int n, int m,int index) {
-		return jokalariak.get(index).nireTaula().getTaula()[n][m].getEgoera();
+		return jokalariak.get(index).kontrakoarenTaula().getTaula()[n][m].getEgoera();
 	}
 
 
@@ -107,14 +110,13 @@ public class Partida {
 	}
 
 
-	public void ordenagailuarenTaulaAbiarazi() {
-		jokalariak.get(1).ordenagailuarenTaulaAbiarazi(jokalariak.get(0).nireTaula());
-		
-	}
+	
 
 
 	public void tiroEginOrdenagailua() {
-		jokalariak.get(1).tiroEgin();
+		jokalariak.get(1).kontrakoarenTaulaAbiarazi(jokalariak.get(0).nireTaula());
+		((Ordenagailua)jokalariak.get(1)).tiroEgin();
+		jokalariak.get(0).eguneratuTaula(jokalariak.get(1).kontrakoarenTaula());
 		
 	}
 	

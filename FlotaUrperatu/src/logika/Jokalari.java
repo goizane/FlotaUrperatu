@@ -128,8 +128,18 @@ public class Jokalari {
 		
 	}
 	
-	public void ordenagailuarenTaulaAbiarazi(Taula t){
+	public void kontrakoarenTaulaAbiarazi(Taula t){
 		this.ordenagaliruarenTaula=t;
+	}
+
+	public Taula kontrakoarenTaula() {
+		
+		return ordenagaliruarenTaula;
+	}
+
+	public void eguneratuTaula(Taula nireNewTaula) {
+		
+		this.nireTaula=nireNewTaula;
 	}
 	
 }
