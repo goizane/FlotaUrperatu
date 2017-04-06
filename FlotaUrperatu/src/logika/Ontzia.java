@@ -101,17 +101,25 @@ public class Ontzia {
 	}
 	
 	public void minEgin(String arma){
-		if(this.getEgora().equals("Normala")){
-			this.egoeraAldatu(new Ukitua(luzeera));
-			if(this.egoera.minEgin(arma)==0){
+		if(this.getEgora().equals("logika.Normala")){
+			if(this.luzeera!=1){
+				this.egoeraAldatu(new Ukitua(luzeera));
+				((Ukitua)this.egoera).minEgin(arma);
+			}
+			else{
 				this.egoeraAldatu(new Hondoratua());
 			}
 		}
-		else if(this.getEgora().equals("Ezkutatua")){
-			if(this.egoera.minEgin(arma)==0){
+		else if(this.getEgora().equals("logika.Ukitua")){
+			if(((Ukitua)this.egoera).minEgin(arma)==this.luzeera){
+				this.egoeraAldatu(new Hondoratua());
+			}
+		}
+		else if(this.getEgora().equals("logika.Ezkutatua")){
+			if(((Ezkutatua)this.egoera).minEgin(arma)==0){
 				this.egoeraAldatu(new Normala());
 			}
-			else if(this.egoera.minEgin(arma)<0){
+			else if(((Ezkutatua)this.egoera).minEgin(arma)<0){
 				this.egoeraAldatu(new Ukitua(luzeera));
 			}
 		}

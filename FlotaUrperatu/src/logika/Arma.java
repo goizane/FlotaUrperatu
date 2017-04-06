@@ -1,17 +1,17 @@
 package logika;
 
-public abstract class Arma {
+public class Arma {
 	
 	protected int dirua;
 	protected int kopurua;
 	protected String izena;
 	
-	
-	protected void minEgin(int i,int j) {
-		//arma ezberdinek min egiten dute
+
+	public Arma(int pdirua,int pkopurua,String pizena){
+		this.izena=pizena;
+		this.dirua=pdirua;
+		this.kopurua=pkopurua;
 	}
-
-
 	public String getIzena() {
 		return this.izena;
 	}

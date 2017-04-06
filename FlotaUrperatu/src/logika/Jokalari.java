@@ -11,6 +11,8 @@ public class Jokalari {
 	protected Taula nireTaula=new Taula();
 	protected Taula ordenagaliruarenTaula= new Taula();
 	protected ArrayList<Arma> armak= new ArrayList<Arma>();
+	private Ezkutua ezkutua;
+	private Radar radarra;
 	
 	protected Jokalari(){
 		for(int i=0; i<10;i++){
@@ -32,11 +34,12 @@ public class Jokalari {
 	}
 
 	public void armakHasieratu() {
-		armak.add(new Bonba(60));
-		armak.add(new Radar(2));
-		armak.add(new Ezkutua(3));
-		armak.add(new Misil(3));
-		armak.add(new MisilZuzendua(1));
+		armak.add(new Arma(5,60,"Bonba"));
+		armak.add(new Arma(10,3,"Misil"));
+		armak.add(new Arma(20,1,"MisilZuzendu"));
+		//ezkutu eta radar falta dira
+		ezkutua= new Ezkutua(3);
+		radarra= new Radar(3);
 		
 	}
 	
@@ -60,12 +63,12 @@ public class Jokalari {
 	}
 
 	public int getMisilKop() {
-		Arma a= armak.get(3);
+		Arma a= armak.get(1);
 		return a.getKantitatea();
 	}
 
 	public int getMisilZKop() {
-		Arma a= armak.get(4);
+		Arma a= armak.get(2);
 		return a.getKantitatea();
 	}
 
@@ -74,23 +77,19 @@ public class Jokalari {
 	}
 
 	public int radarKop() {
-		Arma a= armak.get(1);
-		return a.getKantitatea();
+		return radarra.getKant();
 		
 	}
 
 	public int getEzkutuKop() {
-		Arma a= armak.get(2);
-		return a.getKantitatea();
+		return ezkutua.getKantitatea();
 	}
 	
 	public boolean ontziaEzkutatu(int i, int j){
 		Ontzia o= ontziaEzkutua(i,j);
-		Arma a= armak.get(2);
-		if(!o.getEgora().equals("Ezkutatua")&& a.getKantitatea()>0 ){
+		if(!o.getEgora().equals("Ezkutatua")&& ezkutua.getKantitatea()>0 ){
 			o.egoeraAldatu(new Ezkutatua());;
-			((Ezkutua) a).ezkutuaErabili();
-			
+			ezkutua.ezkutuaErabili();
 			return true;
 		}else{
 			return false;

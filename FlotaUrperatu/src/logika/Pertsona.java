@@ -61,6 +61,15 @@ public class Pertsona extends Jokalari {
 		if(ordenagaliruarenTaula.getTaula()[i][j].ontzia()!=null){
 			ordenagaliruarenTaula.getTaula()[i][j].ontzia().minEgin(arma);
 		}
+		this.armaErabili(arma);
+	}
+
+	private void armaErabili(String arma) {
+		System.out.println(arma);
+		if(arma.equals("bonba")){
+			armak.get(0).kopurua=armak.get(0).kopurua-1;
+		}
+		
 	}
 
 

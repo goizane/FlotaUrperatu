@@ -85,7 +85,7 @@ public class Partida {
 
 	public void tiroEgin(int i, int j, String arma) {
 		jokalariak.get(0).kontrakoarenTaulaAbiarazi(jokalariak.get(1).nireTaula());
-		jokalariak.get(0).tiroEgin(i,j,arma);
+		((Pertsona)jokalariak.get(0)).tiroEgin(i,j,arma);
 		jokalariak.get(1).eguneratuTaula(jokalariak.get(0).kontrakoarenTaula());
 	}
 

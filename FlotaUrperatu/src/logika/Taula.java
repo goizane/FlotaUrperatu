@@ -199,7 +199,7 @@ public class Taula {
 
 
 	public boolean hondoratua(int n, int m) {
-		if(taula[n][m].ontzia().getEgora().equals("Hondoratua")){
+		if(taula[n][m].ontzia().getEgora().equals("logika.Hondoratua")){
 			return true;
 		}
 		else{

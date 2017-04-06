@@ -1,6 +1,8 @@
 package logika;
 
-public class Ezkutua extends Arma {
+public class Ezkutua {
+	
+	private int kopurua;
 	
 	public Ezkutua(int kop){
 		this.kopurua=kop;
@@ -12,6 +14,11 @@ public class Ezkutua extends Arma {
 	
 	public void ezkutuaErabili(){
 		this.kopurua--;
+	}
+
+	public int getKantitatea() {
+		// TODO Auto-generated method stub
+		return kopurua;
 	}
 
 }
