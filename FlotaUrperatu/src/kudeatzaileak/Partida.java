@@ -99,7 +99,7 @@ public class Partida {
 
 
 	public String ezkutuKontadore(int i,int j,int index) {
-		return Integer.toString(jokalariak.get(index).nireTaula().getTaula()[i][j].ontzia().getEzkutuKontadore());
+		return Integer.toString(jokalariak.get(index).kontrakoarenTaula().getTaula()[i][j].ontzia().getEzkutuKontadore());
 	}
 
 
@@ -127,7 +127,7 @@ public class Partida {
 
 	public boolean irabazi(int i) {
 	//ver si el jugador ha ganado, todos los barcos hondoratuak
-		return false;
+		return jokalariak.get(i).irabazi();
 	}
 	
 }

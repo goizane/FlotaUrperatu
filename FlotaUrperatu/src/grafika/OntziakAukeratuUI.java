@@ -25,7 +25,7 @@ public class OntziakAukeratuUI extends JFrame{
 	private JButton aldatu= new JButton("ALDATU");
 	private JButton random= new JButton("RANDOM");
 	private JPanel botoienPanela= new JPanel();
-	private static OntziakAukeratuUI aukeratu;
+	private static OntziakAukeratuUI aukeratu=new OntziakAukeratuUI();
 	private JPanel panela= new JPanel();
 	private JPanel taula= new JPanel();
 	MyTable table=new MyTable();
@@ -34,7 +34,7 @@ public class OntziakAukeratuUI extends JFrame{
 	public OntziakAukeratuUI(){	
 		super("Ontziak kokatu");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		
 
 		JScrollPane scrollPane = new JScrollPane(table);
 		getContentPane().setLayout(new BoxLayout(getContentPane(),BoxLayout.Y_AXIS));

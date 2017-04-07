@@ -129,5 +129,16 @@ public class Ontzia {
 	public void hondoratu(){
 		this.egoeraAldatu(new Hondoratua());
 	}
+
+
+
+
+
+	public boolean hondoratua() {
+		if (this.getEgora().equals("logika.Hondoratua")){
+			return true;
+		}
+		return false;
+	}
 	
 }

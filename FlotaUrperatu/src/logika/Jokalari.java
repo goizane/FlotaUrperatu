@@ -11,9 +11,9 @@ public class Jokalari {
 	protected Taula nireTaula=new Taula();
 	protected Taula ordenagaliruarenTaula= new Taula();
 	protected ArrayList<Arma> armak= new ArrayList<Arma>();
-	private Ezkutua ezkutua;
-	private Radar radarra;
-	
+	protected Ezkutua ezkutua;
+	protected Radar radarra;
+
 	protected Jokalari(){
 		for(int i=0; i<10;i++){
 			if (i<1){
@@ -40,9 +40,9 @@ public class Jokalari {
 		//ezkutu eta radar falta dira
 		ezkutua= new Ezkutua(3);
 		radarra= new Radar(3);
-		
+
 	}
-	
+
 	public Taula nireTaula(){
 		return nireTaula;
 	}
@@ -51,7 +51,7 @@ public class Jokalari {
 
 	protected void ontziaKokatu(){
 	}
-	
+
 	public int getDirua() {
 		// TODO Auto-generated method stub
 		return dirua;
@@ -78,28 +78,39 @@ public class Jokalari {
 
 	public int radarKop() {
 		return radarra.getKant();
-		
+
 	}
 
 	public int getEzkutuKop() {
 		return ezkutua.getKantitatea();
 	}
-	
+
 	public boolean ontziaEzkutatu(int i, int j){
 		Ontzia o= ontziaEzkutua(i,j);
-		if(!o.getEgora().equals("Ezkutatua")&& ezkutua.getKantitatea()>0 ){
-			o.egoeraAldatu(new Ezkutatua());;
-			ezkutua.ezkutuaErabili();
-			return true;
-		}else{
+		if(o!=null){
+			if(!o.getEgora().equals("Ezkutatua")&& ezkutua.getKantitatea()>0 ){
+				o.egoeraAldatu(new Ezkutatua());;
+				ezkutua.ezkutuaErabili();
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+		else{
 			return false;
 		}
 	}
-	
+
 	public Ontzia ontziaEzkutua(int i, int j) {
-		return nireTaula.getTaula()[i][j].ontzia();
+		if(nireTaula.getTaula()[i][j].ontzia()!=null){
+			return nireTaula.getTaula()[i][j].ontzia();
+		}
+		else{
+			return null;
+		}
 	}
-	
+
 
 	public Ontzia ontziaBilatu(String o) {
 		Ontzia ontzi=null;
@@ -113,31 +124,31 @@ public class Jokalari {
 		}
 		return ontzi;
 	}
-	
+
 	public ArrayList<Ontzia> getOntziak(){
 		return this.ontziak;
 	}
 
 	public void tiroEgin(){
-		
+
 	}
 
 	public void tiroEgin(int i, int j, String arma) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 	public void kontrakoarenTaulaAbiarazi(Taula t){
 		this.ordenagaliruarenTaula=t;
 	}
 
 	public Taula kontrakoarenTaula() {
-		
+
 		return ordenagaliruarenTaula;
 	}
 
 	public void eguneratuTaula(Taula nireNewTaula) {
-		
+
 		this.nireTaula=nireNewTaula;
 	}
 
@@ -152,7 +163,7 @@ public class Jokalari {
 			return this.getMisilZKop();
 		}
 	}
-	
+
 	public boolean armaErabili(String arma) {
 		if(arma.equals("bonba")){
 			if (armak.get(0).kopurua>0){
@@ -170,7 +181,25 @@ public class Jokalari {
 			}
 		}
 		return false;
-		
+
 	}
-	
+
+	public boolean irabazi() {
+		boolean emaitza=false;
+		for(int i=0;i<ordenagaliruarenTaula.tamaina();i++){
+			for(int j=0;j<ordenagaliruarenTaula.tamaina();j++){
+				if(ordenagaliruarenTaula.getTaula()[i][j].ontzia()!=null){
+					if(ordenagaliruarenTaula.getTaula()[i][j].ontzia().hondoratua()){
+						emaitza=true;
+					}
+					else{
+						emaitza=false;
+						break;
+					}
+				}
+			}
+		}
+		return emaitza;
+	}
+
 }

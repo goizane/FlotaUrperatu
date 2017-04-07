@@ -89,7 +89,14 @@ public class Ordenagailua extends Jokalari {
 
 
 	public void ezkutuakJarri() {
-		// TODO Auto-generated method stub
+		int i= (int) (Math.random()*9);
+		int j= (int) (Math.random()*9);
+		while(ezkutua.getKantitatea()>0){
+			if(!this.ontziaEzkutatu(i, j)){
+				i= (int) (Math.random()*9);
+				j= (int) (Math.random()*9);
+			}
+		}
 
 	}
 

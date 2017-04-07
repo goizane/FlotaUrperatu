@@ -72,8 +72,6 @@ public class Pertsona extends Jokalari {
 				}
 			}
 		}
-
-
 		else if (this.armaErabili(arma)){
 			if(arma.equals("bonba")){
 				((Bonba)armak.get(0)).minEgin(ordenagaliruarenTaula.getTaula()[i][j]);

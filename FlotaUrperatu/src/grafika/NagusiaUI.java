@@ -226,6 +226,10 @@ public class NagusiaUI extends JFrame{
 								botoia.setEnabled(false);
 								botoia.setBackground(Color.RED);
 							}
+							else if(egoera.equals("logika.Ezkutatua")){
+								String eKop=Partida.getInstantzia().ezkutuKontadore(Integer.parseInt(emaitza[0]),Integer.parseInt(emaitza[1]),0);
+								botoia.setText(eKop);
+							}
 							else{
 								for(int n=0;n<ordenagailuarenTaula.length;n++){
 									for(int m=0;m<ordenagailuarenTaula.length;m++){
@@ -234,10 +238,6 @@ public class NagusiaUI extends JFrame{
 											ordenagailuarenTaula[n][m].setEnabled(false);
 											ordenagailuarenTaula[n][m].setBackground(Color.black);
 										}
-										else if(egoera.equals("logika.Ezkutatua")){
-											String eKop=Partida.getInstantzia().ezkutuKontadore(n,m,0);
-											ordenagailuarenTaula[n][m].setText(eKop);
-										}
 									}
 								}
 							}
@@ -245,11 +245,11 @@ public class NagusiaUI extends JFrame{
 						else{
 							JOptionPane.showMessageDialog(null, "Ez daukazu "+arma+"rik!");
 						}
-						/*
+						
 						if(Partida.getInstantzia().irabazi(1)){
 							bukatu();
 						}
-						*/
+						
 						bonba.setText("Bonba : " + Integer.toString(KudeatzaileArmak.getInstantzia().bonbaKop())+" dituzu" );
 						misil.setText("Misil : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilKop()) +" dituzu");
 						misilZ.setText("Misil zuzendua : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilZKop()) +" dituzu");
@@ -278,7 +278,7 @@ public class NagusiaUI extends JFrame{
 					ontziak[n][m].setEnabled(false);
 					ontziak[n][m].setBackground(Color.black);
 				}
-				else if(egoera.equals("logika.Ezkutatua")){
+				else if(egoera.equals("logika.Ezkutatua")&&Partida.getInstantzia().ukituta(n,m)){
 					String eKop=Partida.getInstantzia().ezkutuKontadore(n,m,0);
 					ontziak[n][m].setText(eKop);
 				}
@@ -287,12 +287,13 @@ public class NagusiaUI extends JFrame{
 				}
 			}
 		}
-		/*
+		
 		if(Partida.getInstantzia().irabazi(1)){
 			this.dispose();
-			new BukatuGalduUI();
+			System.out.println("Galdu duzu!");
+			//new BukatuGalduUI();
 		}
-		*/
+		
 	}
 
 	private void nireTaulaBete() {
@@ -319,6 +320,7 @@ public class NagusiaUI extends JFrame{
 					JButton botoia= new JButton();
 					ontziak[row][col]= botoia;
 					botoia.setSize(new Dimension(5, 10));
+					botoia.setBackground(Color.lightGray);
 					botoia.addActionListener(new ActionListener() {
 
 						@Override
@@ -378,7 +380,8 @@ public class NagusiaUI extends JFrame{
 	
 	public void bukatu(){
 		this.dispose();
-		new BukatuIrabaziUI();
+		System.out.println("Irabazi duzu!");
+		//new BukatuIrabaziUI();
 	}
 
 }
