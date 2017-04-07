@@ -1,14 +1,16 @@
 package logika;
 
-import org.omg.CORBA.OMGVMCID;
+
 
 public class Laukia {
 
 	private Ontzia ontzi;
 	private boolean ura;
+	private boolean ukitua;
 	
 	public Laukia(){
-		this.ontzi=null;
+		this.ontzi=null; 
+		this.ukitua=false;
 	}
 
 	public void uraDa() {
@@ -71,7 +73,12 @@ public class Laukia {
 		
 	}
 
+	public boolean ukitutaDago(){
+		return ukitua;
+	}
 
-
+	public void ukitu(){
+		this.ukitua=true;
+	}
 	
 }

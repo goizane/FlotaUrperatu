@@ -10,14 +10,8 @@ public class Ukitua extends Egoera{
 		this.luzeera=pluzeera;
 	}
 	
-	public int minEgin(String arma){
-		if(arma.equals("bonba")){
-			kont++;
-		}
-		else if(arma.equals("misil")){
-			kont=luzeera;
-		}
-		System.out.println(kont);
+	public int minEgin(){
+		kont++;
 		return kont;
 	}
 }

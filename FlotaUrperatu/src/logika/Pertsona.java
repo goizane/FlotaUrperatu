@@ -57,20 +57,35 @@ public class Pertsona extends Jokalari {
 
 	}
 
-	public void tiroEgin(int i, int j, String arma) {
-		if(ordenagaliruarenTaula.getTaula()[i][j].ontzia()!=null){
-			ordenagaliruarenTaula.getTaula()[i][j].ontzia().minEgin(arma);
+	public void tiroEgin(int i, int j, String arma, String berezia) {
+		if(arma.equals("misilZ")){
+			if(((MisilZuzendu)armak.get(2)).bereziaErabili(berezia)){
+				if(berezia.equals("horizontal")){
+					((MisilZuzendu)armak.get(2)).minEginHorizontal(ordenagaliruarenTaula,i);
+				}
+				else if(berezia.equals("bertikal")){
+					((MisilZuzendu)armak.get(2)).minEginBertikal(ordenagaliruarenTaula,j);
+				}
+				else if(berezia.equals("boom")){
+					((MisilZuzendu)armak.get(2)).minEginHorizontal(ordenagaliruarenTaula,i);
+					((MisilZuzendu)armak.get(2)).minEginBertikal(ordenagaliruarenTaula,j);
+				}
+			}
 		}
-		this.armaErabili(arma);
+
+
+		else if (this.armaErabili(arma)){
+			if(arma.equals("bonba")){
+				((Bonba)armak.get(0)).minEgin(ordenagaliruarenTaula.getTaula()[i][j]);
+			}
+			else if(arma.equals("misil")){
+				((Misil)armak.get(1)).minEgin(ordenagaliruarenTaula.getTaula()[i][j]);
+			}
+		}
+
 	}
 
-	private void armaErabili(String arma) {
-		System.out.println(arma);
-		if(arma.equals("bonba")){
-			armak.get(0).kopurua=armak.get(0).kopurua-1;
-		}
-		
-	}
+
 
 
 }

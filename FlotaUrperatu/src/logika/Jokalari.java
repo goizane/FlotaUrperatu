@@ -34,9 +34,9 @@ public class Jokalari {
 	}
 
 	public void armakHasieratu() {
-		armak.add(new Arma(5,60,"Bonba"));
-		armak.add(new Arma(10,3,"Misil"));
-		armak.add(new Arma(20,1,"MisilZuzendu"));
+		armak.add(new Bonba(120));
+		armak.add(new Misil(3));
+		armak.add(new MisilZuzendu(1));
 		//ezkutu eta radar falta dira
 		ezkutua= new Ezkutua(3);
 		radarra= new Radar(3);
@@ -69,7 +69,7 @@ public class Jokalari {
 
 	public int getMisilZKop() {
 		Arma a= armak.get(2);
-		return a.getKantitatea();
+		return ((MisilZuzendu)a).getKantitatea();
 	}
 
 	public void berbiarazi(){
@@ -139,6 +139,38 @@ public class Jokalari {
 	public void eguneratuTaula(Taula nireNewTaula) {
 		
 		this.nireTaula=nireNewTaula;
+	}
+
+	public int armaKopurua(String arma) {
+		if(arma.equals("bonba")){
+			return this.getBonbaKop();
+		}
+		else if(arma.equals("misil")){
+			return this.getMisilKop();
+		}
+		else{
+			return this.getMisilZKop();
+		}
+	}
+	
+	public boolean armaErabili(String arma) {
+		if(arma.equals("bonba")){
+			if (armak.get(0).kopurua>0){
+				armak.get(0).kopurua=armak.get(0).kopurua-1;
+				return true;
+			}else{
+				return false;
+			}
+		} else if(arma.equals("misil")){
+			if (armak.get(1).kopurua>0){
+				armak.get(1).kopurua=armak.get(1).kopurua-1;
+				return true;
+			}else{
+				return false;
+			}
+		}
+		return false;
+		
 	}
 	
 }

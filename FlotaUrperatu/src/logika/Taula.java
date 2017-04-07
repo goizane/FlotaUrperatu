@@ -199,12 +199,20 @@ public class Taula {
 
 
 	public boolean hondoratua(int n, int m) {
-		if(taula[n][m].ontzia().getEgora().equals("logika.Hondoratua")){
+		System.out.print("n: "+n+" m: "+m);	
+		Ontzia on =taula[n][m].ontzia();
+		System.out.print(" ontzia: "+on);	
+		String eg = on.getEgora();
+		System.out.print(" egoera: "+eg);	
+		if(eg.equals("logika.Hondoratua")){
+			System.out.println(" ok true");
 			return true;
 		}
 		else{
+			System.out.println(" ok false");
 			return false;
 		}
+		
 	}
 
 }

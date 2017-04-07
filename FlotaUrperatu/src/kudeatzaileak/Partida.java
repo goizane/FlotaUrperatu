@@ -48,6 +48,7 @@ public class Partida {
 	
 	public void OrdenagailuarenOntziak(){
 		((Ordenagailua)jokalariak.get(1)).ontziakKokatu();	
+		((Ordenagailua)jokalariak.get(1)).ezkutuakJarri();	
 	}
 	
 
@@ -69,34 +70,26 @@ public class Partida {
 		
 	}
 	
-	public boolean ontzirikDago(int i,int j){
-		
-		Taula table= this.jokalariarenTaula();
-		return table.ontziaDa(i,j);
-		
-	}
-
-
 	public void ontziakRandom() {
 		((Pertsona) jokalariak.get(0)).ontziakRandom();
 		
 	}
 
 
-	public void tiroEgin(int i, int j, String arma) {
+	public void tiroEgin(int i, int j, String arma,String berezia) {
 		jokalariak.get(0).kontrakoarenTaulaAbiarazi(jokalariak.get(1).nireTaula());
-		((Pertsona)jokalariak.get(0)).tiroEgin(i,j,arma);
+		((Pertsona)jokalariak.get(0)).tiroEgin(i,j,arma,berezia);
 		jokalariak.get(1).eguneratuTaula(jokalariak.get(0).kontrakoarenTaula());
 	}
 
 
-	public boolean hondoratua(int n, int m) {
-		if(jokalariak.get(0).nireTaula().hondoratua(n,m)){
-			return true;
-		}
-		else{
-			return false;
-		}
+
+
+	public boolean ontzirikDago(int i,int j){
+		
+		Taula table= this.jokalariarenTaula();
+		return table.ontziaDa(i,j);
+		
 	}
 
 
@@ -118,6 +111,23 @@ public class Partida {
 		((Ordenagailua)jokalariak.get(1)).tiroEgin();
 		jokalariak.get(0).eguneratuTaula(jokalariak.get(1).kontrakoarenTaula());
 		
+	}
+
+
+	public boolean ukituta(int n, int m) {
+		return jokalariak.get(1).kontrakoarenTaula().getTaula()[n][m].ukitutaDago();
+	}
+
+
+	public int armaKopuru(String arma) {
+		
+		return jokalariak.get(0).armaKopurua(arma);
+	}
+
+
+	public boolean irabazi(int i) {
+	//ver si el jugador ha ganado, todos los barcos hondoratuak
+		return false;
 	}
 	
 }

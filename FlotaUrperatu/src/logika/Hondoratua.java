@@ -3,9 +3,9 @@ package logika;
 public class Hondoratua extends Egoera{
 	
 	public Hondoratua(){
-		System.out.println("Hondoratua nago");
+		//System.out.println("Hondoratua nago");
 	}
-	public int minEgin(String arma){
+	public int minEgin(){
 		return 0;
 	}
 }

@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 
 public class Ordenagailua extends Jokalari {
-	
+
 	public void ontziakKokatu(){
 		Iterator<Ontzia> it= ontziak.iterator();
 		while(it.hasNext()){
@@ -32,15 +32,65 @@ public class Ordenagailua extends Jokalari {
 			}
 		}
 	}
-	
+
+
+
 	public void tiroEgin() {
 		int i= (int) (Math.random()*9);
 		int j= (int) (Math.random()*9);
 		String [] armaMota= {"bonba","misil","misilZ"};
 		String arma= armaMota [(int) (Math.random()*3)];
-		if(ordenagaliruarenTaula.getTaula()[2][2].ontzia()!=null){
-			ordenagaliruarenTaula.getTaula()[2][2].ontzia().minEgin(arma);
+		String [] bereziMota= {"bertikal","horizontal","boom"};
+		String berezi= bereziMota [(int) (Math.random()*3)];
+		boolean minEgin=false;
+		while(!minEgin){
+			if(!ordenagaliruarenTaula.getTaula()[i][j].ukitutaDago()){
+				if(arma.equals("misilZ")){
+					if(this.getMisilKop()>0){
+						if(((MisilZuzendu)armak.get(2)).bereziaErabili(berezi)){
+							if(berezi.equals("horizontal")){
+								((MisilZuzendu)armak.get(2)).minEginHorizontal(ordenagaliruarenTaula,i);
+							}
+							else if(berezi.equals("bertikal")){
+								((MisilZuzendu)armak.get(2)).minEginBertikal(ordenagaliruarenTaula,j);
+							}
+							else if(berezi.equals("boom")){
+								((MisilZuzendu)armak.get(2)).minEginHorizontal(ordenagaliruarenTaula,i);
+								((MisilZuzendu)armak.get(2)).minEginBertikal(ordenagaliruarenTaula,j);
+							}
+						}
+						minEgin=true;
+						ordenagaliruarenTaula.getTaula()[i][j].ukitu();
+					}
+					else{
+						arma= armaMota [(int) (Math.random()*3)];
+					}
+				}
+				else if (this.armaErabili(arma)){
+					if(arma.equals("bonba")){
+						((Bonba)armak.get(0)).minEgin(ordenagaliruarenTaula.getTaula()[i][j]);
+					}
+					else if(arma.equals("misil")){
+						((Misil)armak.get(1)).minEgin(ordenagaliruarenTaula.getTaula()[i][j]);
+					}
+					minEgin=true;
+					ordenagaliruarenTaula.getTaula()[i][j].ukitu();
+				}
+				else{
+					arma= armaMota [(int) (Math.random()*3)];
+				}
+			}
+			else{
+				i=(int) (Math.random()*9);
+				j=(int) (Math.random()*9);
+			}
 		}
 	}
-	
+
+
+	public void ezkutuakJarri() {
+		// TODO Auto-generated method stub
+
+	}
+
 }

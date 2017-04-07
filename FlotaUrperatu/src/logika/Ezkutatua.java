@@ -8,13 +8,8 @@ public class Ezkutatua extends Egoera{
 		this.kont=2;
 	}
 	
-	public int minEgin(String arma){
-		if(arma.equals("bonba")){
-			kont--;
-		}
-		else if(arma.equals("misil")){
-			kont=kont-2;
-		}
+	public int minEgin(){
+		kont--;
 		return kont;
 	}
 	
