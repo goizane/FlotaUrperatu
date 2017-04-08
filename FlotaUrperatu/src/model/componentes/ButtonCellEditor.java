@@ -50,7 +50,7 @@ public class ButtonCellEditor extends AbstractCellEditor implements TableCellEdi
 					if (Partida.getInstantzia().JokalariarenOntziak(xAr, yAr, ontziIzena, n)){
 						model.setValueAt(true, row, 5);
 						model.fireTableDataChanged();
-						Partida.getInstantzia().getPertsona().nireTaula().inprimatu();
+						Partida.getInstantzia().getJokalari(0).nireTaula().inprimatu();
 						System.out.println("----------------------------------------------------------------------------");
 						this.setEnabled(false);
 					}

@@ -33,7 +33,7 @@ public class NagusiaUI extends JFrame{
 	private JPanel armak= new JPanel();
 	private JButton[][] ontziak= new JButton[10][10];
 	private JButton[][] ordenagailuarenTaula= new JButton[10][10];
-	private JLabel ezkutua= new JLabel("Ezkutu kopurua: "+ KudeatzaileArmak.getInstantzia().ezkutuKop());
+	private JLabel ezkutua= new JLabel("Ezkutu kopurua: "+ KudeatzaileArmak.getInstantzia().ezkutuKop(0));
 	private ButtonGroup armaBotoiak = new ButtonGroup();
 	private JRadioButton bonba;
 	private JRadioButton misil;
@@ -64,7 +64,7 @@ public class NagusiaUI extends JFrame{
 	private void botoiakHasieratu() {
 		botoiak.setLayout(null);
 
-		JLabel dirua= new JLabel("Dirua: "+ Integer.toString(KudeatzaileArmak.getInstantzia().getDirua())+ "$");
+		JLabel dirua= new JLabel("Dirua: "+ Integer.toString(KudeatzaileArmak.getInstantzia().getDirua(0))+ "$");
 		Font font = dirua.getFont();
 		// same font but bold
 		Font boldFont = new Font(font.getFontName(), Font.BOLD, 20);
@@ -122,13 +122,13 @@ public class NagusiaUI extends JFrame{
 		// same font but bold
 		Font boldFont = new Font(font.getFontName(), Font.BOLD, 20);
 		tituloa.setFont(boldFont);
-		bonba= new JRadioButton("Bonba : " + Integer.toString(KudeatzaileArmak.getInstantzia().bonbaKop())+" dituzu" );
+		bonba= new JRadioButton("Bonba : " + Integer.toString(KudeatzaileArmak.getInstantzia().bonbaKop(0))+" dituzu" );
 		Font font2 = bonba.getFont();
 		Font bonbaF = new Font(font2.getFontName(), font2.getStyle(), 15);
 		bonba.setFont(bonbaF);
-		misil= new JRadioButton("Misil : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilKop()) +" dituzu");
+		misil= new JRadioButton("Misil : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilKop(0)) +" dituzu");
 		misil.setFont(bonbaF);
-		misilZ= new JRadioButton("Misil zuzendua : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilZKop()) +" dituzu");
+		misilZ= new JRadioButton("Misil zuzendua : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilZKop(0)) +" dituzu");
 		misilZ.setFont(bonbaF);
 
 		//botoiak talde batean sartu eta horrela bakarrik bat aukera daiteke
@@ -141,38 +141,38 @@ public class NagusiaUI extends JFrame{
 
 		//defektuz bonbak selekzionatu
 		bonba.setSelected(true);
-		
+
 		//misil zuzendua jartzen badugu,combobox agertu
 		String [] bereziak= {"bertikal" , "horizontal", "boom"};
 		JComboBox<String> motak= new JComboBox<>(bereziak);
 		motak.setVisible(false);
 		bonba.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				motak.setVisible(false);
-				
+
 			}
 		});
 		misil.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				motak.setVisible(false);
-				
+
 			}
 		});
-		
+
 		misilZ.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				motak.setVisible(true);
-				
+
 			}
 		});
 
 
-		JLabel ezkutua= new JLabel("Ezkutu kopurua: "+ KudeatzaileArmak.getInstantzia().ezkutuKop());
+		JLabel ezkutua= new JLabel("Ezkutu kopurua: "+ KudeatzaileArmak.getInstantzia().ezkutuKop(0));
 		ezkutua.setFont(bonbaF);
 
 		armak.add(tituloa);
@@ -237,22 +237,23 @@ public class NagusiaUI extends JFrame{
 										if(egoera.equals("logika.Hondoratua")){
 											ordenagailuarenTaula[n][m].setEnabled(false);
 											ordenagailuarenTaula[n][m].setBackground(Color.black);
+											ordenagailuarenTaula[n][m].setText(" ");
 										}
 									}
 								}
 							}
 						}
 						else{
-							JOptionPane.showMessageDialog(null, "Ez daukazu "+arma+"rik!");
+							JOptionPane.showMessageDialog(null, "Ez daukazu "+arma+"(r)ik!");
 						}
-						
+						/*
 						if(Partida.getInstantzia().irabazi(1)){
 							bukatu();
 						}
-						
-						bonba.setText("Bonba : " + Integer.toString(KudeatzaileArmak.getInstantzia().bonbaKop())+" dituzu" );
-						misil.setText("Misil : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilKop()) +" dituzu");
-						misilZ.setText("Misil zuzendua : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilZKop()) +" dituzu");
+						 */
+						bonba.setText("Bonba : " + Integer.toString(KudeatzaileArmak.getInstantzia().bonbaKop(0))+" dituzu" );
+						misil.setText("Misil : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilKop(0)) +" dituzu");
+						misilZ.setText("Misil zuzendua : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilZKop(0)) +" dituzu");
 						ordenagailuarenTxanda();
 					}
 				});
@@ -266,34 +267,40 @@ public class NagusiaUI extends JFrame{
 
 
 	public void ordenagailuarenTxanda() {
-		Partida.getInstantzia().tiroEginOrdenagailua();
-		String  egoera;
+		int[] emaitza=Partida.getInstantzia().tiroEginOrdenagailua();
+		int i = emaitza[0];
+		int j= emaitza[1];
+		String  egoera= null;
 		for(int n=0;n<ontziak.length;n++){
 			for(int m=0;m<ontziak.length;m++){
 				egoera= Partida.getInstantzia().getEgoera(n,m,1);
-				if(egoera.equals("logika.Ukitua")&&Partida.getInstantzia().ukituta(n,m)){
-					ontziak[n][m].setBackground(Color.RED);
-				}
-				else if(egoera.equals("logika.Hondoratua")){
+				if(egoera.equals("logika.Hondoratua")){
 					ontziak[n][m].setEnabled(false);
 					ontziak[n][m].setBackground(Color.black);
+					ontziak[n][m].setText(" ");
 				}
-				else if(egoera.equals("logika.Ezkutatua")&&Partida.getInstantzia().ukituta(n,m)){
-					String eKop=Partida.getInstantzia().ezkutuKontadore(n,m,0);
-					ontziak[n][m].setText(eKop);
-				}
-				else if(egoera.equals("Ura")&&Partida.getInstantzia().ukituta(n,m)){
-					ontziak[n][m].setBackground(Color.cyan);
+				else if(Partida.getInstantzia().ukituta(n,m)){
+					if(egoera.equals("logika.Ukitua")){
+						ontziak[n][m].setBackground(Color.RED);
+					}
+					else if(egoera.equals("logika.Ezkutatua")){
+						String eKop=Partida.getInstantzia().ezkutuKontadore(n,m,0);
+						ontziak[n][m].setText(eKop);
+					}
+					else if(egoera.equals("Ura")){
+						ontziak[n][m].setBackground(Color.cyan);
+					}
 				}
 			}
 		}
-		
+		/*
 		if(Partida.getInstantzia().irabazi(1)){
 			this.dispose();
 			System.out.println("Galdu duzu!");
 			//new BukatuGalduUI();
 		}
-		
+		 */
+
 	}
 
 	private void nireTaulaBete() {
@@ -328,9 +335,17 @@ public class NagusiaUI extends JFrame{
 							if(!KudeatzaileOntziak.getInstantzia().ontziaUkitua(row, col)){
 								if (JOptionPane.showConfirmDialog(rootPane, "Ezkutua jarri nahi duzu?",
 										"Ezkutua jarri", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
-									if(KudeatzaileArmak.getInstantzia().ezkutuaJarri(row, col)){
-										botoiakUkitu(row,col);
-										ezkutua.setText("Ezkutu kopurua: "+ Integer.toString(KudeatzaileArmak.getInstantzia().ezkutuKop()));
+									String egoera;
+									if(KudeatzaileArmak.getInstantzia().ezkutuaJarri(row, col,0)){
+										for(int i=0;i<ontziak.length;i++){
+											for(int j=0;j<ontziak.length;j++){
+												egoera=Partida.getInstantzia().getNireEgoera(i, j, 0);
+												if(egoera.equals("logika.Ezkutatua")){
+													ontziak[i][j].setText("E");
+												}
+											}
+										}
+										ezkutua.setText("Ezkutu kopurua: "+ Integer.toString(KudeatzaileArmak.getInstantzia().ezkutuKop(0)));
 									}
 									else{
 										JOptionPane.showMessageDialog(null, "Ezin da ezkutua jarri!");
@@ -354,30 +369,13 @@ public class NagusiaUI extends JFrame{
 		}
 	}
 
-	private void botoiakUkitu(int i,int j){
-		if(!ontziak[i][j].getText().equals("E")){
-			ontziak[i][j].setText("E");
-			
-			if(j<10&&j>=0&&i-1<10&&i-1>=0&&ontziak[i-1][j]!=null){
-				botoiakUkitu(i-1, j);
-			}
-			if(j+1<10&&j+1>=0&&i<10&&i>=0&&ontziak[i][j+1]!=null){
-				botoiakUkitu(i, j+1);
-			}
-			if(j<10&&j>=0&&i+1<10&&i+1>=0&&ontziak[i+1][j]!=null){
-				botoiakUkitu(i+1, j);
-			}
-			if(j-1<10&&j-1>=0&&i<10&&i>=0&&ontziak[i][j-1]!=null){
-				botoiakUkitu(i, j-1);
-			}
-		}
-	}
+
 
 	public static void main(String[] args) {
 		//Kudeatzaile.getInstantzia().ordenagailuaHasieratu();
 		new NagusiaUI();
 	}
-	
+
 	public void bukatu(){
 		this.dispose();
 		System.out.println("Irabazi duzu!");

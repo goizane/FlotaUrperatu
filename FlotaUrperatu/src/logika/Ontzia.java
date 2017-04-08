@@ -116,18 +116,33 @@ public class Ontzia {
 			}
 		}
 		else if(this.getEgora().equals("logika.Ezkutatua")){
-			if(((Ezkutatua)this.egoera).minEgin()==0){
+			((Ezkutatua)this.egoera).minEgin();
+			if(((Ezkutatua)this.egoera).getKontadorea()==0){
 				this.egoeraAldatu(new Normala());
 			}
-			else if(((Ezkutatua)this.egoera).minEgin()<0){
-				this.egoeraAldatu(new Ukitua(luzeera));
+			else if(((Ezkutatua)this.egoera).getKontadorea()<0){
+				if(this.luzeera>1){
+					this.egoeraAldatu(new Ukitua(luzeera));
+				}else{
+					this.egoeraAldatu(new Hondoratua());
+				}
 			}
 		}
 		
 	}
 	
 	public void hondoratu(){
-		this.egoeraAldatu(new Hondoratua());
+		if(this.getEgora().equals("logika.Ezkutatua")){
+			if(((Ezkutatua)this.egoera).getKontadorea()>1){
+				((Ezkutatua)this.egoera).minEgin();
+				((Ezkutatua)this.egoera).minEgin();
+			}
+			else{
+				this.egoeraAldatu(new Hondoratua());
+			}
+		}else{
+			this.egoeraAldatu(new Hondoratua());
+		}
 	}
 
 

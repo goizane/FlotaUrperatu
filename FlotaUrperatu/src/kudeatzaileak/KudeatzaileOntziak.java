@@ -19,7 +19,7 @@ public class KudeatzaileOntziak {
 	}
 	
 	public boolean ontziaUkitua(int i,int j){
-		return Partida.getInstantzia().getPertsona().nireTaula().getTaula()[i][j].ontzia().getUkitua();
+		return Partida.getInstantzia().getJokalari(0).nireTaula().getTaula()[i][j].ontzia().getUkitua();
 	}
 
 }

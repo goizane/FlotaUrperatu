@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import logika.Pertsona;
 import logika.Jokalari;
+import logika.Laukia;
 import logika.Ontzia;
 import logika.Ordenagailua;
 import logika.Taula;
@@ -29,14 +30,6 @@ public class Partida {
 						
 	}
 	
-	public Pertsona getPertsona() {
-		// TODO Auto-generated method stub
-		return (Pertsona) jokalariak.get(0);
-	}
-	
-	public Ordenagailua getOrdenagailua(){
-		return (Ordenagailua) jokalariak.get(1);
-	}
 	
 	
 	public boolean JokalariarenOntziak(int i,int j,String o,char pos){
@@ -97,20 +90,29 @@ public class Partida {
 		return jokalariak.get(index).kontrakoarenTaula().getTaula()[n][m].getEgoera();
 	}
 
+	public String getNireEgoera(int n, int m,int index) {
+		return jokalariak.get(index).nireTaula().getTaula()[n][m].getEgoera();
+	}
 
 	public String ezkutuKontadore(int i,int j,int index) {
-		return Integer.toString(jokalariak.get(index).kontrakoarenTaula().getTaula()[i][j].ontzia().getEzkutuKontadore());
+		 Jokalari jok = jokalariak.get(index);
+		 Taula t = jok.kontrakoarenTaula();
+		 Laukia lau = t.getTaula()[i][j];
+		 Ontzia on = lau.ontzia();
+		 System.out.println(on);
+		 return Integer.toString(on.getEzkutuKontadore());
+		//return Integer.toString(jokalariak.get(index).kontrakoarenTaula().getTaula()[i][j].ontzia().getEzkutuKontadore());
 	}
 
 
 	
 
 
-	public void tiroEginOrdenagailua() {
+	public int[] tiroEginOrdenagailua() {
 		jokalariak.get(1).kontrakoarenTaulaAbiarazi(jokalariak.get(0).nireTaula());
-		((Ordenagailua)jokalariak.get(1)).tiroEgin();
+		int[] emaitza=((Ordenagailua)jokalariak.get(1)).tiroEgin();
 		jokalariak.get(0).eguneratuTaula(jokalariak.get(1).kontrakoarenTaula());
-		
+		return emaitza;
 	}
 
 
@@ -128,6 +130,17 @@ public class Partida {
 	public boolean irabazi(int i) {
 	//ver si el jugador ha ganado, todos los barcos hondoratuak
 		return jokalariak.get(i).irabazi();
+	}
+
+
+	public Jokalari getJokalari(int index) {
+		if(index==0){
+			return ((Jokalari)jokalariak.get(index));
+		}
+		else{
+			return ((Ordenagailua)jokalariak.get(index));
+		}
+		
 	}
 	
 }

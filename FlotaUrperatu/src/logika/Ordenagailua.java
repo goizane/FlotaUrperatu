@@ -35,7 +35,7 @@ public class Ordenagailua extends Jokalari {
 
 
 
-	public void tiroEgin() {
+	public int[] tiroEgin() {
 		int i= (int) (Math.random()*9);
 		int j= (int) (Math.random()*9);
 		String [] armaMota= {"bonba","misil","misilZ"};
@@ -85,6 +85,8 @@ public class Ordenagailua extends Jokalari {
 				j=(int) (Math.random()*9);
 			}
 		}
+		int[] emaitza= {i,j};
+		return emaitza;
 	}
 
 

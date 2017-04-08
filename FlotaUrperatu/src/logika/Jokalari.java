@@ -88,8 +88,8 @@ public class Jokalari {
 	public boolean ontziaEzkutatu(int i, int j){
 		Ontzia o= ontziaEzkutua(i,j);
 		if(o!=null){
-			if(!o.getEgora().equals("Ezkutatua")&& ezkutua.getKantitatea()>0 ){
-				o.egoeraAldatu(new Ezkutatua());;
+			if(!o.getEgora().equals("logika.Ezkutatua")&& ezkutua.getKantitatea()>0 ){
+				o.egoeraAldatu(new Ezkutatua());
 				ezkutua.ezkutuaErabili();
 				return true;
 			}
@@ -129,9 +129,6 @@ public class Jokalari {
 		return this.ontziak;
 	}
 
-	public void tiroEgin(){
-
-	}
 
 	public void tiroEgin(int i, int j, String arma) {
 		// TODO Auto-generated method stub
@@ -201,5 +198,58 @@ public class Jokalari {
 		}
 		return emaitza;
 	}
+
+	public int[] radarPos() {
+		// TODO Auto-generated method stub
+		return radarra.posizioa();
+	}
+
+	public void radarPosAldatu(int row, int col) {
+		radarra.posAldatu(row,col);
+
+	}
+
+	public void radarraErabili() {
+		radarra.erabili();
+
+	}
+
+	public boolean ontziaDago() {
+		int [] emaitza= radarra.posizioa();
+		if(nireTaula.ontziaDa(emaitza[0], emaitza[1])){
+			return true;
+		}
+		return false;
+	}
+
+	public String[] ontziarenPos() {
+		String[] emaitza=new String[3];
+		int[] pos= radarra.posizioa();
+		int i=pos[0];
+		int j=pos[1];
+		boolean aurkitu=false;
+		while(!aurkitu){
+			if(nireTaula.ontziaDa(i, j)){
+				aurkitu=true;
+			}
+			
+			
+			else{
+				aurkitu=true;
+			}
+
+		}
+		if(!aurkitu){
+			emaitza[0]="false";
+		}
+		else if(aurkitu){
+			emaitza[0]="true";
+			emaitza[1]=Integer.toString(i+1);
+			emaitza[2]=Integer.toString(j+1);
+		}
+
+		return emaitza;
+	}
+
 
 }

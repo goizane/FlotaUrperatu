@@ -25,9 +25,9 @@ public class OntziakAukeratuUI extends JFrame{
 	private JButton aldatu= new JButton("ALDATU");
 	private JButton random= new JButton("RANDOM");
 	private JPanel botoienPanela= new JPanel();
-	private static OntziakAukeratuUI aukeratu=new OntziakAukeratuUI();
+	private static OntziakAukeratuUI aukeratu;
 	private JPanel panela= new JPanel();
-	private JPanel taula= new JPanel();
+	private JPanel taula= new OntziakIkusiUI();
 	MyTable table=new MyTable();
 
 
@@ -84,9 +84,8 @@ public class OntziakAukeratuUI extends JFrame{
 
 		panela.setLayout(new GridLayout(0, 2));
 		panela.add(scrollPane);
-		taula.setLayout(new GridLayout(10, 10));
-		panelaBete();
-
+		panela.add(taula);
+		
 		getContentPane().add(panela);
 		getContentPane().add(botoienPanela);
 		//pack();
@@ -94,17 +93,7 @@ public class OntziakAukeratuUI extends JFrame{
 		setVisible(true);
 	}
 
-	private void panelaBete() {
-		for(int i=0;i<100;i++){
-			JButton botoia= new JButton();
-			botoia.setSize(new Dimension(5, 10));
-			botoia.setEnabled(false);
-			taula.add(botoia);
-
-		}
-		panela.add(taula);
-
-	}
+	
 	
 	public void ontziaJarri(int i,int j,int luzeera,char pos){
 		if(pos=='h'){
