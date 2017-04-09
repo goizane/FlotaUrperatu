@@ -14,7 +14,6 @@ import javax.swing.JPanel;
 
 public class BukatuIrabaziUI extends JFrame{
 	
-	private static BukatuIrabaziUI irabazi;
 
 	public BukatuIrabaziUI() {
 		super("Irabazi duzu!");
@@ -30,7 +29,7 @@ public class BukatuIrabaziUI extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				irabazi.dispose();
+				itzi();
 				
 			}
 		});
@@ -39,8 +38,8 @@ public class BukatuIrabaziUI extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				irabazi.dispose();
 				new OntziakAukeratuUI();
+				itzi();
 			}
 		});
 		
@@ -61,8 +60,8 @@ public class BukatuIrabaziUI extends JFrame{
 		setMinimumSize(new Dimension(400, 200));
 	}
 	
-	public static void main(String[] args) {
-		irabazi=new BukatuIrabaziUI();
-	}
 	
+	public void itzi(){
+		this.dispose();
+	}
 }

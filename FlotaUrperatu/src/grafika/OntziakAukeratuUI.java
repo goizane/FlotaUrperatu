@@ -25,7 +25,6 @@ public class OntziakAukeratuUI extends JFrame{
 	private JButton aldatu= new JButton("ALDATU");
 	private JButton random= new JButton("RANDOM");
 	private JPanel botoienPanela= new JPanel();
-	private static OntziakAukeratuUI aukeratu;
 	private JPanel panela= new JPanel();
 	private JPanel taula= new OntziakIkusiUI();
 	MyTable table=new MyTable();
@@ -44,10 +43,10 @@ public class OntziakAukeratuUI extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				aukeratu.dispose();
+				
 				Partida.getInstantzia().taulaBerbiarazi();
-				aukeratu=new OntziakAukeratuUI();
-
+				new OntziakAukeratuUI();
+				itxi();
 			}
 		});
 
@@ -57,9 +56,9 @@ public class OntziakAukeratuUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(table.betetaDago()){
-					aukeratu.dispose();
+					
 					new NagusiaUI();
-
+					itxi();
 				}
 
 			}
@@ -70,8 +69,9 @@ public class OntziakAukeratuUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Partida.getInstantzia().ontziakRandom();
-				aukeratu.dispose();
 				new NagusiaUI();
+				itxi();
+				
 				
 			}
 		});
@@ -108,7 +108,11 @@ public class OntziakAukeratuUI extends JFrame{
 
 
 	public static void main(String[] args) {
-		aukeratu=new OntziakAukeratuUI();
+		new OntziakAukeratuUI();
+	}
+	
+	public void itxi(){
+		this.dispose();
 	}
 	
 	public JPanel getTaula(){

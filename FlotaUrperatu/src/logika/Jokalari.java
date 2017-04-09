@@ -225,29 +225,26 @@ public class Jokalari {
 	public String[] ontziarenPos() {
 		String[] emaitza=new String[3];
 		int[] pos= radarra.posizioa();
-		int i=pos[0];
-		int j=pos[1];
-		boolean aurkitu=false;
-		while(!aurkitu){
-			if(nireTaula.ontziaDa(i, j)){
-				aurkitu=true;
+		int hasiera=pos[0];
+		int amaiera=pos[1];
+		for(int i=hasiera-1;i<hasiera+1;i++ ){
+			for(int j=amaiera-1;j<amaiera+1;j++){
+				if(i>=0&&i<10&&j>=0&&j<10){
+					if(ordenagaliruarenTaula.ontziaDa(i, j)){
+						emaitza[1]=Integer.toString(i+1);
+						emaitza[2]=Integer.toString(j+1);
+					}
+				}
 			}
-			
-			
-			else{
-				aurkitu=true;
-			}
-
 		}
-		if(!aurkitu){
+		
+		if(emaitza[1]!=null){
+			emaitza[0]="true";
+		}
+		else{
 			emaitza[0]="false";
 		}
-		else if(aurkitu){
-			emaitza[0]="true";
-			emaitza[1]=Integer.toString(i+1);
-			emaitza[2]=Integer.toString(j+1);
-		}
-
+		
 		return emaitza;
 	}
 

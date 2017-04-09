@@ -38,6 +38,7 @@ public class NagusiaUI extends JFrame{
 	private JRadioButton bonba;
 	private JRadioButton misil;
 	private JRadioButton misilZ;
+	private JComboBox<String> motak;
 
 
 	public NagusiaUI(){
@@ -79,8 +80,12 @@ public class NagusiaUI extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new RadarUI();
-
+				if(Integer.parseInt(KudeatzaileArmak.getInstantzia().radarKop(0))>0){	
+					new RadarUI();
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "Radar erabilerak agortu dituzu!");
+				}
 			}
 		});
 
@@ -144,7 +149,7 @@ public class NagusiaUI extends JFrame{
 
 		//misil zuzendua jartzen badugu,combobox agertu
 		String [] bereziak= {"bertikal" , "horizontal", "boom"};
-		JComboBox<String> motak= new JComboBox<>(bereziak);
+		motak= new JComboBox<>(bereziak);
 		motak.setVisible(false);
 		bonba.addActionListener(new ActionListener() {
 
@@ -212,49 +217,50 @@ public class NagusiaUI extends JFrame{
 						String i= e.getActionCommand();
 						String[] emaitza= i.split(",");
 						String arma= armaBotoiak.getSelection().getActionCommand();
-						//coger del combo box!!
-						String berezia=null;
+						String berezia=motak.getSelectedItem().toString();
 						if(Partida.getInstantzia().armaKopuru(arma)!=0){
 							Partida.getInstantzia().tiroEgin(Integer.parseInt(emaitza[0]),Integer.parseInt(emaitza[1]),arma,berezia);
 							String  egoera;
-							egoera= Partida.getInstantzia().getEgoera(Integer.parseInt(emaitza[0]),Integer.parseInt(emaitza[1]),0);
-							if(egoera.equals("Ura")){
-								botoia.setEnabled(false);
-								botoia.setBackground(Color.cyan);
-							}
-							else if(egoera.equals("logika.Ukitua")){
-								botoia.setEnabled(false);
-								botoia.setBackground(Color.RED);
-							}
-							else if(egoera.equals("logika.Ezkutatua")){
-								String eKop=Partida.getInstantzia().ezkutuKontadore(Integer.parseInt(emaitza[0]),Integer.parseInt(emaitza[1]),0);
-								botoia.setText(eKop);
-							}
-							else{
-								for(int n=0;n<ordenagailuarenTaula.length;n++){
-									for(int m=0;m<ordenagailuarenTaula.length;m++){
-										egoera= Partida.getInstantzia().getEgoera(n,m,0);
-										if(egoera.equals("logika.Hondoratua")){
+							for(int n=0;n<ordenagailuarenTaula.length;n++){
+								for(int m=0;m<ordenagailuarenTaula.length;m++){
+									egoera= Partida.getInstantzia().getEgoera(n,m,0);
+									if(egoera.equals("logika.Hondoratua")){
+										ordenagailuarenTaula[n][m].setEnabled(false);
+										ordenagailuarenTaula[n][m].setBackground(Color.black);
+										ordenagailuarenTaula[n][m].setText(" ");
+									}
+									else if(Partida.getInstantzia().ukituta(n,m,0)){
+										if(egoera.equals("logika.Ukitua")){
+											ordenagailuarenTaula[n][m].setBackground(Color.RED);
 											ordenagailuarenTaula[n][m].setEnabled(false);
-											ordenagailuarenTaula[n][m].setBackground(Color.black);
-											ordenagailuarenTaula[n][m].setText(" ");
+										}
+										else if(egoera.equals("logika.Ezkutatua")){
+											String eKop=Partida.getInstantzia().ezkutuKontadore(n,m,0);
+											ordenagailuarenTaula[n][m].setText(eKop);
+										}
+										else if(egoera.equals("Ura")){
+											ordenagailuarenTaula[n][m].setBackground(Color.cyan);
+											ordenagailuarenTaula[n][m].setEnabled(false);
 										}
 									}
 								}
 							}
+
+
+							ordenagailuarenTxanda();
 						}
 						else{
 							JOptionPane.showMessageDialog(null, "Ez daukazu "+arma+"(r)ik!");
 						}
 						/*
-						if(Partida.getInstantzia().irabazi(1)){
+						if(Partida.getInstantzia().irabazi(0)){
 							bukatu();
 						}
 						 */
 						bonba.setText("Bonba : " + Integer.toString(KudeatzaileArmak.getInstantzia().bonbaKop(0))+" dituzu" );
 						misil.setText("Misil : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilKop(0)) +" dituzu");
 						misilZ.setText("Misil zuzendua : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilZKop(0)) +" dituzu");
-						ordenagailuarenTxanda();
+
 					}
 				});
 				ordenagailua.add(botoia);
@@ -279,12 +285,12 @@ public class NagusiaUI extends JFrame{
 					ontziak[n][m].setBackground(Color.black);
 					ontziak[n][m].setText(" ");
 				}
-				else if(Partida.getInstantzia().ukituta(n,m)){
+				else if(Partida.getInstantzia().ukituta(n,m,1)){
 					if(egoera.equals("logika.Ukitua")){
 						ontziak[n][m].setBackground(Color.RED);
 					}
 					else if(egoera.equals("logika.Ezkutatua")){
-						String eKop=Partida.getInstantzia().ezkutuKontadore(n,m,0);
+						String eKop=Partida.getInstantzia().ezkutuKontadore(n,m,1);
 						ontziak[n][m].setText(eKop);
 					}
 					else if(egoera.equals("Ura")){
@@ -296,8 +302,7 @@ public class NagusiaUI extends JFrame{
 		/*
 		if(Partida.getInstantzia().irabazi(1)){
 			this.dispose();
-			System.out.println("Galdu duzu!");
-			//new BukatuGalduUI();
+			new BukatuGalduUI();
 		}
 		 */
 
@@ -378,8 +383,7 @@ public class NagusiaUI extends JFrame{
 
 	public void bukatu(){
 		this.dispose();
-		System.out.println("Irabazi duzu!");
-		//new BukatuIrabaziUI();
+		new BukatuIrabaziUI();
 	}
 
 }

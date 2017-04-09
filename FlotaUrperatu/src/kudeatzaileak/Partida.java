@@ -41,7 +41,7 @@ public class Partida {
 	
 	public void OrdenagailuarenOntziak(){
 		((Ordenagailua)jokalariak.get(1)).ontziakKokatu();	
-		((Ordenagailua)jokalariak.get(1)).ezkutuakJarri();	
+		//((Ordenagailua)jokalariak.get(1)).ezkutuakJarri();	
 	}
 	
 
@@ -116,8 +116,8 @@ public class Partida {
 	}
 
 
-	public boolean ukituta(int n, int m) {
-		return jokalariak.get(1).kontrakoarenTaula().getTaula()[n][m].ukitutaDago();
+	public boolean ukituta(int n, int m,int index) {
+		return jokalariak.get(index).kontrakoarenTaula().getTaula()[n][m].ukitutaDago();
 	}
 
 

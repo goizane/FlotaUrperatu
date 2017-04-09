@@ -58,29 +58,34 @@ public class Pertsona extends Jokalari {
 	}
 
 	public void tiroEgin(int i, int j, String arma, String berezia) {
-		if(arma.equals("misilZ")){
-			if(((MisilZuzendu)armak.get(2)).bereziaErabili(berezia)){
-				if(berezia.equals("horizontal")){
-					((MisilZuzendu)armak.get(2)).minEginHorizontal(ordenagaliruarenTaula,i);
+		if(!ordenagaliruarenTaula.getTaula()[i][j].ukitutaDago()){
+			if(arma.equals("misilZ")){
+				if(this.getMisilKop()>0){
+					if(((MisilZuzendu)armak.get(2)).bereziaErabili(berezia)){
+						if(berezia.equals("horizontal")){
+							((MisilZuzendu)armak.get(2)).minEginHorizontal(ordenagaliruarenTaula,j);
+						}
+						else if(berezia.equals("bertikal")){
+							((MisilZuzendu)armak.get(2)).minEginBertikal(ordenagaliruarenTaula,i);
+						}
+						else if(berezia.equals("boom")){
+							((MisilZuzendu)armak.get(2)).minEginHorizontal(ordenagaliruarenTaula,j);
+							((MisilZuzendu)armak.get(2)).minEginBertikal(ordenagaliruarenTaula,i);
+						}
+					}
+					ordenagaliruarenTaula.getTaula()[i][j].ukitu();
 				}
-				else if(berezia.equals("bertikal")){
-					((MisilZuzendu)armak.get(2)).minEginBertikal(ordenagaliruarenTaula,j);
+			}
+			else if (this.armaErabili(arma)){
+				if(arma.equals("bonba")){
+					((Bonba)armak.get(0)).minEgin(ordenagaliruarenTaula.getTaula()[i][j]);
 				}
-				else if(berezia.equals("boom")){
-					((MisilZuzendu)armak.get(2)).minEginHorizontal(ordenagaliruarenTaula,i);
-					((MisilZuzendu)armak.get(2)).minEginBertikal(ordenagaliruarenTaula,j);
+				else if(arma.equals("misil")){
+					((Misil)armak.get(1)).minEgin(ordenagaliruarenTaula.getTaula()[i][j]);
 				}
+				ordenagaliruarenTaula.getTaula()[i][j].ukitu();
 			}
 		}
-		else if (this.armaErabili(arma)){
-			if(arma.equals("bonba")){
-				((Bonba)armak.get(0)).minEgin(ordenagaliruarenTaula.getTaula()[i][j]);
-			}
-			else if(arma.equals("misil")){
-				((Misil)armak.get(1)).minEgin(ordenagaliruarenTaula.getTaula()[i][j]);
-			}
-		}
-
 	}
 
 

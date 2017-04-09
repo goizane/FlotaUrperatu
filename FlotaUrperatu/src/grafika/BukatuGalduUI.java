@@ -14,7 +14,6 @@ import javax.swing.JPanel;
 
 public class BukatuGalduUI extends JFrame{
 	
-	private static BukatuGalduUI galdu;
 
 	public BukatuGalduUI() {
 		super("Galdu duzu!");
@@ -30,7 +29,7 @@ public class BukatuGalduUI extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				galdu.dispose();
+				itzi();
 				
 			}
 		});
@@ -39,8 +38,9 @@ public class BukatuGalduUI extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				galdu.dispose();
+
 				new OntziakAukeratuUI();
+				itzi();
 			}
 		});
 		
@@ -61,8 +61,7 @@ public class BukatuGalduUI extends JFrame{
 		setMinimumSize(new Dimension(400, 200));
 	}
 	
-	public static void main(String[] args) {
-		galdu=new BukatuGalduUI();
+	public void itzi(){
+		this.dispose();
 	}
-	
 }

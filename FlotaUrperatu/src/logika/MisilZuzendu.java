@@ -17,9 +17,9 @@ public class MisilZuzendu extends Arma {
 
 	public void minEginHorizontal(Taula ordenagaliruarenTaula, int i) {
 		for(int j=0;j<ordenagaliruarenTaula.tamaina();j++){
-			ordenagaliruarenTaula.getTaula()[i][j].ukitu();
-			if(ordenagaliruarenTaula.getTaula()[i][j].ontzia()!=null){
-				ordenagaliruarenTaula.getTaula()[i][j].ontzia().minEgin();
+			ordenagaliruarenTaula.getTaula()[j][i].ukitu();
+			if(ordenagaliruarenTaula.getTaula()[j][i].ontzia()!=null){
+				ordenagaliruarenTaula.getTaula()[j][i].ontzia().minEgin();
 			}
 		}
 		
@@ -27,9 +27,9 @@ public class MisilZuzendu extends Arma {
 
 	public void minEginBertikal(Taula ordenagaliruarenTaula, int j) {
 		for(int i=0;i<ordenagaliruarenTaula.tamaina();i++){
-			ordenagaliruarenTaula.getTaula()[i][j].ukitu();
-			if(ordenagaliruarenTaula.getTaula()[i][j].ontzia()!=null){
-				ordenagaliruarenTaula.getTaula()[i][j].ontzia().minEgin();
+			ordenagaliruarenTaula.getTaula()[j][i].ukitu();
+			if(ordenagaliruarenTaula.getTaula()[j][i].ontzia()!=null){
+				ordenagaliruarenTaula.getTaula()[j][i].ontzia().minEgin();
 			}
 		}
 	}

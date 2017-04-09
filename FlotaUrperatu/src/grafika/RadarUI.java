@@ -42,10 +42,13 @@ public class RadarUI extends JFrame {
 		testua.setFont(new Font("Arial", 0, 20));
 		String pos= Integer.toString(KudeatzaileArmak.getInstantzia().radarPos(0)[0]+1);
 		String pos1= Integer.toString(KudeatzaileArmak.getInstantzia().radarPos(0)[1]+1);
-		posizioa= new JLabel("Posizioa: " + pos +"-" + pos1, SwingConstants.CENTER);
+		posizioa= new JLabel("Posizioa: Errenkada:" + pos +" Zutabe:" + pos1, SwingConstants.CENTER);
 		posizioa.setFont(new Font("Arial", 0, 20));
 		getContentPane().add(testua);
 		getContentPane().add(posizioa);
+		
+		JLabel colT= new JLabel("Zutabea");
+		JLabel rowT= new JLabel("Errenkada");
 		
 		row= new JComboBox();	
 		for(int i=1;i<=10;i++){
@@ -56,7 +59,9 @@ public class RadarUI extends JFrame {
 			col.addItem(i);
 		}
 		zenbakienPanela.setVisible(false);
-		zenbakienPanela.setLayout(new GridLayout(0, 2));
+		zenbakienPanela.setLayout(new GridLayout(2, 2));
+		zenbakienPanela.add(rowT);
+		zenbakienPanela.add(colT);
 		zenbakienPanela.add(row);
 		zenbakienPanela.add(col);
 		
@@ -73,15 +78,14 @@ public class RadarUI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String [] ontziaDago= erabili();
-				System.out.println(ontziaDago[0]);
 				if(ontziaDago[0].equals("true")){
-					JOptionPane.showMessageDialog(null, "Hurbil dagoen ontziaren posizioa:" +
-				ontziaDago[1]+ "-"+ ontziaDago[2] + " da.");
+					JOptionPane.showMessageDialog(null, "Hurbil dagoen ontziaren posizioa: Errenkada " +
+				ontziaDago[1]+ "-Zutabe "+ ontziaDago[2] + " da.");
 				}
 				else{
 					JOptionPane.showMessageDialog(null, "Radar inguruan ez dago ontzirik");
 				}
-				
+				itzali();
 			}
 		});
 		
@@ -105,7 +109,7 @@ public class RadarUI extends JFrame {
 				KudeatzaileArmak.getInstantzia().radarPosAldatu((int)row.getSelectedItem(),(int)col.getSelectedItem());
 				String pos= Integer.toString(KudeatzaileArmak.getInstantzia().radarPos(0)[0]+1);
 				String pos1= Integer.toString(KudeatzaileArmak.getInstantzia().radarPos(0)[1]+1);
-				posizioa.setText("Posizioa: " + pos +"-" + pos1);
+				posizioa.setText("Posizioa: Errenkada:" + pos +" Zutabe:" + pos1);
 				zenbakienPanela.setVisible(false);
 				posizioaAldatu.setVisible(true);
 				erabili.setVisible(true);
@@ -141,8 +145,11 @@ public class RadarUI extends JFrame {
 	}
 	
 	public String[] erabili(){
-		this.dispose();
 		KudeatzaileArmak.getInstantzia().radarErabili();
 		return KudeatzaileArmak.getInstantzia().ontziarenPos();
+	}
+	
+	public void itzali(){
+		this.dispose();
 	}
 }

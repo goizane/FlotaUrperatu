@@ -88,6 +88,7 @@ public class KudeatzaileArmak {
 
 
 	public String[] ontziarenPos() {
+		Partida.getInstantzia().getJokalari(0).kontrakoarenTaulaAbiarazi(Partida.getInstantzia().getJokalari(1).nireTaula());
 		return Partida.getInstantzia().getJokalari(0).ontziarenPos();
 	}
 
