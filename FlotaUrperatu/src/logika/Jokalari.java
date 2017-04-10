@@ -227,8 +227,8 @@ public class Jokalari {
 		int[] pos= radarra.posizioa();
 		int hasiera=pos[0];
 		int amaiera=pos[1];
-		for(int i=hasiera-1;i<hasiera+1;i++ ){
-			for(int j=amaiera-1;j<amaiera+1;j++){
+		for(int i=hasiera-1;i<=hasiera+1;i++ ){
+			for(int j=amaiera-1;j<=amaiera+1;j++){
 				if(i>=0&&i<10&&j>=0&&j<10){
 					if(ordenagaliruarenTaula.ontziaDa(i, j)){
 						emaitza[1]=Integer.toString(i+1);
@@ -246,6 +246,11 @@ public class Jokalari {
 		}
 		
 		return emaitza;
+	}
+
+	public int bereziKop(String berezia) {
+		// TODO Auto-generated method stub
+		return ((MisilZuzendu)armak.get(2)).bereziKop(berezia);
 	}
 
 

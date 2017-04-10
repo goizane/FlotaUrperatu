@@ -42,7 +42,7 @@ public class RadarUI extends JFrame {
 		testua.setFont(new Font("Arial", 0, 20));
 		String pos= Integer.toString(KudeatzaileArmak.getInstantzia().radarPos(0)[0]+1);
 		String pos1= Integer.toString(KudeatzaileArmak.getInstantzia().radarPos(0)[1]+1);
-		posizioa= new JLabel("Posizioa: Errenkada:" + pos +" Zutabe:" + pos1, SwingConstants.CENTER);
+		posizioa= new JLabel("Posizioa: Errenkada:" + pos1 +" Zutabe:" + pos, SwingConstants.CENTER);
 		posizioa.setFont(new Font("Arial", 0, 20));
 		getContentPane().add(testua);
 		getContentPane().add(posizioa);
@@ -80,7 +80,7 @@ public class RadarUI extends JFrame {
 				String [] ontziaDago= erabili();
 				if(ontziaDago[0].equals("true")){
 					JOptionPane.showMessageDialog(null, "Hurbil dagoen ontziaren posizioa: Errenkada " +
-				ontziaDago[1]+ "-Zutabe "+ ontziaDago[2] + " da.");
+				ontziaDago[2]+ "-Zutabe "+ ontziaDago[1] + " da.");
 				}
 				else{
 					JOptionPane.showMessageDialog(null, "Radar inguruan ez dago ontzirik");
@@ -106,10 +106,10 @@ public class RadarUI extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				KudeatzaileArmak.getInstantzia().radarPosAldatu((int)row.getSelectedItem(),(int)col.getSelectedItem());
+				KudeatzaileArmak.getInstantzia().radarPosAldatu((int)col.getSelectedItem(),(int)row.getSelectedItem());
 				String pos= Integer.toString(KudeatzaileArmak.getInstantzia().radarPos(0)[0]+1);
 				String pos1= Integer.toString(KudeatzaileArmak.getInstantzia().radarPos(0)[1]+1);
-				posizioa.setText("Posizioa: Errenkada:" + pos +" Zutabe:" + pos1);
+				posizioa.setText("Posizioa: Errenkada:" + pos1 +" Zutabe:" + pos);
 				zenbakienPanela.setVisible(false);
 				posizioaAldatu.setVisible(true);
 				erabili.setVisible(true);

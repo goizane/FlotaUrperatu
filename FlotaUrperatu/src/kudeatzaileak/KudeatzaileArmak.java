@@ -92,4 +92,10 @@ public class KudeatzaileArmak {
 		return Partida.getInstantzia().getJokalari(0).ontziarenPos();
 	}
 
+
+	public int bereziKop(String berezia, int i) {
+		// TODO Auto-generated method stub
+		return Partida.getInstantzia().getJokalari(0).bereziKop(berezia);
+	}
+
 }

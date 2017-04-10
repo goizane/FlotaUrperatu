@@ -62,4 +62,16 @@ public class MisilZuzendu extends Arma {
 		return emaitza;
 		
 	}
+
+	public int bereziKop(String berezia) {
+		if(berezia.equals("horizontal")){
+			return horizontal;
+		}
+		else if(berezia.equals("bertikal")){
+			return bertikal;
+		}
+		else{
+			return boom;
+		}
+	}
 }
