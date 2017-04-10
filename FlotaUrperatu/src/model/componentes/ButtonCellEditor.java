@@ -12,6 +12,7 @@ import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
 
 import grafika.OntziakAukeratuUI;
+import grafika.OntziakIkusiUI;
 import kudeatzaileak.Partida;
 import kudeatzaileak.Partida;
 import logika.Pertsona;
@@ -50,8 +51,9 @@ public class ButtonCellEditor extends AbstractCellEditor implements TableCellEdi
 					if (Partida.getInstantzia().JokalariarenOntziak(xAr, yAr, ontziIzena, n)){
 						model.setValueAt(true, row, 5);
 						model.fireTableDataChanged();
-						Partida.getInstantzia().getJokalari(0).nireTaula().inprimatu();
-						System.out.println("----------------------------------------------------------------------------");
+						OntziakIkusiUI.getO().eguneratu();
+						//Partida.getInstantzia().getJokalari(0).nireTaula().inprimatu();
+						//System.out.println("----------------------------------------------------------------------------");
 						this.setEnabled(false);
 					}
 					else{

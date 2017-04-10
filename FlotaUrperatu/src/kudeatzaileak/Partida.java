@@ -59,7 +59,7 @@ public class Partida {
 	}
 	
 	public void taulaBerbiarazi() {
-		((Pertsona) jokalariak.get(0)).berbiarazi();
+		jokalariak.get(0).berbiarazi();
 		
 	}
 	

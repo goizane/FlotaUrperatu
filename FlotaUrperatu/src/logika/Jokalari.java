@@ -73,7 +73,7 @@ public class Jokalari {
 	}
 
 	public void berbiarazi(){
-		new Jokalari();
+		nireTaula= new Taula();
 	}
 
 	public int radarKop() {
