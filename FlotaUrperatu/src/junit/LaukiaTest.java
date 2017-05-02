@@ -1,19 +1,19 @@
 package junit;
 
 import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import logika.Laukia;
 import logika.Ontzia;
+
+// AMAITUTA!!!
 
 public class LaukiaTest {
 	
 	Laukia lauki1;
 	Laukia lauki2;
-	Laukia lauki3;  // Frogak egiteko "null" utzi
+	Laukia lauki3;
 	Ontzia ontzi1;
 
 	@Before
@@ -54,35 +54,50 @@ public class LaukiaTest {
 
 	@Test
 	public void testOntziaSartu() {
-		lauki3.ontziaSartu(ontzi1);
-		assertFalse(lauki3.hutsik());
-		assertNotNull(lauki3.ontzia());
+		//lauki3.ontziaSartu(ontzi1);
+		//assertFalse(lauki3.hutsik());
+		//assertNotNull(lauki3.ontzia());
 		assertTrue(lauki1.hutsik());
 		assertNull(lauki1.ontzia());
 	}
 
 	@Test
 	public void testHutsik() {
-		fail("Not yet implemented");
+		lauki1.uraDa();
+		assertTrue(lauki1.hutsik());
 	}
 
 	@Test
 	public void testOntzia() {
-		fail("Not yet implemented");
+		lauki1.uraDa();
+		assertNull(lauki1.ontzia());
 	}
 
 	@Test
 	public void testGetEgoera() {
-		fail("Not yet implemented");
+		lauki1.uraDa();
+		Laukia lauki4 = new Laukia();
+		lauki4.uraDa();
+		assertEquals(lauki1.getEgoera(), lauki4.getEgoera());
 	}
 
 	@Test
 	public void testUkitutaDago() {
-		fail("Not yet implemented");
+		lauki1.uraDa();
+		assertFalse(lauki1.ukitutaDago());
+		Laukia lauki5 = new Laukia();
+		Ontzia ontzi5 = new Ontzia("Itsaspeko");
+		lauki5.ontziaSartu(ontzi5);
+		lauki5.ukitu();
+		assertTrue(lauki5.ukitutaDago());
 	}
 
 	@Test
 	public void testUkitu() {
-		fail("Not yet implemented");
+		Laukia lauki6 = new Laukia();
+		Ontzia ontzi6 = new Ontzia("Itsaspeko");
+		lauki6.ontziaSartu(ontzi6);
+		lauki6.ukitu();
+		assertTrue(lauki6.ukitutaDago());
 	}
 }
