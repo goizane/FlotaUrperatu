@@ -1,10 +1,12 @@
 package junit;
 
 import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import logika.Biltegia;
+
+//Test hau amaituta dago. Ondo funtzionatzen du.
 
 public class BiltegiaTest {
 
@@ -18,16 +20,21 @@ public class BiltegiaTest {
 
 	@Test
 	public void testGetInstance() {
-		fail("Not yet implemented");
+		assertNotNull(Biltegia.getInstance());
 	}
 
 	@Test
 	public void testBilatuArma() {
-		fail("Not yet implemented");
+		assertNotNull(Biltegia.getInstance().bilatuArma("Bonba"));
+		assertNotNull(Biltegia.getInstance().bilatuArma("Misil"));
+		assertNotNull(Biltegia.getInstance().bilatuArma("MisilZuzendu"));
 	}
 
 	@Test
 	public void testTamaina() {
-		fail("Not yet implemented");
+		assertNotNull(Biltegia.getInstance().tamaina());
+		assertTrue(Biltegia.getInstance().tamaina()==3);
+		assertFalse(Biltegia.getInstance().tamaina()==234);
+		assertFalse(Biltegia.getInstance().tamaina()==59);
 	}
 }

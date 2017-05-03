@@ -11,22 +11,21 @@ import logika.Ontzia;
 
 public class LaukiaTest {
 	
-	Laukia lauki1;
-	Laukia lauki2;
-	Laukia lauki3;
-	Ontzia ontzi1;
+	Laukia lauki1 = new Laukia();
+	Laukia lauki2 = new Laukia();
+	Laukia lauki3 = null;
+	Ontzia ontzi1 = new Ontzia("Itsaspeko");
 
 	@Before
 	public void setUp() throws Exception {
-		lauki1 = new Laukia();
-		lauki2 = new Laukia();
-		ontzi1 = new Ontzia("Itsaspeko");
 	}
 
 	@After
 	public void tearDown() throws Exception {
 		lauki1 = null;
 		lauki2 = null;
+		lauki3 = null;
+		ontzi1 = null;
 	}
 
 	@Test
