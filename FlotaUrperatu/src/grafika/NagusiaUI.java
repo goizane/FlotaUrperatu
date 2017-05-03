@@ -369,6 +369,26 @@ public class NagusiaUI extends JFrame{
 
 								}
 							}
+							//konpundu nahi
+							else{
+								if (JOptionPane.showConfirmDialog(rootPane, "Ontzia konpondu nahi duzu? /n/r "
+										+ "Prezioa: " + "konponketaren prezio"+ "$",
+										"Ontzia konpondu", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+									String egoera;
+									if(KudeatzaileArmak.getInstantzia().ontziaKonpondu(row, col,0)){
+										for(int i=0;i<ontziak.length;i++){
+											for(int j=0;j<ontziak.length;j++){
+												egoera=Partida.getInstantzia().getNireEgoera(i, j, 0);
+												if(egoera.equals("logika.Normala")){
+													ontziak[i][j].setBackground(Color.lightGray);
+												}
+											}
+										}
+										//dirua aktualizatu
+										
+									}
+								}
+							}
 
 						}
 					});

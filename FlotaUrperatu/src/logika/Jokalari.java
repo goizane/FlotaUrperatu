@@ -253,5 +253,14 @@ public class Jokalari {
 		return ((MisilZuzendu)armak.get(2)).bereziKop(berezia);
 	}
 
+	public boolean ontziaKonpondu(int row, int col) {
+		//konprobatu dirurik duen ontzia konpontzeko
+			//horrela bada egoera aldatu normalari
+			//dirua kendu
+			//kontrakoaren taulan ukitua kendu
+		
+		return false;
+	}
+
 
 }

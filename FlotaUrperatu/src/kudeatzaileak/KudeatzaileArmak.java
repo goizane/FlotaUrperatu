@@ -98,4 +98,10 @@ public class KudeatzaileArmak {
 		return Partida.getInstantzia().getJokalari(0).bereziKop(berezia);
 	}
 
+
+	public boolean ontziaKonpondu(int row, int col, int i) {
+		// TODO Auto-generated method stub
+		return Partida.getInstantzia().getJokalari(0).ontziaKonpondu(row,col);
+	}
+
 }
