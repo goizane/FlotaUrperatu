@@ -24,32 +24,32 @@ public class EzkutatuaTest {
 
 	@Test
 	public void testMinEgin() {
-		assertTrue(ezkutatua1.getKontadorea()==2);
-		assertFalse(ezkutatua1.getKontadorea()==44);
+		assertEquals(ezkutatua1.getKontadorea(), 2);
+		assertNotEquals(ezkutatua1.getKontadorea(), 44);
 		ezkutatua1.minEgin();
-		assertTrue(ezkutatua1.getKontadorea()==1);
-		assertFalse(ezkutatua1.getKontadorea()==2);
+		assertEquals(ezkutatua1.getKontadorea(), 1);
+		assertNotEquals(ezkutatua1.getKontadorea(), 2);
 		ezkutatua1.minEgin();
-		assertTrue(ezkutatua1.getKontadorea()==0);
-		assertFalse(ezkutatua1.getKontadorea()==1);
+		assertEquals(ezkutatua1.getKontadorea(), 0);
+		assertNotEquals(ezkutatua1.getKontadorea(), 1);
 		
-		assertTrue(ezkutatua2.getKontadorea()==2);
-		assertFalse(ezkutatua2.getKontadorea()==333);
+		assertEquals(ezkutatua2.getKontadorea(), 2);
+		assertNotEquals(ezkutatua2.getKontadorea(), 333);
 		ezkutatua2.minEgin();
-		assertTrue(ezkutatua2.getKontadorea()==1);
-		assertFalse(ezkutatua2.getKontadorea()==2);
+		assertEquals(ezkutatua2.getKontadorea(), 1);
+		assertNotEquals(ezkutatua2.getKontadorea(), 2);
 		ezkutatua2.minEgin();
-		assertTrue(ezkutatua2.getKontadorea()==0);
-		assertFalse(ezkutatua2.getKontadorea()==1);
+		assertEquals(ezkutatua2.getKontadorea(), 0);
+		assertNotEquals(ezkutatua2.getKontadorea(), 1);
 		
-		assertTrue(ezkutatua3.getKontadorea()==2);
-		assertFalse(ezkutatua3.getKontadorea()==19);
+		assertEquals(ezkutatua3.getKontadorea(), 2);
+		assertNotEquals(ezkutatua3.getKontadorea(), 19);
 		ezkutatua3.minEgin();
-		assertTrue(ezkutatua3.getKontadorea()==1);
-		assertFalse(ezkutatua3.getKontadorea()==2);
+		assertEquals(ezkutatua3.getKontadorea(), 1);
+		assertNotEquals(ezkutatua3.getKontadorea(), 2);
 		ezkutatua3.minEgin();
-		assertTrue(ezkutatua3.getKontadorea()==0);
-		assertFalse(ezkutatua3.getKontadorea()==1);
+		assertEquals(ezkutatua3.getKontadorea(), 0);
+		assertNotEquals(ezkutatua3.getKontadorea(), 1);
 	}
 
 	@Test
@@ -58,9 +58,9 @@ public class EzkutatuaTest {
 		assertNotNull(ezkutatua2);
 		assertNotNull(ezkutatua3);
 		
-		assertTrue(ezkutatua1.getKontadorea()==2);
-		assertTrue(ezkutatua2.getKontadorea()==2);
-		assertTrue(ezkutatua3.getKontadorea()==2);
+		assertEquals(ezkutatua1.getKontadorea(), 2);
+		assertEquals(ezkutatua2.getKontadorea(), 2);
+		assertEquals(ezkutatua3.getKontadorea(), 2);
 	}
 
 	@Test
@@ -73,35 +73,35 @@ public class EzkutatuaTest {
 		assertNotNull(ezkutatua2.getKontadorea());
 		assertNotNull(ezkutatua3.getKontadorea());
 		
-		assertTrue(ezkutatua1.getKontadorea()==2);
-		assertTrue(ezkutatua2.getKontadorea()==2);
-		assertTrue(ezkutatua3.getKontadorea()==2);
+		assertEquals(ezkutatua1.getKontadorea(), 2);
+		assertEquals(ezkutatua2.getKontadorea(), 2);
+		assertEquals(ezkutatua3.getKontadorea(), 2);
 		
-		assertTrue(ezkutatua1.getKontadorea()==2);
-		assertFalse(ezkutatua1.getKontadorea()==44);
+		assertEquals(ezkutatua1.getKontadorea(), 2);
+		assertNotEquals(ezkutatua1.getKontadorea(), 44);
 		ezkutatua1.minEgin();
-		assertTrue(ezkutatua1.getKontadorea()==1);
-		assertFalse(ezkutatua1.getKontadorea()==2);
+		assertEquals(ezkutatua1.getKontadorea(), 1);
+		assertNotEquals(ezkutatua1.getKontadorea(), 2);
 		ezkutatua1.minEgin();
-		assertTrue(ezkutatua1.getKontadorea()==0);
-		assertFalse(ezkutatua1.getKontadorea()==1);
+		assertEquals(ezkutatua1.getKontadorea(), 0);
+		assertNotEquals(ezkutatua1.getKontadorea(), 1);
 		
-		assertTrue(ezkutatua2.getKontadorea()==2);
-		assertFalse(ezkutatua2.getKontadorea()==333);
+		assertEquals(ezkutatua2.getKontadorea(), 2);
+		assertNotEquals(ezkutatua2.getKontadorea(), 333);
 		ezkutatua2.minEgin();
-		assertTrue(ezkutatua2.getKontadorea()==1);
-		assertFalse(ezkutatua2.getKontadorea()==2);
+		assertEquals(ezkutatua2.getKontadorea(), 1);
+		assertNotEquals(ezkutatua2.getKontadorea(), 2);
 		ezkutatua2.minEgin();
-		assertTrue(ezkutatua2.getKontadorea()==0);
-		assertFalse(ezkutatua2.getKontadorea()==1);
+		assertEquals(ezkutatua2.getKontadorea(), 0);
+		assertNotEquals(ezkutatua2.getKontadorea(), 1);
 		
-		assertTrue(ezkutatua3.getKontadorea()==2);
-		assertFalse(ezkutatua3.getKontadorea()==19);
+		assertEquals(ezkutatua3.getKontadorea(), 2);
+		assertNotEquals(ezkutatua3.getKontadorea(), 19);
 		ezkutatua3.minEgin();
-		assertTrue(ezkutatua3.getKontadorea()==1);
-		assertFalse(ezkutatua3.getKontadorea()==2);
+		assertEquals(ezkutatua3.getKontadorea(), 1);
+		assertNotEquals(ezkutatua3.getKontadorea(), 2);
 		ezkutatua3.minEgin();
-		assertTrue(ezkutatua3.getKontadorea()==0);
-		assertFalse(ezkutatua3.getKontadorea()==1);
+		assertEquals(ezkutatua3.getKontadorea(), 0);
+		assertNotEquals(ezkutatua3.getKontadorea(), 1);
 	}
 }

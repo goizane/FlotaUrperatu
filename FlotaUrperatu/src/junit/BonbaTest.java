@@ -30,23 +30,23 @@ public class BonbaTest {
 		assertNotNull(bonba2);
 		assertNotNull(bonba3);
 		
-		assertTrue(bonba1.getIzena()=="bonba");
-		assertTrue(bonba1.getKantitatea()==5);
-		assertTrue(bonba1.getPrezioa()==10);
+		assertEquals(bonba1.getIzena(), "bonba");
+		assertEquals(bonba1.getKantitatea(), 5);
+		assertEquals(bonba1.getPrezioa(), 10);
 		
-		assertTrue(bonba2.getIzena()=="bonba");
-		assertFalse(bonba2.getIzena()=="Okerra den izena!");
-		assertTrue(bonba2.getKantitatea()==50);
-		assertFalse(bonba2.getKantitatea()==330);
-		assertTrue(bonba2.getPrezioa()==10);
-		assertFalse(bonba2.getPrezioa()==100000);
+		assertEquals(bonba2.getIzena(), "bonba");
+		assertNotEquals(bonba2.getIzena(), "Okerra den izena!");
+		assertEquals(bonba2.getKantitatea(), 50);
+		assertNotEquals(bonba2.getKantitatea(), 330);
+		assertEquals(bonba2.getPrezioa(), 10);
+		assertNotEquals(bonba2.getPrezioa(), 100000);
 		
-		assertTrue(bonba3.getIzena()=="bonba");
-		assertFalse(bonba3.getIzena()=="Okerra den izena!");
-		assertTrue(bonba3.getKantitatea()==90);
-		assertFalse(bonba3.getKantitatea()==789);
-		assertTrue(bonba3.getPrezioa()==10);
-		assertFalse(bonba3.getPrezioa()==4567);
+		assertEquals(bonba3.getIzena(), "bonba");
+		assertNotEquals(bonba3.getIzena(), "Okerra den izena!");
+		assertEquals(bonba3.getKantitatea(), 90);
+		assertNotEquals(bonba3.getKantitatea(), 789);
+		assertEquals(bonba3.getPrezioa(), 10);
+		assertNotEquals(bonba3.getPrezioa(), 4567);
 	}
 
 	@Test

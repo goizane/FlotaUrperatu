@@ -29,14 +29,14 @@ public class EzkutuaTest {
 		assertNotNull(ezkutua2);
 		assertNotNull(ezkutua3);
 		
-		assertTrue(ezkutua1.getKantitatea()==5);
-		assertFalse(ezkutua1.getKantitatea()==155);
+		assertEquals(ezkutua1.getKantitatea(), 5);
+		assertNotEquals(ezkutua1.getKantitatea(), 155);
 		
-		assertTrue(ezkutua2.getKantitatea()==10);
-		assertFalse(ezkutua2.getKantitatea()==777);
+		assertEquals(ezkutua2.getKantitatea(), 10);
+		assertNotEquals(ezkutua2.getKantitatea(), 777);
 		
-		assertTrue(ezkutua3.getKantitatea()==15);
-		assertFalse(ezkutua3.getKantitatea()==100);
+		assertEquals(ezkutua3.getKantitatea(), 15);
+		assertNotEquals(ezkutua3.getKantitatea(), 100);
 	}
 
 	@Test
@@ -66,53 +66,53 @@ public class EzkutuaTest {
 		assertNotNull(ezkutua2);
 		assertNotNull(ezkutua3);
 		
-		assertTrue(ezkutua1.getKantitatea()==5);
-		assertFalse(ezkutua1.getKantitatea()==155);
+		assertEquals(ezkutua1.getKantitatea(), 5);
+		assertNotEquals(ezkutua1.getKantitatea(), 155);
 		
-		assertTrue(ezkutua2.getKantitatea()==10);
-		assertFalse(ezkutua2.getKantitatea()==777);
+		assertEquals(ezkutua2.getKantitatea(), 10);
+		assertNotEquals(ezkutua2.getKantitatea(), 777);
 		
-		assertTrue(ezkutua3.getKantitatea()==15);
-		assertFalse(ezkutua3.getKantitatea()==100);
+		assertEquals(ezkutua3.getKantitatea(), 15);
+		assertNotEquals(ezkutua3.getKantitatea(), 100);
 		
 		ezkutua1.ezkutuaErabili();
-		assertTrue(ezkutua1.getKantitatea()==4);
-		assertFalse(ezkutua1.getKantitatea()==5);
+		assertEquals(ezkutua1.getKantitatea(), 4);
+		assertNotEquals(ezkutua1.getKantitatea(), 5);
 		ezkutua1.ezkutuaErabili();
-		assertTrue(ezkutua1.getKantitatea()==3);
-		assertFalse(ezkutua1.getKantitatea()==4);
+		assertEquals(ezkutua1.getKantitatea(), 3);
+		assertNotEquals(ezkutua1.getKantitatea(), 4);
 		ezkutua1.ezkutuaErabili();
-		assertTrue(ezkutua1.getKantitatea()==2);
-		assertFalse(ezkutua1.getKantitatea()==3);
+		assertEquals(ezkutua1.getKantitatea(), 2);
+		assertNotEquals(ezkutua1.getKantitatea(), 3);
 		ezkutua1.ezkutuaErabili();
-		assertTrue(ezkutua1.getKantitatea()==1);
-		assertFalse(ezkutua1.getKantitatea()==2);
+		assertEquals(ezkutua1.getKantitatea(), 1);
+		assertNotEquals(ezkutua1.getKantitatea(), 2);
 		
 		ezkutua2.ezkutuaErabili();
-		assertTrue(ezkutua2.getKantitatea()==9);
-		assertFalse(ezkutua2.getKantitatea()==10);
+		assertEquals(ezkutua2.getKantitatea(), 9);
+		assertNotEquals(ezkutua2.getKantitatea(), 10);
 		ezkutua2.ezkutuaErabili();
-		assertTrue(ezkutua2.getKantitatea()==8);
-		assertFalse(ezkutua2.getKantitatea()==9);
+		assertEquals(ezkutua2.getKantitatea(), 8);
+		assertNotEquals(ezkutua2.getKantitatea(), 9);
 		ezkutua2.ezkutuaErabili();
-		assertTrue(ezkutua2.getKantitatea()==7);
-		assertFalse(ezkutua2.getKantitatea()==8);
+		assertEquals(ezkutua2.getKantitatea(), 7);
+		assertNotEquals(ezkutua2.getKantitatea(), 8);
 		ezkutua2.ezkutuaErabili();
-		assertTrue(ezkutua2.getKantitatea()==6);
-		assertFalse(ezkutua2.getKantitatea()==7);
+		assertEquals(ezkutua2.getKantitatea(), 6);
+		assertNotEquals(ezkutua2.getKantitatea(), 7);
 		
 		ezkutua3.ezkutuaErabili();
-		assertTrue(ezkutua3.getKantitatea()==14);
-		assertFalse(ezkutua3.getKantitatea()==15);
+		assertEquals(ezkutua3.getKantitatea(), 14);
+		assertNotEquals(ezkutua3.getKantitatea(), 15);
 		ezkutua3.ezkutuaErabili();
-		assertTrue(ezkutua3.getKantitatea()==13);
-		assertFalse(ezkutua3.getKantitatea()==14);
+		assertEquals(ezkutua3.getKantitatea(), 13);
+		assertNotEquals(ezkutua3.getKantitatea(), 14);
 		ezkutua3.ezkutuaErabili();
-		assertTrue(ezkutua3.getKantitatea()==12);
-		assertFalse(ezkutua3.getKantitatea()==13);
+		assertEquals(ezkutua3.getKantitatea(), 12);
+		assertNotEquals(ezkutua3.getKantitatea(), 13);
 		ezkutua3.ezkutuaErabili();
-		assertTrue(ezkutua3.getKantitatea()==11);
-		assertFalse(ezkutua3.getKantitatea()==12);
+		assertEquals(ezkutua3.getKantitatea(), 11);
+		assertNotEquals(ezkutua3.getKantitatea(), 12);
 	}
 
 	@Test
@@ -121,13 +121,13 @@ public class EzkutuaTest {
 		assertNotNull(ezkutua2);
 		assertNotNull(ezkutua3);
 		
-		assertTrue(ezkutua1.getKantitatea()==5);
-		assertFalse(ezkutua1.getKantitatea()==155);
+		assertEquals(ezkutua1.getKantitatea(), 5);
+		assertNotEquals(ezkutua1.getKantitatea(), 155);
 		
-		assertTrue(ezkutua2.getKantitatea()==10);
-		assertFalse(ezkutua2.getKantitatea()==777);
+		assertEquals(ezkutua2.getKantitatea(), 10);
+		assertNotEquals(ezkutua2.getKantitatea(), 777);
 		
-		assertTrue(ezkutua3.getKantitatea()==15);
-		assertFalse(ezkutua3.getKantitatea()==100);
+		assertEquals(ezkutua3.getKantitatea(), 15);
+		assertNotEquals(ezkutua3.getKantitatea(), 100);
 	}
 }

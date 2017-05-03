@@ -33,8 +33,8 @@ public class BiltegiaTest {
 	@Test
 	public void testTamaina() {
 		assertNotNull(Biltegia.getInstance().tamaina());
-		assertTrue(Biltegia.getInstance().tamaina()==3);
-		assertFalse(Biltegia.getInstance().tamaina()==234);
-		assertFalse(Biltegia.getInstance().tamaina()==59);
+		assertEquals(Biltegia.getInstance().tamaina(), 3);
+		assertNotEquals(Biltegia.getInstance().tamaina(), 234);
+		assertNotEquals(Biltegia.getInstance().tamaina(), 59);
 	}
 }
