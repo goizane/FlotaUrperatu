@@ -7,7 +7,7 @@ import org.junit.Test;
 import logika.Laukia;
 import logika.Ontzia;
 
-// AMAITUTA!!!
+// Test hau amaituta dago. Ondo funtzionatzen du.
 
 public class LaukiaTest {
 	
