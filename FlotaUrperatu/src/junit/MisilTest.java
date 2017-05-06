@@ -27,7 +27,9 @@ public class MisilTest {
 	@Test
 	public void testMisil() {
 		assertNotNull(misil1);
+		
 		assertNotNull(misil2);
+		
 		assertNotNull(misil3);
 		
 		assertEquals(misil1.getIzena(), "misil");
