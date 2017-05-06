@@ -64,6 +64,6 @@ public class MisilTest {
 		Laukia lauki3 = new Laukia();
 		Ontzia ontzi3 = new Ontzia("Itsaspeko");
 		lauki3.ontziaSartu(ontzi3);
-		misil2.minEgin(lauki3);
+		misil3.minEgin(lauki3);
 	}
 }
