@@ -1,5 +1,6 @@
 package kudeatzaileak;
 
+import logika.Ordenagailua;
 import logika.Pertsona;
 
 public class KudeatzaileArmak {
@@ -23,8 +24,8 @@ public class KudeatzaileArmak {
 	}
 
 
-	public int ezkutuKop(int index) {
-		return Partida.getInstantzia().getJokalari(index).getEzkutuKop();
+	public String ezkutuKop(int index) {
+		return Integer.toString(Partida.getInstantzia().getJokalari(index).getEzkutuKop());
 		}
 	
 	public boolean ezkutuaJarri(int i, int j,int index){
@@ -100,8 +101,16 @@ public class KudeatzaileArmak {
 
 
 	public boolean ontziaKonpondu(int row, int col, int i) {
-		// TODO Auto-generated method stub
-		return Partida.getInstantzia().getJokalari(0).ontziaKonpondu(row,col);
+		
+		boolean emaitza=Partida.getInstantzia().getJokalari(i).ontziaKonpondu(row,col);
+		Partida.getInstantzia().getJokalari(1).kontrakoarenTaulaAbiarazi(Partida.getInstantzia().getJokalari(0).nireTaula());
+		return emaitza;
+	}
+
+
+	public String ontziarenPrezioa(int row, int col, int i) {
+		
+		return Partida.getInstantzia().getJokalari(i).ontzairenPrezioa(row,col);
 	}
 
 }

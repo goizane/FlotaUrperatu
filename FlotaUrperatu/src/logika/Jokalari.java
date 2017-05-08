@@ -195,6 +195,9 @@ public class Jokalari {
 					}
 				}
 			}
+			if(!emaitza){
+				break;
+			}
 		}
 		return emaitza;
 	}
@@ -258,8 +261,19 @@ public class Jokalari {
 			//horrela bada egoera aldatu normalari
 			//dirua kendu
 			//kontrakoaren taulan ukitua kendu
-		
+		Ontzia ontzia = (Ontzia)nireTaula.getTaula()[row][col].ontzia();
+		int beharrezkoDirua = ontzia.getKonpontzekoDirua();
+		if (beharrezkoDirua<this.dirua){
+			this.dirua=this.dirua-beharrezkoDirua;
+			ontzia.egoeraAldatu(new Normala());
+			nireTaula.getTaula()[row][col].ezUkitu();
+			return true;
+		}
 		return false;
+	}
+
+	public String ontzairenPrezioa(int row, int col) {
+		return Integer.toString(nireTaula.getTaula()[row][col].ontzia().getPrezioa());
 	}
 
 

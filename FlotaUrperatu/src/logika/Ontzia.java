@@ -34,7 +34,9 @@ public class Ontzia {
 	}
 	
 	
-	
+	public int getKonpontzekoDirua() {
+		return erreparasioDirua;
+	}
 	
 	
 	//probak egiteko
@@ -92,7 +94,7 @@ public class Ontzia {
 
 
 	public boolean getUkitua() {
-		if(egoera.getClass().equals("Ukitua")){
+		if(this.getEgora().equals("logika.Ukitua")){
 			return true;
 		}
 		else{
@@ -154,6 +156,12 @@ public class Ontzia {
 			return true;
 		}
 		return false;
+	}
+
+
+	public int getPrezioa() {
+		return erreparasioDirua;
+		
 	}
 	
 }

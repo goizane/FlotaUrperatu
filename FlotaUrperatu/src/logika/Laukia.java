@@ -80,5 +80,10 @@ public class Laukia {
 	public void ukitu(){
 		this.ukitua=true;
 	}
+
+	public void ezUkitu() {
+		this.ukitua=false;
+		
+	}
 	
 }

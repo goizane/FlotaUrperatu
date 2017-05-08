@@ -15,8 +15,8 @@ public class Ordenagailua extends Jokalari {
 			//Eta noranzkoa zein izango den,random ere, h=horizontal eta b=bertikal
 			char [] noranzkoa= {'h','b'};
 			//random egin behar dira
-			int i= (int) (Math.random()*9);
-			int j= (int) (Math.random()*9);
+			int i= (int) (Math.random()*10);
+			int j= (int) (Math.random()*10);
 			char pos= noranzkoa[(int) (Math.random()*2)];
 			boolean kokatua=false;
 			while(!kokatua){
@@ -36,8 +36,9 @@ public class Ordenagailua extends Jokalari {
 
 
 	public int[] tiroEgin() {
-		int i= (int) (Math.random()*9);
-		int j= (int) (Math.random()*9);
+		int i= (int) (Math.random()*10);
+		int j= (int) (Math.random()*10);
+		System.out.println("row= "+(i+1) +" col= "+(j+1));
 		String [] armaMota= {"bonba","misil","misilZ"};
 		String arma= armaMota [(int) (Math.random()*3)];
 		String [] bereziMota= {"bertikal","horizontal","boom"};
@@ -58,9 +59,12 @@ public class Ordenagailua extends Jokalari {
 								((MisilZuzendu)armak.get(2)).minEginHorizontal(ordenagaliruarenTaula,i);
 								((MisilZuzendu)armak.get(2)).minEginBertikal(ordenagaliruarenTaula,j);
 							}
+							minEgin=true;
+							ordenagaliruarenTaula.getTaula()[i][j].ukitu();
+						}else{
+							berezi= bereziMota [(int) (Math.random()*3)];
 						}
-						minEgin=true;
-						ordenagaliruarenTaula.getTaula()[i][j].ukitu();
+						
 					}
 					else{
 						arma= armaMota [(int) (Math.random()*3)];

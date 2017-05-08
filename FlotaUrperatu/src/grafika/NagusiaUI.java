@@ -33,13 +33,13 @@ public class NagusiaUI extends JFrame{
 	private JPanel armak= new JPanel();
 	private JButton[][] ontziak= new JButton[10][10];
 	private JButton[][] ordenagailuarenTaula= new JButton[10][10];
-	private JLabel ezkutua= new JLabel("Ezkutu kopurua: "+ KudeatzaileArmak.getInstantzia().ezkutuKop(0));
+	private JLabel ezkutua;
 	private ButtonGroup armaBotoiak = new ButtonGroup();
 	private JRadioButton bonba;
 	private JRadioButton misil;
 	private JRadioButton misilZ;
 	private JComboBox<String> motak;
-
+	private JLabel dirua;
 
 	public NagusiaUI(){
 		super("Flota urperatu");
@@ -65,7 +65,7 @@ public class NagusiaUI extends JFrame{
 	private void botoiakHasieratu() {
 		botoiak.setLayout(null);
 
-		JLabel dirua= new JLabel("Dirua: "+ Integer.toString(KudeatzaileArmak.getInstantzia().getDirua(0))+ "$");
+		dirua= new JLabel("Dirua: "+ Integer.toString(KudeatzaileArmak.getInstantzia().getDirua(0))+ "$");
 		Font font = dirua.getFont();
 		// same font but bold
 		Font boldFont = new Font(font.getFontName(), Font.BOLD, 20);
@@ -177,7 +177,7 @@ public class NagusiaUI extends JFrame{
 		});
 
 
-		JLabel ezkutua= new JLabel("Ezkutu kopurua: "+ KudeatzaileArmak.getInstantzia().ezkutuKop(0));
+		ezkutua= new JLabel("Ezkutu kopurua: "+ KudeatzaileArmak.getInstantzia().ezkutuKop(0));
 		ezkutua.setFont(bonbaF);
 
 		armak.add(tituloa);
@@ -257,11 +257,11 @@ public class NagusiaUI extends JFrame{
 						else{
 							JOptionPane.showMessageDialog(null, "Ez daukazu "+arma+"(r)ik!");
 						}
-						/*
+						
 						if(Partida.getInstantzia().irabazi(0)){
 							bukatu();
 						}
-						 */
+						 
 						bonba.setText("Bonba : " + Integer.toString(KudeatzaileArmak.getInstantzia().bonbaKop(0))+" dituzu" );
 						misil.setText("Misil : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilKop(0)) +" dituzu");
 						misilZ.setText("Misil zuzendua : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilZKop(0)) +" dituzu");
@@ -310,12 +310,12 @@ public class NagusiaUI extends JFrame{
 				}
 			}
 		}
-		/*
+		
 		if(Partida.getInstantzia().irabazi(1)){
 			this.dispose();
 			new BukatuGalduUI();
 		}
-		 */
+		 
 
 	}
 
@@ -361,7 +361,7 @@ public class NagusiaUI extends JFrame{
 												}
 											}
 										}
-										ezkutua.setText("Ezkutu kopurua: "+ Integer.toString(KudeatzaileArmak.getInstantzia().ezkutuKop(0)));
+										ezkutua.setText("Ezkutu kopurua: "+ KudeatzaileArmak.getInstantzia().ezkutuKop(0));
 									}
 									else{
 										JOptionPane.showMessageDialog(null, "Ezin da ezkutua jarri!");
@@ -371,8 +371,8 @@ public class NagusiaUI extends JFrame{
 							}
 							//konpundu nahi
 							else{
-								if (JOptionPane.showConfirmDialog(rootPane, "Ontzia konpondu nahi duzu? /n/r "
-										+ "Prezioa: " + "konponketaren prezio"+ "$",
+								if (JOptionPane.showConfirmDialog(rootPane, "Ontzia konpondu nahi duzu? \r\n "
+										+ "Prezioa: " + KudeatzaileArmak.getInstantzia().ontziarenPrezioa(row,col,0)+ " $",
 										"Ontzia konpondu", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
 									String egoera;
 									if(KudeatzaileArmak.getInstantzia().ontziaKonpondu(row, col,0)){
@@ -385,7 +385,10 @@ public class NagusiaUI extends JFrame{
 											}
 										}
 										//dirua aktualizatu
+										dirua.setText("Dirua: "+ Integer.toString(KudeatzaileArmak.getInstantzia().getDirua(0))+ "$");
 										
+									}else{
+										JOptionPane.showMessageDialog(null, "Ez daukazu diru nahikorik!");
 									}
 								}
 							}
