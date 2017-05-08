@@ -38,7 +38,6 @@ public class Ordenagailua extends Jokalari {
 	public int[] tiroEgin() {
 		int i= (int) (Math.random()*10);
 		int j= (int) (Math.random()*10);
-		System.out.println("row= "+(i+1) +" col= "+(j+1));
 		String [] armaMota= {"bonba","misil","misilZ"};
 		String arma= armaMota [(int) (Math.random()*3)];
 		String [] bereziMota= {"bertikal","horizontal","boom"};
