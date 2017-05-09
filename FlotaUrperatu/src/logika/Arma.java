@@ -21,4 +21,16 @@ public class Arma {
 		return this.izena;
 	}
 
+
+	public void gehitu(int kant) {
+		this.kopurua=this.kopurua+kant;
+		
+	}
+
+
+	public void kendu(int kant) {
+		this.kopurua=this.kopurua-kant;
+		
+	}
+
 }

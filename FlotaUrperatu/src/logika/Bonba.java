@@ -3,7 +3,7 @@ package logika;
 public class Bonba extends Arma{
 	
 	public Bonba(int kant){
-		this.izena="bonba";
+		this.izena="Bonba";
 		this.kopurua=kant;
 		this.dirua=10;
 	}

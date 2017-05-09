@@ -74,4 +74,13 @@ public class MisilZuzendu extends Arma {
 			return boom;
 		}
 	}
+	
+	public void gehitu(int kant){
+		for(int i=kant;i>0;i--){
+			this.horizontal++;
+			this.bertikal++;
+			this.boom++;
+		}
+		this.kopurua=this.kopurua+kant;
+	}
 }

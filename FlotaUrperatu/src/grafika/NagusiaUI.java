@@ -40,8 +40,16 @@ public class NagusiaUI extends JFrame{
 	private JRadioButton misilZ;
 	private JComboBox<String> motak;
 	private JLabel dirua;
+	private static NagusiaUI instantzia= null;
+	
+	public static NagusiaUI getI(){
+		if(instantzia==null){
+			instantzia=new NagusiaUI();
+		}
+		return instantzia;
+	}
 
-	public NagusiaUI(){
+	private NagusiaUI(){
 		super("Flota urperatu");
 		getContentPane().setLayout(new GridLayout(0,3));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -218,11 +226,14 @@ public class NagusiaUI extends JFrame{
 						String[] emaitza= i.split(",");
 						String arma= armaBotoiak.getSelection().getActionCommand();
 						String berezia;
-						if(KudeatzaileArmak.getInstantzia().misilZKop(0)==0){
+						if(KudeatzaileArmak.getInstantzia().misilZKop(0)==0||!arma.equals("misilZ")){
 							berezia=null;
 						}else{
 							berezia=motak.getSelectedItem().toString();
 						}
+						
+						System.out.println(berezia);
+						
 						if(Partida.getInstantzia().armaKopuru(arma)!=0){
 							Partida.getInstantzia().tiroEgin(Integer.parseInt(emaitza[0]),Integer.parseInt(emaitza[1]),arma,berezia);
 							String  egoera;
@@ -266,10 +277,9 @@ public class NagusiaUI extends JFrame{
 						misil.setText("Misil : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilKop(0)) +" dituzu");
 						misilZ.setText("Misil zuzendua : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilZKop(0)) +" dituzu");
 						if(KudeatzaileArmak.getInstantzia().misilZKop(0)!=0){
-							if(KudeatzaileArmak.getInstantzia().bereziKop(berezia,0)==0){
-								motak.removeItem(berezia);
-							}
-						}else{
+							motak.removeItem(berezia);
+						}
+						else{
 							motak.removeItem(berezia);
 						}
 					}
@@ -418,6 +428,19 @@ public class NagusiaUI extends JFrame{
 	public void bukatu(){
 		this.dispose();
 		new BukatuIrabaziUI();
+	}
+
+	public void eguneratu(boolean misilKop) {
+		dirua.setText("Dirua: "+ Integer.toString(KudeatzaileArmak.getInstantzia().getDirua(0))+ "$");
+		bonba.setText("Bonba : " + Integer.toString(KudeatzaileArmak.getInstantzia().bonbaKop(0))+" dituzu" );
+		misil.setText("Misil : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilKop(0)) +" dituzu");
+		misilZ.setText("Misil zuzendua : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilZKop(0)) +" dituzu");
+		if(misilKop){
+			motak.addItem("bertikal");
+			motak.addItem("horizontal");
+			motak.addItem("boom");
+		}
+		
 	}
 
 }

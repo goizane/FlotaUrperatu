@@ -39,7 +39,8 @@ public class MyTableModel extends AbstractTableModel {
 				+ "\nhori bakarrik deuseztatzen dute "));
 		data.add(new LagThumbnail("Misil","Erortzean, posizio hori "
 				+ "\ndaukan ontzi guztia deuseztatzen dute "));
-		data.add(new LagThumbnail("Misil zuzendua"," "));
+		data.add(new LagThumbnail("Misil zuzendua","Hiru misil zuzendu"
+				+ " mota daude: Horizontal, Bertikal eta BOOM "));
 
 	}
 

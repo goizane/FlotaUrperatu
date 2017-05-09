@@ -57,7 +57,7 @@ public class OntziakAukeratuUI extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				if(table.betetaDago()){
 					
-					new NagusiaUI();
+					NagusiaUI.getI();
 					itxi();
 				}
 
@@ -69,7 +69,7 @@ public class OntziakAukeratuUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Partida.getInstantzia().ontziakRandom();
-				new NagusiaUI();
+				NagusiaUI.getI();
 				itxi();
 				
 				

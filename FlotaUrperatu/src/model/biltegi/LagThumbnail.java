@@ -1,10 +1,9 @@
 package model.biltegi;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
+
 
 import kudeatzaileak.BiltegiKudeatzaile;
-import kudeatzaileak.Partida;
+
 
 
 public class LagThumbnail {

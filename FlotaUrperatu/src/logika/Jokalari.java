@@ -240,14 +240,14 @@ public class Jokalari {
 				}
 			}
 		}
-		
+
 		if(emaitza[1]!=null){
 			emaitza[0]="true";
 		}
 		else{
 			emaitza[0]="false";
 		}
-		
+
 		return emaitza;
 	}
 
@@ -258,9 +258,9 @@ public class Jokalari {
 
 	public boolean ontziaKonpondu(int row, int col) {
 		//konprobatu dirurik duen ontzia konpontzeko
-			//horrela bada egoera aldatu normalari
-			//dirua kendu
-			//kontrakoaren taulan ukitua kendu
+		//horrela bada egoera aldatu normalari
+		//dirua kendu
+		//kontrakoaren taulan ukitua kendu
 		Ontzia ontzia = (Ontzia)nireTaula.getTaula()[row][col].ontzia();
 		int beharrezkoDirua = ontzia.getKonpontzekoDirua();
 		if (beharrezkoDirua<this.dirua){
@@ -274,6 +274,38 @@ public class Jokalari {
 
 	public String ontzairenPrezioa(int row, int col) {
 		return Integer.toString(nireTaula.getTaula()[row][col].ontzia().getPrezioa());
+	}
+
+	public int diruNahikoa(int bonba, int misil, int misilZ) {
+		int kontua=0;
+		if(bonba>0){
+			for(int i=bonba;i>0;i--){
+				kontua=kontua+armak.get(0).getPrezioa();
+			}
+		}
+		if(misil>0){
+			for(int i=misil;i>0;i--){
+				kontua=kontua+armak.get(1).getPrezioa();
+			}
+		}
+		if(misilZ>0){
+			for(int i=misilZ;i>0;i--){
+				kontua=kontua+armak.get(2).getPrezioa();
+			}
+		}
+		return kontua;
+	}
+
+	public void armakGehitu(int bonba, int misil, int misilZ) {
+		armak.get(0).gehitu(bonba);
+		armak.get(1).gehitu(misil);
+		((MisilZuzendu)armak.get(2)).gehitu(misilZ);
+
+	}
+
+	public void diruaAktualizatu(int dirua2) {
+		this.dirua=this.dirua-dirua2;
+
 	}
 
 

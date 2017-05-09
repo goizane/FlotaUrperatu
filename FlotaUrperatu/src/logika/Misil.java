@@ -4,7 +4,7 @@ public class Misil extends Arma {
 
 	public Misil(int kant){
 		this.kopurua=kant;
-		this.izena="misil";
+		this.izena="Misil";
 		this.dirua=20;
 	}
 
