@@ -18,11 +18,11 @@ public class Ordenagailua extends Jokalari {
 			int i= (int) (Math.random()*10);
 			int j= (int) (Math.random()*10);
 			char pos= noranzkoa[(int) (Math.random()*2)];
-			boolean kokatua=false;
-			while(!kokatua){
+			
+			while(!o.kokatuaDago()){
 				if(nireTaula.jarDaiteke(o.getLuzeera(), i, j, pos)){
 					nireTaula.ontziaKokatu(o.getLuzeera(), i, j, pos, o);
-					kokatua=true;
+					o.kokatu();
 				}
 				else{
 					i= (int) (Math.random()*9);

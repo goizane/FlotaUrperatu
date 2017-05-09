@@ -38,14 +38,14 @@ public class Pertsona extends Jokalari {
 			//Eta noranzkoa zein izango den,random ere, h=horizontal eta b=bertikal
 			char [] noranzkoa= {'h','b'};
 			//random egin behar dira
-			int i= (int) (Math.random()*9);
-			int j= (int) (Math.random()*9);
+			int i= (int) (Math.random()*10);
+			int j= (int) (Math.random()*10);
 			char pos= noranzkoa[(int) (Math.random()*2)];
 			boolean kokatua=false;
-			while(!kokatua){
+			while(!o.kokatuaDago()){
 				if(nireTaula.jarDaiteke(o.getLuzeera(), i, j, pos)){
 					nireTaula.ontziaKokatu(o.getLuzeera(), i, j, pos, o);
-					kokatua=true;
+					o.kokatu();
 				}
 				else{
 					i= (int) (Math.random()*9);

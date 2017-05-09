@@ -226,13 +226,13 @@ public class NagusiaUI extends JFrame{
 						String[] emaitza= i.split(",");
 						String arma= armaBotoiak.getSelection().getActionCommand();
 						String berezia;
-						if(KudeatzaileArmak.getInstantzia().misilZKop(0)==0||!arma.equals("misilZ")){
+						if(KudeatzaileArmak.getInstantzia().misilZKop(0)==0){
 							berezia=null;
 						}else{
 							berezia=motak.getSelectedItem().toString();
 						}
 						
-						System.out.println(berezia);
+						
 						
 						if(Partida.getInstantzia().armaKopuru(arma)!=0){
 							Partida.getInstantzia().tiroEgin(Integer.parseInt(emaitza[0]),Integer.parseInt(emaitza[1]),arma,berezia);
@@ -277,7 +277,9 @@ public class NagusiaUI extends JFrame{
 						misil.setText("Misil : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilKop(0)) +" dituzu");
 						misilZ.setText("Misil zuzendua : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilZKop(0)) +" dituzu");
 						if(KudeatzaileArmak.getInstantzia().misilZKop(0)!=0){
-							motak.removeItem(berezia);
+							if(arma.equals("misilZ")){
+								motak.removeItem(berezia);
+							}
 						}
 						else{
 							motak.removeItem(berezia);
