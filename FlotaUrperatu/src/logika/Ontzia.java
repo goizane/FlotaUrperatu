@@ -69,6 +69,10 @@ public class Ontzia {
 	public boolean kokatuaDago (){
 		return kokatua;
 	}
+	
+	public void kendu(){
+		kokatua=false;
+	}
 
 	
 	public void egoeraAldatu(Egoera e){

@@ -46,13 +46,13 @@ public class Ordenagailua extends Jokalari {
 		boolean minEgin=false;
 		while(!minEgin){
 			
-			System.out.println(i);
-			System.out.println(j);
-			System.out.println(arma);
-			System.out.println(berezi);
+			System.out.println("row: "+i);
+			System.out.println("col: "+j);
+			System.out.println("arma: "+arma);
+			System.out.println("misil zuzendu mota: "+berezi);
 			if(!ordenagaliruarenTaula.getTaula()[i][j].ukitutaDago()){
 				if(arma.equals("misilZ")){
-					if(this.getMisilKop()>0){
+					if(this.getMisilZKop()>0){
 						if(((MisilZuzendu)armak.get(2)).bereziaErabili(berezi)){
 							if(berezi.equals("horizontal")){
 								((MisilZuzendu)armak.get(2)).minEginHorizontal(ordenagaliruarenTaula,i);

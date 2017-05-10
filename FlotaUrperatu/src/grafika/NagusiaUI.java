@@ -254,12 +254,12 @@ public class NagusiaUI extends JFrame{
 						String berezia;
 						if(!arma.equals("misilZ")){
 							berezia=null;
+						}
+						else if(KudeatzaileArmak.getInstantzia().misilZKop(0)==0){
+							berezia=null;
 						}else{
 							berezia=motak.getSelectedItem().toString();
 						}
-
-
-
 						if(Partida.getInstantzia().armaKopuru(arma)!=0){
 							Partida.getInstantzia().tiroEgin(Integer.parseInt(emaitza[0]),Integer.parseInt(emaitza[1]),arma,berezia);
 							String  egoera;

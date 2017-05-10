@@ -31,6 +31,7 @@ public class Pertsona extends Jokalari {
 
 	public void ontziakRandom() {
 		nireTaula= new Taula();
+		ontziakBerrizKokatu();
 		Iterator<Ontzia> it= ontziak.iterator();
 		while(it.hasNext()){
 			Ontzia o=it.next();
@@ -57,10 +58,20 @@ public class Pertsona extends Jokalari {
 
 	}
 
+	private void ontziakBerrizKokatu() {
+		for(int i=0; i<ontziak.size();i++){
+			Ontzia o=this.ontziak.get(i);
+			if(o.kokatuaDago()){
+				o.kendu();
+			}
+		}
+		
+	}
+
 	public void tiroEgin(int i, int j, String arma, String berezia) {
 		if(!ordenagaliruarenTaula.getTaula()[i][j].ukitutaDago()){
 			if(arma.equals("misilZ")){
-				if(this.getMisilKop()>0){
+				if(this.getMisilZKop()>0){
 					if(((MisilZuzendu)armak.get(2)).bereziaErabili(berezia)){
 						if(berezia.equals("horizontal")){
 							((MisilZuzendu)armak.get(2)).minEginHorizontal(ordenagaliruarenTaula,j);
