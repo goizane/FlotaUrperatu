@@ -32,18 +32,18 @@ public class MisilTest {
 		
 		assertNotNull(misil3);
 		
-		assertEquals(misil1.getIzena(), "misil");
+		assertEquals(misil1.getIzena(), "Misil");
 		assertEquals(misil1.getKantitatea(), 5);
 		assertEquals(misil1.getPrezioa(), 20);
 		
-		assertEquals(misil2.getIzena(), "misil");
+		assertEquals(misil2.getIzena(), "Misil");
 		assertNotEquals(misil2.getIzena(), "Okerra den izena!");
 		assertEquals(misil2.getKantitatea(), 10);
 		assertNotEquals(misil2.getKantitatea(), 330);
 		assertEquals(misil2.getPrezioa(), 20);
 		assertNotEquals(misil2.getPrezioa(), 100000);
 		
-		assertEquals(misil3.getIzena(), "misil");
+		assertEquals(misil3.getIzena(), "Misil");
 		assertNotEquals(misil3.getIzena(), "Okerra den izena!");
 		assertEquals(misil3.getKantitatea(), 15);
 		assertNotEquals(misil3.getKantitatea(), 789);
