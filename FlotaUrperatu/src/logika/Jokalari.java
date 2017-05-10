@@ -182,7 +182,7 @@ public class Jokalari {
 	}
 
 	public boolean irabazi() {
-		boolean emaitza=false;
+		boolean emaitza=true;
 		for(int i=0;i<ordenagaliruarenTaula.tamaina();i++){
 			for(int j=0;j<ordenagaliruarenTaula.tamaina();j++){
 				if(ordenagaliruarenTaula.getTaula()[i][j].ontzia()!=null){
@@ -306,6 +306,11 @@ public class Jokalari {
 	public void diruaAktualizatu(int dirua2) {
 		this.dirua=this.dirua-dirua2;
 
+	}
+
+	public Arma armaHartu(int i) {
+		return armak.get(i);
+		
 	}
 
 

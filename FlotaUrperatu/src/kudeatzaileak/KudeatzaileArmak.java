@@ -1,5 +1,6 @@
 package kudeatzaileak;
 
+import logika.MisilZuzendu;
 import logika.Ordenagailua;
 import logika.Pertsona;
 
@@ -111,6 +112,14 @@ public class KudeatzaileArmak {
 	public String ontziarenPrezioa(int row, int col, int i) {
 		
 		return Partida.getInstantzia().getJokalari(i).ontzairenPrezioa(row,col);
+	}
+	
+	public int[] misilZuzendu(){
+		int [] emaitza = new int[3];
+		emaitza[0]=((MisilZuzendu)Partida.getInstantzia().getJokalari(0).armaHartu(2)).getBertikal();
+		emaitza[1]=((MisilZuzendu)Partida.getInstantzia().getJokalari(0).armaHartu(2)).getHorizontal();
+		emaitza[2]=((MisilZuzendu)Partida.getInstantzia().getJokalari(0).armaHartu(2)).getBoom();
+		return emaitza;
 	}
 
 }

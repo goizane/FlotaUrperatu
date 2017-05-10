@@ -42,8 +42,14 @@ public class Ordenagailua extends Jokalari {
 		String arma= armaMota [(int) (Math.random()*3)];
 		String [] bereziMota= {"bertikal","horizontal","boom"};
 		String berezi= bereziMota [(int) (Math.random()*3)];
+		
 		boolean minEgin=false;
 		while(!minEgin){
+			
+			System.out.println(i);
+			System.out.println(j);
+			System.out.println(arma);
+			System.out.println(berezi);
 			if(!ordenagaliruarenTaula.getTaula()[i][j].ukitutaDago()){
 				if(arma.equals("misilZ")){
 					if(this.getMisilKop()>0){

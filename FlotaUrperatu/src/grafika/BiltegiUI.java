@@ -70,13 +70,8 @@ public class BiltegiUI extends JFrame {
 				else if(erosi==0){
 					JOptionPane.showMessageDialog(null, "Erosketak ongi egin dira! \r\n"
 							+ "Saldo berria: " + Integer.toString(KudeatzaileArmak.getInstantzia().getDirua(0))+ "$");
-					boolean mErosi;
-					if(misilZKop>0){
-						mErosi=true;
-					}else{
-						mErosi=false;
-					}
-					NagusiaUI.getI().eguneratu(mErosi);
+
+					NagusiaUI.getI().eguneratu();
 					bukatu();
 				}
 				else if(erosi==2){

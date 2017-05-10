@@ -41,7 +41,7 @@ public class NagusiaUI extends JFrame{
 	private JComboBox<String> motak;
 	private JLabel dirua;
 	private static NagusiaUI instantzia= null;
-	
+
 	public static NagusiaUI getI(){
 		if(instantzia==null){
 			instantzia=new NagusiaUI();
@@ -156,8 +156,10 @@ public class NagusiaUI extends JFrame{
 		bonba.setSelected(true);
 
 		//misil zuzendua jartzen badugu,combobox agertu
-		String [] bereziak= {"bertikal" , "horizontal", "boom"};
-		motak= new JComboBox<>(bereziak);
+		
+ 
+		motak= new JComboBox<>();
+		eguneratuCombo();
 		motak.setVisible(false);
 		bonba.addActionListener(new ActionListener() {
 
@@ -196,6 +198,30 @@ public class NagusiaUI extends JFrame{
 		armak.add(ezkutua);
 	}
 
+	private void eguneratuCombo() {
+		//0: bertikal
+		//1: horizontal
+		//2: boom
+		int [] kantitateak= KudeatzaileArmak.getInstantzia().misilZuzendu();
+		motak.removeItem("boom");
+		motak.removeItem("bertikal");
+		motak.removeItem("horizontal");
+		if(kantitateak[0]>0){
+
+			motak.addItem("bertikal");
+		}
+		if(kantitateak[1]>0){
+
+			motak.addItem("horizontal");
+		}
+		if(kantitateak[2]>0){
+
+			motak.addItem("boom");
+		}
+	}
+	
+	
+
 	private void ordenagailuTaulaBete() {
 		int kont=1;
 		int kont2=1;
@@ -226,14 +252,14 @@ public class NagusiaUI extends JFrame{
 						String[] emaitza= i.split(",");
 						String arma= armaBotoiak.getSelection().getActionCommand();
 						String berezia;
-						if(KudeatzaileArmak.getInstantzia().misilZKop(0)==0){
+						if(!arma.equals("misilZ")){
 							berezia=null;
 						}else{
 							berezia=motak.getSelectedItem().toString();
 						}
-						
-						
-						
+
+
+
 						if(Partida.getInstantzia().armaKopuru(arma)!=0){
 							Partida.getInstantzia().tiroEgin(Integer.parseInt(emaitza[0]),Integer.parseInt(emaitza[1]),arma,berezia);
 							String  egoera;
@@ -261,29 +287,18 @@ public class NagusiaUI extends JFrame{
 									}
 								}
 							}
-
+							if(Partida.getInstantzia().irabazi(0)){
+								bukatu();
+							}
 
 							ordenagailuarenTxanda();
 						}
 						else{
 							JOptionPane.showMessageDialog(null, "Ez daukazu "+arma+"(r)ik!");
 						}
-						
-						if(Partida.getInstantzia().irabazi(0)){
-							bukatu();
-						}
-						 
-						bonba.setText("Bonba : " + Integer.toString(KudeatzaileArmak.getInstantzia().bonbaKop(0))+" dituzu" );
-						misil.setText("Misil : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilKop(0)) +" dituzu");
-						misilZ.setText("Misil zuzendua : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilZKop(0)) +" dituzu");
-						if(KudeatzaileArmak.getInstantzia().misilZKop(0)!=0){
-							if(arma.equals("misilZ")){
-								motak.removeItem(berezia);
-							}
-						}
-						else{
-							motak.removeItem(berezia);
-						}
+
+						eguneratu();
+
 					}
 				});
 				ordenagailua.add(botoia);
@@ -322,12 +337,12 @@ public class NagusiaUI extends JFrame{
 				}
 			}
 		}
-		
+
 		if(Partida.getInstantzia().irabazi(1)){
 			this.dispose();
 			new BukatuGalduUI();
 		}
-		 
+
 
 	}
 
@@ -398,7 +413,7 @@ public class NagusiaUI extends JFrame{
 										}
 										//dirua aktualizatu
 										dirua.setText("Dirua: "+ Integer.toString(KudeatzaileArmak.getInstantzia().getDirua(0))+ "$");
-										
+
 									}else{
 										JOptionPane.showMessageDialog(null, "Ez daukazu diru nahikorik!");
 									}
@@ -432,17 +447,13 @@ public class NagusiaUI extends JFrame{
 		new BukatuIrabaziUI();
 	}
 
-	public void eguneratu(boolean misilKop) {
+	public void eguneratu() {
 		dirua.setText("Dirua: "+ Integer.toString(KudeatzaileArmak.getInstantzia().getDirua(0))+ "$");
 		bonba.setText("Bonba : " + Integer.toString(KudeatzaileArmak.getInstantzia().bonbaKop(0))+" dituzu" );
 		misil.setText("Misil : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilKop(0)) +" dituzu");
 		misilZ.setText("Misil zuzendua : " + Integer.toString(KudeatzaileArmak.getInstantzia().misilZKop(0)) +" dituzu");
-		if(misilKop){
-			motak.addItem("bertikal");
-			motak.addItem("horizontal");
-			motak.addItem("boom");
-		}
-		
+		eguneratuCombo();
+
 	}
 
 }
