@@ -215,4 +215,12 @@ public class Taula {
 		
 	}
 
+
+
+
+	public int konpondu(int row, int col, int dirua) {
+		
+		return taula[row][col].konpondu(dirua);
+	}
+
 }

@@ -167,5 +167,15 @@ public class Ontzia {
 		return erreparasioDirua;
 		
 	}
+
+
+	public int konpondu(int dirua) {
+		int d=dirua;
+		if(dirua>= erreparasioDirua){
+			this.egoeraAldatu(new Normala());
+			d=d-erreparasioDirua;
+		}
+		return d;
+	}
 	
 }

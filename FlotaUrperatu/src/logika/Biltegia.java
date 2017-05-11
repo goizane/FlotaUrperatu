@@ -48,27 +48,28 @@ public class Biltegia {
 		//0: ondo egin da
 		//1: ez daukazu diru nahikorik
 		//2: ez dago kantitate nahikorik
-		
+
 		int emaitza;
 		Jokalari j= Partida.getInstantzia().getJokalari(0);
-		//diru nahikoa badu
-		int dirua=j.diruNahikoa(bonba,misil,misilZ);
-		if(dirua<= j.getDirua()){
-			if(armamentuNahikoa(bonba,misil,misilZ)){
-				//armamentua gehitu jokalariari
-				j.armakGehitu(bonba,misil,misilZ);
+
+
+		//erosi egin diru nahikoa ordez
+		//if(j.diruNahikoa(bonba,misil,misilZ)
+		//honek boolean bat diru nahikoa duen a la ez, eta diru nahikoa izatekotan 
+		//dirua aktualizatu eta armak aktualizatu
+		
+		if(armamentuNahikoa(bonba,misil,misilZ)){
+			if(j.erosi(bonba,misil,misilZ)){
 				//armamentua kendu biltegiari
 				this.armamentuaSaldu(bonba,misil,misilZ);
-				//dirua aktualizatu
-				j.diruaAktualizatu(dirua);
 				emaitza=0;
 			}
 			else{
-				emaitza=2;
+				emaitza=1;
 			}
 		}
 		else{
-			emaitza=1;
+			emaitza=2;
 		}
 
 		return emaitza;

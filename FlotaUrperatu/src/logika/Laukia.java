@@ -85,5 +85,10 @@ public class Laukia {
 		this.ukitua=false;
 		
 	}
+
+	public int konpondu(int dirua) {
+		// TODO Auto-generated method stub
+		return ontzi.konpondu(dirua);
+	}
 	
 }

@@ -203,20 +203,18 @@ public class NagusiaUI extends JFrame{
 		//1: horizontal
 		//2: boom
 		int [] kantitateak= KudeatzaileArmak.getInstantzia().misilZuzendu();
-		motak.removeItem("boom");
-		motak.removeItem("bertikal");
-		motak.removeItem("horizontal");
+		motak.removeAllItems();
 		if(kantitateak[0]>0){
 
-			motak.addItem("bertikal");
+			motak.addItem("bertikal ("+kantitateak[0]+")");
 		}
 		if(kantitateak[1]>0){
 
-			motak.addItem("horizontal");
+			motak.addItem("horizontal ("+kantitateak[1]+")");
 		}
 		if(kantitateak[2]>0){
 
-			motak.addItem("boom");
+			motak.addItem("boom ("+kantitateak[2]+")");
 		}
 	}
 	
@@ -258,7 +256,7 @@ public class NagusiaUI extends JFrame{
 						else if(KudeatzaileArmak.getInstantzia().misilZKop(0)==0){
 							berezia=null;
 						}else{
-							berezia=motak.getSelectedItem().toString();
+							berezia=motak.getSelectedItem().toString().split(" ")[0];
 						}
 						if(Partida.getInstantzia().armaKopuru(arma)!=0){
 							Partida.getInstantzia().tiroEgin(Integer.parseInt(emaitza[0]),Integer.parseInt(emaitza[1]),arma,berezia);
@@ -311,9 +309,7 @@ public class NagusiaUI extends JFrame{
 
 
 	public void ordenagailuarenTxanda() {
-		int[] emaitza=Partida.getInstantzia().tiroEginOrdenagailua();
-		int i = emaitza[0];
-		int j= emaitza[1];
+		Partida.getInstantzia().tiroEginOrdenagailua();
 		String  egoera= null;
 		for(int n=0;n<ontziak.length;n++){
 			for(int m=0;m<ontziak.length;m++){

@@ -261,11 +261,21 @@ public class Jokalari {
 		//horrela bada egoera aldatu normalari
 		//dirua kendu
 		//kontrakoaren taulan ukitua kendu
-		Ontzia ontzia = (Ontzia)nireTaula.getTaula()[row][col].ontzia();
-		int beharrezkoDirua = ontzia.getKonpontzekoDirua();
-		if (beharrezkoDirua<this.dirua){
-			this.dirua=this.dirua-beharrezkoDirua;
-			ontzia.egoeraAldatu(new Normala());
+		
+		
+		//ontziaKonpondu Taula klaseari dei egin koordenatuak eta dirua pasata, honek
+		//dirua itzuliko du, itzulitako dirua gurearen berdina bada
+		//ez duela konpondu esan nahi du
+		//taula klasean konpudu metodoak, lauki bati konpondu dei egindo dio dirua pasatuz,
+		//honek ere diru kant bat itzuliko du
+		//laukia klasean konpondu ontziari deituko dio dirua pasatzen, lehen bezala dirua itzuliko du
+		//ontzi klasean konpondu metodoak, pasatako dirua erreparasio diruaren bera edo handiagagoa bada 
+		//konprobatu, hala bada, ontzia konpondu(egoeraAldatu) eta bueltako du, pasatakodirua-erreparasioa
+		//bestela diru bera
+		
+		int beharrezkoDirua = nireTaula.konpondu(row,col,this.dirua);
+		if (beharrezkoDirua!=this.dirua){
+			this.diruaAktualizatu(beharrezkoDirua);
 			nireTaula.getTaula()[row][col].ezUkitu();
 			return true;
 		}
@@ -311,6 +321,16 @@ public class Jokalari {
 	public Arma armaHartu(int i) {
 		return armak.get(i);
 		
+	}
+
+	public boolean erosi(int bonba, int misil, int misilZ) {
+		int d=diruNahikoa(bonba, misil, misilZ);
+		if(this.dirua>=d){
+			this.diruaAktualizatu(d);
+			this.armakGehitu(bonba, misil, misilZ);
+			return true;
+		}
+		return false;
 	}
 
 
