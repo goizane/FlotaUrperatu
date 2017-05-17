@@ -30,18 +30,18 @@ public class BonbaTest {
 		assertNotNull(bonba2);
 		assertNotNull(bonba3);
 		
-		assertEquals(bonba1.getIzena(), "bonba");
+		assertEquals(bonba1.getIzena(), "Bonba");
 		assertEquals(bonba1.getKantitatea(), 5);
 		assertEquals(bonba1.getPrezioa(), 10);
 		
-		assertEquals(bonba2.getIzena(), "bonba");
+		assertEquals(bonba2.getIzena(), "Bonba");
 		assertNotEquals(bonba2.getIzena(), "Okerra den izena!");
 		assertEquals(bonba2.getKantitatea(), 50);
 		assertNotEquals(bonba2.getKantitatea(), 330);
 		assertEquals(bonba2.getPrezioa(), 10);
 		assertNotEquals(bonba2.getPrezioa(), 100000);
 		
-		assertEquals(bonba3.getIzena(), "bonba");
+		assertEquals(bonba3.getIzena(), "Bonba");
 		assertNotEquals(bonba3.getIzena(), "Okerra den izena!");
 		assertEquals(bonba3.getKantitatea(), 90);
 		assertNotEquals(bonba3.getKantitatea(), 789);

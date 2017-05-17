@@ -9,6 +9,8 @@ import logika.Ezkutatua;
 import logika.Ontzia;
 import logika.Ukitua;
 
+//Test hau amaituta dago. Ondo funtzionatzen du.
+
 public class OntziaTest {
 	
 	Ontzia ontzia1;
@@ -274,19 +276,105 @@ public class OntziaTest {
 		assertNotNull(ontzia3.getEgora());
 		
 		assertFalse(ontzia1.getUkitua());
+		assertFalse(ontzia1.hondoratua());
 		ontzia1.minEgin();
 		assertTrue(ontzia1.getUkitua());
+		assertFalse(ontzia1.hondoratua());
+		ontzia1.minEgin();
+		assertTrue(ontzia1.getUkitua());
+		assertFalse(ontzia1.hondoratua());
+		ontzia1.minEgin();
+		assertTrue(ontzia1.getUkitua());
+		assertFalse(ontzia1.hondoratua());
+		ontzia1.minEgin();
+		assertTrue(ontzia1.hondoratua());
+		
+		assertFalse(ontzia2.getUkitua());
+		assertFalse(ontzia2.hondoratua());
 		ontzia2.minEgin();
+		assertTrue(ontzia2.getUkitua());
+		assertFalse(ontzia2.hondoratua());
+		ontzia2.minEgin();
+		assertTrue(ontzia2.getUkitua());
+		assertFalse(ontzia2.hondoratua());
+		ontzia2.minEgin();
+		assertTrue(ontzia2.hondoratua());
+		
+		assertFalse(ontzia3.getUkitua());
+		assertFalse(ontzia3.hondoratua());
 		ontzia3.minEgin();
+		assertTrue(ontzia3.getUkitua());
+		assertFalse(ontzia3.hondoratua());
+		ontzia3.minEgin();
+		assertTrue(ontzia3.hondoratua());
 	}
 
 	@Test
 	public void testHondoratu() {
-		fail("Not yet implemented");
+		ontzia1 = new Ontzia("Hegazkin-ontzi");
+		ontzia2 = new Ontzia("Itsaspeko");
+		ontzia3 = new Ontzia("Suntsitzaile");
+		
+		assertNotNull(ontzia1);
+		assertNotNull(ontzia2);
+		assertNotNull(ontzia3);
+		
+		assertNotNull(ontzia1.getEgora());
+		assertNotNull(ontzia2.getEgora());
+		assertNotNull(ontzia3.getEgora());
+		
+		assertFalse(ontzia1.getUkitua());
+		assertFalse(ontzia1.hondoratua());
+		ontzia1.hondoratu();
+		assertTrue(ontzia1.hondoratua());
+		
+		assertFalse(ontzia2.getUkitua());
+		assertFalse(ontzia2.hondoratua());
+		ontzia2.hondoratu();
+		assertTrue(ontzia2.hondoratua());
+		
+		assertFalse(ontzia3.getUkitua());
+		assertFalse(ontzia3.hondoratua());
+		ontzia3.hondoratu();
+		assertTrue(ontzia3.hondoratua());
 	}
 
 	@Test
 	public void testHondoratua() {
-		fail("Not yet implemented");
+		ontzia1 = new Ontzia("Hegazkin-ontzi");
+		ontzia2 = new Ontzia("Itsaspeko");
+		ontzia3 = new Ontzia("Suntsitzaile");
+		
+		assertNotNull(ontzia1);
+		assertNotNull(ontzia2);
+		assertNotNull(ontzia3);
+		
+		assertNotNull(ontzia1.getEgora());
+		assertNotNull(ontzia2.getEgora());
+		assertNotNull(ontzia3.getEgora());
+		
+		assertFalse(ontzia1.getUkitua());
+		assertFalse(ontzia1.hondoratua());
+		ontzia1.minEgin();
+		assertTrue(ontzia1.getUkitua());
+		assertFalse(ontzia1.hondoratua());
+		ontzia1.minEgin();
+		assertTrue(ontzia1.getUkitua());
+		assertFalse(ontzia1.hondoratua());
+		ontzia1.minEgin();
+		assertTrue(ontzia1.getUkitua());
+		assertFalse(ontzia1.hondoratua());
+		ontzia1.minEgin();
+		assertTrue(ontzia1.hondoratua());
+		
+		assertFalse(ontzia2.getUkitua());
+		assertFalse(ontzia2.hondoratua());
+		ontzia2.hondoratu();
+		assertTrue(ontzia2.hondoratua());
+		
+		assertFalse(ontzia3.getUkitua());
+		assertFalse(ontzia3.hondoratua());
+		ontzia3.hondoratu();
+		assertTrue(ontzia3.hondoratua());
 	}
 }
