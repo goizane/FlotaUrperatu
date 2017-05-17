@@ -20,6 +20,8 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 import kudeatzaileak.KudeatzaileArmak;
 import kudeatzaileak.KudeatzaileOntziak;
