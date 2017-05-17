@@ -223,4 +223,12 @@ public class Taula {
 		return taula[row][col].konpondu(dirua);
 	}
 
+
+
+
+	public boolean ukituaDago(int i, int j) {
+		// TODO Auto-generated method stub
+		return taula[i][j].ontziUkitua();
+	}
+
 }

@@ -34,7 +34,7 @@ public class Jokalari {
 	}
 
 	public void armakHasieratu() {
-		armak.add(new Bonba(120));
+		armak.add(new Bonba(60));
 		armak.add(new Misil(3));
 		armak.add(new MisilZuzendu(1));
 		//ezkutu eta radar falta dira
@@ -86,7 +86,7 @@ public class Jokalari {
 	}
 
 	public boolean ontziaEzkutatu(int i, int j){
-		Ontzia o= ontziaEzkutua(i,j);
+		Ontzia o= ontziaDa(i,j);
 		if(o!=null){
 			if(!o.getEgora().equals("logika.Ezkutatua")&& ezkutua.getKantitatea()>0 ){
 				o.egoeraAldatu(new Ezkutatua());
@@ -102,7 +102,7 @@ public class Jokalari {
 		}
 	}
 
-	public Ontzia ontziaEzkutua(int i, int j) {
+	public Ontzia ontziaDa(int i, int j) {
 		if(nireTaula.getTaula()[i][j].ontzia()!=null){
 			return nireTaula.getTaula()[i][j].ontzia();
 		}
@@ -257,22 +257,6 @@ public class Jokalari {
 	}
 
 	public boolean ontziaKonpondu(int row, int col) {
-		//konprobatu dirurik duen ontzia konpontzeko
-		//horrela bada egoera aldatu normalari
-		//dirua kendu
-		//kontrakoaren taulan ukitua kendu
-		
-		
-		//ontziaKonpondu Taula klaseari dei egin koordenatuak eta dirua pasata, honek
-		//dirua itzuliko du, itzulitako dirua gurearen berdina bada
-		//ez duela konpondu esan nahi du
-		//taula klasean konpudu metodoak, lauki bati konpondu dei egindo dio dirua pasatuz,
-		//honek ere diru kant bat itzuliko du
-		//laukia klasean konpondu ontziari deituko dio dirua pasatzen, lehen bezala dirua itzuliko du
-		//ontzi klasean konpondu metodoak, pasatako dirua erreparasio diruaren bera edo handiagagoa bada 
-		//konprobatu, hala bada, ontzia konpondu(egoeraAldatu) eta bueltako du, pasatakodirua-erreparasioa
-		//bestela diru bera
-		
 		int beharrezkoDirua = nireTaula.konpondu(row,col,this.dirua);
 		if (beharrezkoDirua!=this.dirua){
 			this.diruaAktualizatu(beharrezkoDirua);

@@ -90,5 +90,12 @@ public class Laukia {
 		// TODO Auto-generated method stub
 		return ontzi.konpondu(dirua);
 	}
+
+	public boolean ontziUkitua() {
+		// TODO Auto-generated method stub
+		return ontzi.ukitutaNago();
+	}
+	
+	
 	
 }

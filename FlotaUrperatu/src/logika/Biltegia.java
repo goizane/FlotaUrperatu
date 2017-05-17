@@ -43,14 +43,14 @@ public class Biltegia {
 		return armak.size();
 	}
 
-	public int erosi(int bonba, int misil, int misilZ) {
+	public int erosi(int bonba, int misil, int misilZ,int i) {
 		//emaitzak kodetu
 		//0: ondo egin da
 		//1: ez daukazu diru nahikorik
 		//2: ez dago kantitate nahikorik
 
 		int emaitza;
-		Jokalari j= Partida.getInstantzia().getJokalari(0);
+		Jokalari j= Partida.getInstantzia().getJokalari(i);
 
 
 		//erosi egin diru nahikoa ordez

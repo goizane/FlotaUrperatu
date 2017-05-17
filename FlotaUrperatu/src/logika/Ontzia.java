@@ -177,5 +177,13 @@ public class Ontzia {
 		}
 		return d;
 	}
+
+
+	public boolean ukitutaNago() {
+		if (this.getEgora().equals("logika.Ukitua")) {
+			return true;
+		}
+		return false;
+	}
 	
 }

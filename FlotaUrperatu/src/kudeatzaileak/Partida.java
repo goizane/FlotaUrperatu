@@ -142,5 +142,23 @@ public class Partida {
 		}
 		
 	}
+
+
+	public int ordenagailuaRandom() {
+		//hemen erabakiko da, ordenagailuak zeozer egingo duen ala ez
+		//0: ezkutu
+		//1: erosi
+		//2: konpondu
+		//3: ezer
+		int i= (int) (Math.random()*3);
+		//ordenagailuak egingo duen ala ez, b=bai, e= ez, probabilitate altuago ez bai baino
+		char [] baiEdoEz= {'e','e','e','b'};
+		char erabakia= baiEdoEz[(int) (Math.random()*4)];
+		int emaitza=3;
+		if(erabakia=='b'){
+			emaitza=((Ordenagailua)jokalariak.get(1)).random(i);
+		}
+		return emaitza;
+	}
 	
 }

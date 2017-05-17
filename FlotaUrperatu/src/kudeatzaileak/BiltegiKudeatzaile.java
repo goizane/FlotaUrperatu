@@ -33,7 +33,7 @@ public class BiltegiKudeatzaile {
 				//0: ondo egin da
 				//1: ez daukazu diru nahikorik
 				//2: ez dago kantitate nahikorik
-		return Biltegia.getInstance().erosi(bonba,misil,misilZ);
+		return Biltegia.getInstance().erosi(bonba,misil,misilZ,0);
 		
 	}
 

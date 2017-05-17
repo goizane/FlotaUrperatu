@@ -40,6 +40,7 @@ public class BukatuGalduUI extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 
 				new OntziakAukeratuUI();
+				
 				itzi();
 			}
 		});

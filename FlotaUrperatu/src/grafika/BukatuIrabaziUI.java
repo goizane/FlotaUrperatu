@@ -39,6 +39,7 @@ public class BukatuIrabaziUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				new OntziakAukeratuUI();
+				
 				itzi();
 			}
 		});

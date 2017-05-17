@@ -58,7 +58,6 @@ public class OntziakAukeratuUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(table.betetaDago()){
-					
 					NagusiaUI.getI();
 					itxi();
 				}

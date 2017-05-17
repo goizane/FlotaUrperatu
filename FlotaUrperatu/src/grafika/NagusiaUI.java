@@ -50,6 +50,12 @@ public class NagusiaUI extends JFrame{
 		}
 		return instantzia;
 	}
+	
+	public void berbiarazi(){
+		if(instantzia!=null){
+			instantzia=new NagusiaUI();
+		}
+	}
 
 	private NagusiaUI(){
 		super("Flota urperatu");
@@ -311,6 +317,7 @@ public class NagusiaUI extends JFrame{
 
 
 	public void ordenagailuarenTxanda() {
+		ordenagailuaRandom();
 		Partida.getInstantzia().tiroEginOrdenagailua();
 		String  egoera= null;
 		for(int n=0;n<ontziak.length;n++){
@@ -342,6 +349,26 @@ public class NagusiaUI extends JFrame{
 		}
 
 
+	}
+
+	private void ordenagailuaRandom() {
+		//0: ezkutu
+		//1: erosi
+		//2: konpondu
+		//3: ezer
+		int e= Partida.getInstantzia().ordenagailuaRandom();
+		if(e==2){
+			String egoera;
+			for(int n=0;n<ordenagailuarenTaula.length;n++){
+				for(int m=0;m<ordenagailuarenTaula.length;m++){
+					egoera= Partida.getInstantzia().getEgoera(n,m,1);
+					if(egoera.equals("logika.Normala")){
+						ordenagailuarenTaula[n][m].setEnabled(true);
+						ordenagailuarenTaula[n][m].setBackground(null);
+					}
+				}
+			}
+		}
 	}
 
 	private void nireTaulaBete() {
@@ -434,11 +461,6 @@ public class NagusiaUI extends JFrame{
 	}
 
 
-
-	public static void main(String[] args) {
-		//Kudeatzaile.getInstantzia().ordenagailuaHasieratu();
-		new NagusiaUI();
-	}
 
 	public void bukatu(){
 		this.dispose();
