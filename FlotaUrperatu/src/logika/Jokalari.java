@@ -34,7 +34,7 @@ public class Jokalari {
 	}
 
 	public void armakHasieratu() {
-		armak.add(new Bonba(90));
+		armak.add(new Bonba(120));
 		armak.add(new Misil(3));
 		armak.add(new MisilZuzendu(1));
 		//ezkutu eta radar falta dira

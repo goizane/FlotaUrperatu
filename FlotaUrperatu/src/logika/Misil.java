@@ -13,7 +13,7 @@ public class Misil extends Arma {
 
 		if(laukia.ontzia()!=null){
 			laukia.ontzia().hondoratu();
-			if(!laukia.ontzia().getEgora().equals("logika.Ezkutatua")||!laukia.ontzia().getEgora().equals("logika.Normala")){
+			if(!laukia.ontzia().getEgora().equals("logika.Ezkutatua")&&!laukia.ontzia().getEgora().equals("logika.Normala")){
 				laukia.ukitu();
 			}
 		}

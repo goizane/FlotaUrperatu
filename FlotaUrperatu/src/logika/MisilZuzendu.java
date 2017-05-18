@@ -23,8 +23,10 @@ public class MisilZuzendu extends Arma {
 			Ontzia o=ordenagaliruarenTaula.getTaula()[j][i].ontzia();
 			if(o!=null&&!ukituak.contains(o)){
 				o.minEgin();
-				if(!o.getEgora().equals("logika.Ezkutatua")||!o.getEgora().equals("logika.Normala")){
-					ordenagaliruarenTaula.getTaula()[j][i].ukitu();
+				if(!o.getEgora().equals("logika.Ezkutatua")){
+					if(!o.getEgora().equals("logika.Normala")){
+						ordenagaliruarenTaula.getTaula()[j][i].ukitu();
+					}
 				}
 				else{
 					ukituak.add(o);
@@ -43,8 +45,10 @@ public class MisilZuzendu extends Arma {
 			Ontzia o=ordenagaliruarenTaula.getTaula()[j][i].ontzia();
 			if(o!=null&&!ukituak.contains(o)){
 				o.minEgin();
-				if(!o.getEgora().equals("logika.Ezkutatua")||!o.getEgora().equals("logika.Normala")){
-					ordenagaliruarenTaula.getTaula()[j][i].ukitu();
+				if(!o.getEgora().equals("logika.Ezkutatua")){
+					if(!o.getEgora().equals("logika.Normala")){
+						ordenagaliruarenTaula.getTaula()[j][i].ukitu();
+					}
 				}
 				else{
 					ukituak.add(o);

@@ -90,8 +90,6 @@ public class Ordenagailua extends Jokalari {
 			}
 		}
 		int[] emaitza= {i,j};
-		System.out.println(arma);
-		System.out.println("i: "+(i+1)+ " j: "+ (j+1));
 		return emaitza;
 	}
 
@@ -108,7 +106,7 @@ public class Ordenagailua extends Jokalari {
 		int i= (int) (Math.random()*10);
 		int j= (int) (Math.random()*10);
 
-		if(e==0){
+		if(k==0){
 			int kont=0;
 			while(!ontziNormala(i,j)&&kont<100){
 				i= (int) (Math.random()*10);

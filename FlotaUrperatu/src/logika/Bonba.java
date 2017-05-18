@@ -11,7 +11,7 @@ public class Bonba extends Arma{
 	public void minEgin(Laukia laukia) {
 		if(laukia.ontzia()!=null){
 			laukia.ontzia().minEgin();
-			if(!laukia.ontzia().getEgora().equals("logika.Ezkutatua")||!laukia.ontzia().getEgora().equals("logika.Normala")){
+			if(!laukia.ontzia().getEgora().equals("logika.Ezkutatua")&&!laukia.ontzia().getEgora().equals("logika.Normala")){
 				laukia.ukitu();
 			}
 		}
