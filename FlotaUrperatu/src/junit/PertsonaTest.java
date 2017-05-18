@@ -79,11 +79,11 @@ public class PertsonaTest {
 	@Test
 	public void testTiroEginIntIntStringString() {
 		assertNotNull(pertsona1);
-		assertEquals(pertsona1.armaKopurua("bonba"), 120);
-		assertNotEquals(pertsona1.armaKopurua("bonba"), 119);
+		assertEquals(pertsona1.armaKopurua("bonba"), 60);
+		assertNotEquals(pertsona1.armaKopurua("bonba"), 59);
 		pertsona1.tiroEgin(3, 4, "bonba", "horizontal");
-		assertEquals(pertsona1.armaKopurua("bonba"), 119);
-		assertNotEquals(pertsona1.armaKopurua("bonba"), 120);
+		assertEquals(pertsona1.armaKopurua("bonba"), 59);
+		assertNotEquals(pertsona1.armaKopurua("bonba"), 60);
 		
 		assertNotNull(pertsona2);
 		assertEquals(pertsona2.armaKopurua("misil"), 3);
