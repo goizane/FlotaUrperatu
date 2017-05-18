@@ -18,7 +18,7 @@ public class Ordenagailua extends Jokalari {
 			int i= (int) (Math.random()*10);
 			int j= (int) (Math.random()*10);
 			char pos= noranzkoa[(int) (Math.random()*2)];
-			
+
 			while(!o.kokatuaDago()){
 				if(nireTaula.jarDaiteke(o.getLuzeera(), i, j, pos)){
 					nireTaula.ontziaKokatu(o.getLuzeera(), i, j, pos, o);
@@ -42,7 +42,7 @@ public class Ordenagailua extends Jokalari {
 		String arma= armaMota [(int) (Math.random()*3)];
 		String [] bereziMota= {"bertikal","horizontal","boom"};
 		String berezi= bereziMota [(int) (Math.random()*3)];
-		
+
 		boolean minEgin=false;
 		while(!minEgin){
 			if(!ordenagaliruarenTaula.getTaula()[i][j].ukitutaDago()){
@@ -50,21 +50,21 @@ public class Ordenagailua extends Jokalari {
 					if(this.getMisilZKop()>0){
 						if(((MisilZuzendu)armak.get(2)).bereziaErabili(berezi)){
 							if(berezi.equals("horizontal")){
-								((MisilZuzendu)armak.get(2)).minEginHorizontal(ordenagaliruarenTaula,i);
+								((MisilZuzendu)armak.get(2)).minEginHorizontal(ordenagaliruarenTaula,j);
 							}
 							else if(berezi.equals("bertikal")){
-								((MisilZuzendu)armak.get(2)).minEginBertikal(ordenagaliruarenTaula,j);
+								((MisilZuzendu)armak.get(2)).minEginBertikal(ordenagaliruarenTaula,i);
 							}
 							else if(berezi.equals("boom")){
-								((MisilZuzendu)armak.get(2)).minEginHorizontal(ordenagaliruarenTaula,i);
-								((MisilZuzendu)armak.get(2)).minEginBertikal(ordenagaliruarenTaula,j);
+								((MisilZuzendu)armak.get(2)).minEginHorizontal(ordenagaliruarenTaula,j);
+								((MisilZuzendu)armak.get(2)).minEginBertikal(ordenagaliruarenTaula,i);
 							}
 							minEgin=true;
-							ordenagaliruarenTaula.getTaula()[i][j].ukitu();
+
 						}else{
 							berezi= bereziMota [(int) (Math.random()*3)];
 						}
-						
+
 					}
 					else{
 						arma= armaMota [(int) (Math.random()*3)];
@@ -78,7 +78,7 @@ public class Ordenagailua extends Jokalari {
 						((Misil)armak.get(1)).minEgin(ordenagaliruarenTaula.getTaula()[i][j]);
 					}
 					minEgin=true;
-					ordenagaliruarenTaula.getTaula()[i][j].ukitu();
+					
 				}
 				else{
 					arma= armaMota [(int) (Math.random()*3)];
@@ -90,6 +90,8 @@ public class Ordenagailua extends Jokalari {
 			}
 		}
 		int[] emaitza= {i,j};
+		System.out.println(arma);
+		System.out.println("i: "+(i+1)+ " j: "+ (j+1));
 		return emaitza;
 	}
 
@@ -105,44 +107,63 @@ public class Ordenagailua extends Jokalari {
 		int e=3;
 		int i= (int) (Math.random()*10);
 		int j= (int) (Math.random()*10);
-		
-		if(k==0){
-			if(ontziaEzkutatu(i, j)){
-				e=k;
+
+		if(e==0){
+			int kont=0;
+			while(!ontziNormala(i,j)&&kont<100){
+				i= (int) (Math.random()*10);
+				j= (int) (Math.random()*10);
+				kont++;
 			}
-			else{
-				e=3;
+			if(kont<100){
+				if(ontziaEzkutatu(i, j)){
+					e=k;
+				}
 			}
 		}
+
+
 		else if(k==1){
 			int bonba= (int) (Math.random()*10);
 			int misil= (int) (Math.random()*5);
 			int misilZ=  (int) (Math.random()*2);
-			if(Biltegia.getInstance().erosi(bonba, misil, misilZ,1)==0){
+			int kont=0;
+			while(Biltegia.getInstance().erosi(bonba, misil, misilZ,1)!=0&&kont<100){
+				bonba= (int) (Math.random()*10);
+				misil= (int) (Math.random()*5);
+				misilZ=  (int) (Math.random()*2);
+				kont++;
+			}
+			if(kont<100){
 				e=k;
 			}
-			else{
-				e=3;
-			}
 		}
-		else if(k==2){
-			while(!nireTaula.ontziaDa(i,j)){
+		else if(e==2){
+			int kont=0;
+			while(!nireTaula.ukituaDago(i,j)&&kont<100){
 				i= (int) (Math.random()*10);
 				j= (int) (Math.random()*10);
+				kont++;
 			}
-			if(nireTaula.ukituaDago(i,j)){
-				if(ontziaKonpondu(i, j)){
-					e=k;
-				}
-				else{
-					e=3;
-				}
-			}
-			else{
-				e=3;
+			if(kont<100&&ontziaKonpondu(i, j)){
+				//System.out.println("x: "+(i+1)+ "y: "+ (j+1));
+				e=k;
 			}
 		}
 		return e;
+	}
+
+
+
+	private boolean ontziNormala(int i, int j) {
+		Ontzia o= ontziaDa(i,j);
+		if(o!=null){
+			if(o.getEgora().equals("logika.Normala")){
+				return true;
+			}
+		}
+		return false;
+
 	}
 
 }

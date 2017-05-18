@@ -14,4 +14,8 @@ public class Ukitua extends Egoera{
 		kont++;
 		return kont;
 	}
+	
+	public int getKont(){
+		return kont;
+	}
 }

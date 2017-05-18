@@ -34,7 +34,7 @@ public class Jokalari {
 	}
 
 	public void armakHasieratu() {
-		armak.add(new Bonba(60));
+		armak.add(new Bonba(90));
 		armak.add(new Misil(3));
 		armak.add(new MisilZuzendu(1));
 		//ezkutu eta radar falta dira
@@ -74,6 +74,15 @@ public class Jokalari {
 
 	public void berbiarazi(){
 		nireTaula= new Taula();
+		ordenagaliruarenTaula= new Taula();
+		ontziakEzKokatu();
+	}
+
+	private void ontziakEzKokatu() {
+		for(int i=0;i<ontziak.size();i++){
+			ontziak.get(i).kendu();
+		}
+		
 	}
 
 	public int radarKop() {

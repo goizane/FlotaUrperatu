@@ -227,8 +227,10 @@ public class Taula {
 
 
 	public boolean ukituaDago(int i, int j) {
-		// TODO Auto-generated method stub
-		return taula[i][j].ontziUkitua();
+		if(ontziaDa(i, j)){
+			return taula[i][j].ontziUkitua();
+		}
+		return false;
 	}
 
 }

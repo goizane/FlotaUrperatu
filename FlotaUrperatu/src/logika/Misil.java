@@ -10,9 +10,15 @@ public class Misil extends Arma {
 
 	public void minEgin(Laukia laukia) {
 
-		laukia.ukitu();
+
 		if(laukia.ontzia()!=null){
 			laukia.ontzia().hondoratu();
+			if(!laukia.ontzia().getEgora().equals("logika.Ezkutatua")||!laukia.ontzia().getEgora().equals("logika.Normala")){
+				laukia.ukitu();
+			}
+		}
+		else{
+			laukia.ukitu();
 		}
 	}
 }

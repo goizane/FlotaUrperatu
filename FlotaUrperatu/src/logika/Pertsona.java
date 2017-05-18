@@ -69,7 +69,6 @@ public class Pertsona extends Jokalari {
 	}
 
 	public void tiroEgin(int i, int j, String arma, String berezia) {
-		if(!ordenagaliruarenTaula.getTaula()[i][j].ukitutaDago()){
 			if(arma.equals("misilZ")){
 				if(this.getMisilZKop()>0){
 					if(((MisilZuzendu)armak.get(2)).bereziaErabili(berezia)){
@@ -84,7 +83,6 @@ public class Pertsona extends Jokalari {
 							((MisilZuzendu)armak.get(2)).minEginBertikal(ordenagaliruarenTaula,i);
 						}
 					}
-					ordenagaliruarenTaula.getTaula()[i][j].ukitu();
 				}
 			}
 			else if (this.armaErabili(arma)){
@@ -96,7 +94,7 @@ public class Pertsona extends Jokalari {
 				}
 				ordenagaliruarenTaula.getTaula()[i][j].ukitu();
 			}
-		}
+		
 	}
 
 

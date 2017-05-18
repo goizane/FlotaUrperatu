@@ -12,6 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import kudeatzaileak.Partida;
+
 public class BukatuGalduUI extends JFrame{
 	
 
@@ -20,7 +22,6 @@ public class BukatuGalduUI extends JFrame{
 		getContentPane().setLayout(new GridLayout(2, 0));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JButton irten= new JButton("Irten");
-		JButton berriz= new JButton("Berriz saiatu");
 		JLabel mess= new JLabel("Ze pena! Galdu duzu!!");
 		mess.setHorizontalAlignment(JLabel.CENTER);
 		mess.setFont(new Font("Arial", 0, 20));
@@ -34,16 +35,7 @@ public class BukatuGalduUI extends JFrame{
 			}
 		});
 		
-		berriz.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-				new OntziakAukeratuUI();
-				
-				itzi();
-			}
-		});
+		
 		
 		
 		JPanel mezua= new JPanel();
@@ -51,7 +43,6 @@ public class BukatuGalduUI extends JFrame{
 		mezua.setLayout(new BorderLayout());
 		mezua.add(mess);
 		botoiak.setLayout(new GridLayout(2, 0));
-		botoiak.add(berriz);
 		botoiak.add(irten);
 		
 		getContentPane().add(mezua);

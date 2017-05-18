@@ -60,6 +60,7 @@ public class Partida {
 	
 	public void taulaBerbiarazi() {
 		jokalariak.get(0).berbiarazi();
+		jokalariak.get(1).berbiarazi();
 		
 	}
 	
@@ -96,10 +97,7 @@ public class Partida {
 
 	public String ezkutuKontadore(int i,int j,int index) {
 		 Jokalari jok = jokalariak.get(index);
-		 Taula t = jok.kontrakoarenTaula();
-		 Laukia lau = t.getTaula()[i][j];
-		 Ontzia on = lau.ontzia();
-		 System.out.println(on);
+		 Ontzia on = jok.kontrakoarenTaula().getTaula()[i][j].ontzia();
 		 return Integer.toString(on.getEzkutuKontadore());
 		//return Integer.toString(jokalariak.get(index).kontrakoarenTaula().getTaula()[i][j].ontzia().getEzkutuKontadore());
 	}
@@ -154,10 +152,13 @@ public class Partida {
 		//ordenagailuak egingo duen ala ez, b=bai, e= ez, probabilitate altuago ez bai baino
 		char [] baiEdoEz= {'e','e','e','b'};
 		char erabakia= baiEdoEz[(int) (Math.random()*4)];
+		//System.out.println("erabakia: "+ erabakia);
+		//System.out.println("zer egingo du? "+ i);
 		int emaitza=3;
 		if(erabakia=='b'){
 			emaitza=((Ordenagailua)jokalariak.get(1)).random(i);
 		}
+		//System.out.println("egin du: " + emaitza);
 		return emaitza;
 	}
 	

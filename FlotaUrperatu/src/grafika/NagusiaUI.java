@@ -51,6 +51,7 @@ public class NagusiaUI extends JFrame{
 		return instantzia;
 	}
 	
+	
 	public void berbiarazi(){
 		if(instantzia!=null){
 			instantzia=new NagusiaUI();
@@ -277,6 +278,7 @@ public class NagusiaUI extends JFrame{
 										ordenagailuarenTaula[n][m].setBackground(Color.black);
 										ordenagailuarenTaula[n][m].setText(" ");
 									}
+									
 									else if(Partida.getInstantzia().ukituta(n,m,0)){
 										if(egoera.equals("logika.Ukitua")){
 											ordenagailuarenTaula[n][m].setBackground(Color.RED);
@@ -328,13 +330,18 @@ public class NagusiaUI extends JFrame{
 					ontziak[n][m].setBackground(Color.black);
 					ontziak[n][m].setText(" ");
 				}
+				else if(egoera.equals("logika.Ezkutatua")){
+					String eKop=Partida.getInstantzia().ezkutuKontadore(n,m,1);
+					ontziak[n][m].setText(eKop);
+				}
+				
 				else if(Partida.getInstantzia().ukituta(n,m,1)){
 					if(egoera.equals("logika.Ukitua")){
 						ontziak[n][m].setBackground(Color.RED);
+						ontziak[n][m].setText(" ");
 					}
-					else if(egoera.equals("logika.Ezkutatua")){
-						String eKop=Partida.getInstantzia().ezkutuKontadore(n,m,1);
-						ontziak[n][m].setText(eKop);
+					else if(egoera.equals("logika.Normala")){
+						ontziak[n][m].setText("0");
 					}
 					else if(egoera.equals("Ura")){
 						ontziak[n][m].setBackground(Color.cyan);
@@ -409,7 +416,7 @@ public class NagusiaUI extends JFrame{
 											for(int j=0;j<ontziak.length;j++){
 												egoera=Partida.getInstantzia().getNireEgoera(i, j, 0);
 												if(egoera.equals("logika.Ezkutatua")){
-													ontziak[i][j].setText("E");
+													ontziak[i][j].setText("2");
 												}
 											}
 										}

@@ -117,20 +117,25 @@ public class Ontzia {
 			}
 		}
 		else if(this.getEgora().equals("logika.Ukitua")){
-			if(((Ukitua)this.egoera).minEgin()==this.luzeera){
+			System.out.println("ukitu kont: "+((Ukitua)this.egoera).getKont());
+			if(((Ukitua)this.egoera).minEgin()>=this.luzeera){
 				this.egoeraAldatu(new Hondoratua());
 			}
 		}
 		else if(this.getEgora().equals("logika.Ezkutatua")){
 			((Ezkutatua)this.egoera).minEgin();
+			System.out.println(((Ezkutatua)this.egoera).getKontadorea());
 			if(((Ezkutatua)this.egoera).getKontadorea()==0){
 				this.egoeraAldatu(new Normala());
 			}
 			else if(((Ezkutatua)this.egoera).getKontadorea()<0){
+				System.out.println("sartzen naiz");
 				if(this.luzeera>1){
 					this.egoeraAldatu(new Ukitua(luzeera));
+					System.out.println("ukitua");
 				}else{
 					this.egoeraAldatu(new Hondoratua());
+					System.out.println("hondoratua");
 				}
 			}
 		}
@@ -139,9 +144,8 @@ public class Ontzia {
 	
 	public void hondoratu(){
 		if(this.getEgora().equals("logika.Ezkutatua")){
-			if(((Ezkutatua)this.egoera).getKontadorea()>1){
-				((Ezkutatua)this.egoera).minEgin();
-				((Ezkutatua)this.egoera).minEgin();
+			if(((Ezkutatua)this.egoera).getKontadorea()==2){
+				this.egoeraAldatu(new Normala());
 			}
 			else{
 				this.egoeraAldatu(new Hondoratua());

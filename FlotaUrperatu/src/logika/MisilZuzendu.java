@@ -1,5 +1,7 @@
 package logika;
 
+import java.util.ArrayList;
+
 public class MisilZuzendu extends Arma {
 
 	private int horizontal;
@@ -16,20 +18,40 @@ public class MisilZuzendu extends Arma {
 	}
 
 	public void minEginHorizontal(Taula ordenagaliruarenTaula, int i) {
+		ArrayList<Ontzia> ukituak= new ArrayList<Ontzia>();
 		for(int j=0;j<ordenagaliruarenTaula.tamaina();j++){
-			ordenagaliruarenTaula.getTaula()[j][i].ukitu();
-			if(ordenagaliruarenTaula.getTaula()[j][i].ontzia()!=null){
-				ordenagaliruarenTaula.getTaula()[j][i].ontzia().minEgin();
+			Ontzia o=ordenagaliruarenTaula.getTaula()[j][i].ontzia();
+			if(o!=null&&!ukituak.contains(o)){
+				o.minEgin();
+				if(!o.getEgora().equals("logika.Ezkutatua")||!o.getEgora().equals("logika.Normala")){
+					ordenagaliruarenTaula.getTaula()[j][i].ukitu();
+				}
+				else{
+					ukituak.add(o);
+				}
+			}
+			else{
+				ordenagaliruarenTaula.getTaula()[j][i].ukitu();
 			}
 		}
 		
 	}
 
 	public void minEginBertikal(Taula ordenagaliruarenTaula, int j) {
+		ArrayList<Ontzia> ukituak= new ArrayList<Ontzia>();
 		for(int i=0;i<ordenagaliruarenTaula.tamaina();i++){
-			ordenagaliruarenTaula.getTaula()[j][i].ukitu();
-			if(ordenagaliruarenTaula.getTaula()[j][i].ontzia()!=null){
-				ordenagaliruarenTaula.getTaula()[j][i].ontzia().minEgin();
+			Ontzia o=ordenagaliruarenTaula.getTaula()[j][i].ontzia();
+			if(o!=null&&!ukituak.contains(o)){
+				o.minEgin();
+				if(!o.getEgora().equals("logika.Ezkutatua")||!o.getEgora().equals("logika.Normala")){
+					ordenagaliruarenTaula.getTaula()[j][i].ukitu();
+				}
+				else{
+					ukituak.add(o);
+				}
+			}
+			else{
+				ordenagaliruarenTaula.getTaula()[j][i].ukitu();
 			}
 		}
 	}
